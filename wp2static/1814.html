@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
-<title>Google Authenticator验证的php客户端 | 逻辑门.博客</title>
-<meta name="description" content="新建GoogleAuthenticator.php" />
-<meta name="keywords" content="authenticator,google,php" />
+<title>亲，你迷路了！| 逻辑门.博客</title>
 <link rel="shortcut icon" href="">
 <link rel="apple-touch-icon" sizes="114x114" href="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/favicon.png" />
 <link rel="pingback" href="https://shusanjing.github.io/wp/wp2static/xmlrpc.php">
@@ -17,8 +15,6 @@
 <![endif]-->
 <meta name='robots' content='max-image-preview:large' />
 <link rel='stylesheet' id='crayon-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all' />
-<link rel='stylesheet' id='crayon-theme-classic-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css?ver=_2.7.2_beta' type='text/css' media='all' />
-<link rel='stylesheet' id='crayon-font-monaco-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta' type='text/css' media='all' />
 <link rel='stylesheet' id='wp-block-library-css'  href='https://shusanjing.github.io/wp/wp2static/wp-includes/css/dist/block-library/style.min.css?ver=5.9.1' type='text/css' media='all' />
 <style id='global-styles-inline-css' type='text/css'>
 body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
@@ -51,16 +47,8 @@ var lbwpsOptions = {"label_facebook":"Share on Facebook","label_twitter":"Tweet"
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery-ias.js?ver=2.2.1' id='jquery-ias-js'></script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery.lazyload.js?ver=2017.05.10' id='lazyload-js'></script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/tipso.js?ver=1.0.1' id='tipso-js'></script>
-<script type='text/javascript' id='script-js-extra'>
-/* <![CDATA[ */
-var wpl_ajax_url = "https:\/\/shusanjing.github.io\/wp\/wp2static\/wp-admin\/admin-ajax.php";
-/* ]]> */
-</script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/script.js?ver=2017.05.10' id='script-js'></script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/flexisel.js?ver=2017.05.10' id='flexisel-js'></script>
-<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/fancybox.js?ver=2017.05.10' id='fancybox-js'></script>
-<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/comments-ajax-qt.js?ver=2017.05.10' id='comments-ajax-qt-js'></script>
-<link rel="canonical" href="https://shusanjing.github.io/wp/wp2static/1814.html" />
 
 
 <script type="text/javascript">  
@@ -75,7 +63,7 @@ $(function() {
 
 
 </head>
-<body class="post-template-default single single-post postid-1814 single-format-standard">
+<body class="error404">
 <div id="page" class="hfeed site">
 	<header id="masthead" class="site-header">
 
@@ -92,9 +80,9 @@ $(function() {
 					<div class="clear"></div>
 </div>			
 			<div class="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95" class="top-menu"><li id="menu-item-512" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-512"><a href="https://shusanjing.github.io/wp/wp2static/">首页</a></li>
-<li id="menu-item-508" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-508"><a href="https://shusanjing.github.io/wp/wp2static/uncategorized/">其他</a></li>
-<li id="menu-item-509" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-509"><a href="https://shusanjing.github.io/wp/wp2static/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/">网站运维</a></li>
-<li id="menu-item-510" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-510"><a href="https://shusanjing.github.io/wp/wp2static/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></li>
+<li id="menu-item-508" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-508"><a href="https://shusanjing.github.io/wp/wp2static/p/uncategorized/">其他</a></li>
+<li id="menu-item-509" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-509"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/">网站运维</a></li>
+<li id="menu-item-510" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-510"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></li>
 </ul></div>		</div>
 	</nav><!-- #top-header -->
 
@@ -112,10 +100,10 @@ $(function() {
 				<nav id="site-nav" class="main-nav">
 																						<a href="#sidr-main" id="navigation-toggle" class="bars"><i class="fa fa-bars"></i></a>
 																				<div class="menu-%e9%a1%b6%e9%83%a8%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e9%a1%b6%e9%83%a8%e8%8f%9c%e5%8d%95" class="down-menu nav-menu"><li id="menu-item-342" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-342"><a href="https://shusanjing.github.io/wp/wp2static">首页</a></li>
-<li id="menu-item-343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-343"><a href="https://shusanjing.github.io/wp/wp2static/%e5%9c%a8%e7%ba%bf%e5%b7%a5%e5%85%b7%e7%ab%99">在线工具站</a></li>
-<li id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-344"><a href="https://shusanjing.github.io/wp/wp2static/%e6%8a%95%e7%a8%bf">投稿</a></li>
-<li id="menu-item-391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-391"><a href="https://shusanjing.github.io/wp/wp2static/%e8%bf%90%e7%bb%b4">运维</a></li>
-<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><a href="https://shusanjing.github.io/wp/wp2static/%e5%8f%8b%e6%83%85%e9%93%be%e6%8e%a5">友情链接</a></li>
+<li id="menu-item-343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-343"><a href="https://shusanjing.github.io/wp/wp2static/%e5%9c%a8%e7%ba%bf%e5%b7%a5%e5%85%b7%e7%ab%99/">在线工具站</a></li>
+<li id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-344"><a href="https://shusanjing.github.io/wp/wp2static/%e6%8a%95%e7%a8%bf/">投稿</a></li>
+<li id="menu-item-391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-391"><a href="https://shusanjing.github.io/wp/wp2static/%e8%bf%90%e7%bb%b4/">运维</a></li>
+<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><a href="https://shusanjing.github.io/wp/wp2static/%e5%8f%8b%e6%83%85%e9%93%be%e6%8e%a5/">友情链接</a></li>
 </ul></div>				</nav><!-- #site-nav -->
 			</div><!-- #site-nav-wrap -->
 			<div class="clear"></div>
@@ -134,464 +122,33 @@ $(function() {
 			</form>
 </div>		<div class="clear"></div>
 </div>					<nav class="breadcrumb">
-		<a class="crumbs" href="https://shusanjing.github.io/wp/wp2static/"><i class="fa fa-home"></i>首页</a><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/wp/" rel="category tag">WordPress</a><i class="fa fa-angle-right"></i>正文	</nav>
+		<a class="crumbs" href="https://shusanjing.github.io/wp/wp2static/"><i class="fa fa-home"></i>首页</a><i class="fa fa-angle-right"></i>亲，你迷路了！	</nav>
 		
 		<div id="content" class="site-content">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			
-				<article id="post-1814" class="post-1814 post type-post status-publish format-standard hentry category-wp tag-authenticator tag-google tag-php rvy">
-		<header class="entry-header">
-									<h1 class="entry-title">Google Authenticator验证的php客户端</h1>						</header><!-- .entry-header -->
+			<section class="error-404 not-found page">
+				<header class="entry-header">
+					<h1 class="page-title">亲，你迷路了！</h1>
+				</header><!-- .page-header -->
 
-	<div class="entry-content">
-		
-			<div class="begin-single-meta"><span class="my-date"><i class="fa fa-clock-o"></i> 2019年5月10日<i class="i-time">10:14:08</i></span><span class="comment"><span><span class="screen-reader-text">Google Authenticator验证的php客户端</span>已关闭评论</span></span><span class="views"><i class="fa fa-eye"></i> 816 views</span><span class="print"><a href="javascript:printme()" target="_self" title="打印"><i class="fa fa-print"></i></a></span><span class="s-hide r-hide"><a href="javascript:pr()" title="侧边栏"><i class="fa fa-caret-left"></i> <i class="fa fa-caret-right"></i></a></span></div>
-			<div class="single-content">
-				
-							<div class="ad-pc ad-site"><script type="text/javascript">
-(function(){
-var p = {
-url:location.href, /*获取URL，可加上来自分享到QQ标识，方便统计*/
-desc:'', /*分享理由(风格应模拟用户对话),支持多分享语随机展现（使用|分隔）*/
-title:'', /*分享标题(可选)*/
-summary:'', /*分享摘要(可选)*/
-pics:'', /*分享图片(可选)*/
-flash: '', /*视频地址(可选)*/
-site:'', /*分享来源(可选) 如：QQ分享*/
-style:'201',
-width:32,
-height:32
-};
-var s = [];
-for(var i in p){
-s.push(i + '=' + encodeURIComponent(p[i]||''));
-}
-document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/shareqq/index.html?',s.join('&'),'" target="_blank">分享到QQ</a>'].join(''));
-})();
-</script>
-<script src="https://connect.qq.com/widget/loader/loader.js" widget="shareqq" charset="utf-8"></script></div>
-	
-				<div id="MathJax_Message" style="display: none;"></div>
-<p>web在线版 <br />
-通过网页打开，方便自己多设备上查询登录。</p>
-<p>计算代码如下 <br />
- 参考：用<a href="https://shusanjing.github.io/wp/wp2static/tag/php/" title="查看与 php 相关的文章" target="_blank">php</a>计算Google Authenticator二次验证的验证码 <br />
-<a href="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/inc/go.php?url=https://www.529i.com/archives/611.html" >https://www.529i.com/archives/611.html</a></p>
-<p>新建GoogleAuthenticator.<a href="https://shusanjing.github.io/wp/wp2static/tag/php/" title="查看与 php 相关的文章" target="_blank">php</a></p>
-<div data-mode="php"><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+				<div class="single-content">
+					<p style="text-align: center;">亲，该网页可能搬家了！</p>
 
-		<div id="crayon-6224a7401efa8238827031" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
-		
-			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
-			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
-			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
-			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
-&lt;?php
-class PHPGangsta_GoogleAuthenticator
-{
-    protected $_codeLength = 6;
-
-    public function createSecret($secretLength = 16)
-    {
-        $validChars = $this-&gt;_getBase32LookupTable();
-
-        if ($secretLength &lt; 16 || $secretLength &gt; 128) {
-            throw new Exception('Bad secret length');
-        }
-        $secret = '';
-        $rnd = false;
-        if (function_exists('random_bytes')) {
-            $rnd = random_bytes($secretLength);
-        } elseif (function_exists('mcrypt_create_iv')) {
-            $rnd = mcrypt_create_iv($secretLength, MCRYPT_DEV_URANDOM);
-        } elseif (function_exists('openssl_random_pseudo_bytes')) {
-            $rnd = openssl_random_pseudo_bytes($secretLength, $cryptoStrong);
-            if (!$cryptoStrong) {
-                $rnd = false;
-            }
-        }
-        if ($rnd !== false) {
-            for ($i = 0; $i &lt; $secretLength; ++$i) {
-                $secret .= $validChars[ord($rnd[$i]) &amp; 31];
-            }
-        } else {
-            throw new Exception('No source of secure random');
-        }
-
-        return $secret;
-    }
-    public function getCode($secret, $timeSlice = null)
-    {
-        if ($timeSlice === null) {
-            $timeSlice = floor(time() / 30);
-        }
-
-        $secretkey = $this-&gt;_base32Decode($secret);
-
-        $time = chr(0).chr(0).chr(0).chr(0).pack('N*', $timeSlice);
-
-        $hm = hash_hmac('SHA1', $time, $secretkey, true);
-
-        $offset = ord(substr($hm, -1)) &amp; 0x0F;
-
-        $hashpart = substr($hm, $offset, 4);
-
-        $value = unpack('N', $hashpart);
-        $value = $value[1];
-
-        $value = $value &amp; 0x7FFFFFFF;
-
-        $modulo = pow(10, $this-&gt;_codeLength);
-
-        return str_pad($value % $modulo, $this-&gt;_codeLength, '0', STR_PAD_LEFT);
-    }
-
-    public function getQRCodeGoogleUrl($name, $secret, $title = null, $params = array())
-    {
-        $width = !empty($params['width']) &amp;&amp; (int) $params['width'] &gt; 0 ? (int) $params['width'] : 200;
-        $height = !empty($params['height']) &amp;&amp; (int) $params['height'] &gt; 0 ? (int) $params['height'] : 200;
-        $level = !empty($params['level']) &amp;&amp; array_search($params['level'], array('L', 'M', 'Q', 'H')) !== false ? $params['level'] : 'M';
-
-        $urlencoded = urlencode('otpauth://totp/'.$name.'?secret='.$secret.'');
-        if (isset($title)) {
-            $urlencoded .= urlencode('&amp;issuer='.urlencode($title));
-        }
-
-        return 'https://chart.googleapis.com/chart?chs='.$width.'x'.$height.'&amp;chld='.$level.'|0&amp;cht=qr&amp;chl='.$urlencoded.'';
-    }
-
-    public function verifyCode($secret, $code, $discrepancy = 1, $currentTimeSlice = null)
-    {
-        if ($currentTimeSlice === null) {
-            $currentTimeSlice = floor(time() / 30);
-        }
-
-        if (strlen($code) != 6) {
-            return false;
-        }
-
-        for ($i = -$discrepancy; $i &lt;= $discrepancy; ++$i) {
-            $calculatedCode = $this-&gt;getCode($secret, $currentTimeSlice + $i);
-            if ($this-&gt;timingSafeEquals($calculatedCode, $code)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public function setCodeLength($length)
-    {
-        $this-&gt;_codeLength = $length;
-
-        return $this;
-    }
-
-    protected function _base32Decode($secret)
-    {
-        if (empty($secret)) {
-            return '';
-        }
-
-        $base32chars = $this-&gt;_getBase32LookupTable();
-        $base32charsFlipped = array_flip($base32chars);
-
-        $paddingCharCount = substr_count($secret, $base32chars[32]);
-        $allowedValues = array(6, 4, 3, 1, 0);
-        if (!in_array($paddingCharCount, $allowedValues)) {
-            return false;
-        }
-        for ($i = 0; $i &lt; 4; ++$i) {
-            if ($paddingCharCount == $allowedValues[$i] &amp;&amp;
-                substr($secret, -($allowedValues[$i])) != str_repeat($base32chars[32], $allowedValues[$i])) {
-                return false;
-            }
-        }
-        $secret = str_replace('=', '', $secret);
-        $secret = str_split($secret);
-        $binaryString = '';
-        for ($i = 0; $i &lt; count($secret); $i = $i + 8) {
-            $x = '';
-            if (!in_array($secret[$i], $base32chars)) {
-                return false;
-            }
-            for ($j = 0; $j &lt; 8; ++$j) {
-                $x .= str_pad(base_convert(@$base32charsFlipped[@$secret[$i + $j]], 10, 2), 5, '0', STR_PAD_LEFT);
-            }
-            $eightBits = str_split($x, 8);
-            for ($z = 0; $z &lt; count($eightBits); ++$z) {
-                $binaryString .= (($y = chr(base_convert($eightBits[$z], 2, 10))) || ord($y) == 48) ? $y : '';
-            }
-        }
-
-        return $binaryString;
-    }
-
-    protected function _getBase32LookupTable()
-    {
-        return array(
-            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', //  7
-            'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', // 15
-            'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', // 23
-            'Y', 'Z', '2', '3', '4', '5', '6', '7', // 31
-            '=',
-        );
-    }
-
-    private function timingSafeEquals($safeString, $userString)
-    {
-        if (function_exists('hash_equals')) {
-            return hash_equals($safeString, $userString);
-        }
-        $safeLen = strlen($safeString);
-        $userLen = strlen($userString);
-
-        if ($userLen != $safeLen) {
-            return false;
-        }
-
-        $result = 0;
-
-        for ($i = 0; $i &lt; $userLen; ++$i) {
-            $result |= (ord($safeString[$i]) ^ ord($userString[$i]));
-        }
-
-        return $result === 0;
-    }
-}</textarea></div>
-			<div class="crayon-main" style=" max-height: 200px;">
-				<table class="crayon-table">
-					<tr class="crayon-row">
-				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-2">2</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-4">4</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-6">6</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-8">8</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-10">10</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-12">12</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-14">14</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-16">16</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-18">18</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-20">20</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-22">22</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-23">23</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-24">24</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-25">25</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-26">26</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-27">27</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-28">28</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-29">29</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-30">30</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-31">31</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-32">32</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-33">33</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-34">34</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-35">35</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-36">36</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-37">37</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-38">38</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-39">39</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-40">40</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-41">41</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-42">42</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-43">43</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-44">44</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-45">45</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-46">46</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-47">47</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-48">48</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-49">49</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-50">50</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-51">51</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-52">52</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-53">53</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-54">54</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-55">55</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-56">56</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-57">57</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-58">58</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-59">59</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-60">60</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-61">61</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-62">62</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-63">63</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-64">64</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-65">65</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-66">66</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-67">67</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-68">68</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-69">69</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-70">70</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-71">71</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-72">72</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-73">73</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-74">74</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-75">75</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-76">76</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-77">77</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-78">78</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-79">79</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-80">80</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-81">81</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-82">82</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-83">83</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-84">84</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-85">85</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-86">86</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-87">87</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-88">88</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-89">89</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-90">90</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-91">91</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-92">92</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-93">93</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-94">94</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-95">95</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-96">96</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-97">97</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-98">98</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-99">99</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-100">100</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-101">101</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-102">102</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-103">103</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-104">104</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-105">105</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-106">106</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-107">107</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-108">108</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-109">109</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-110">110</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-111">111</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-112">112</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-113">113</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-114">114</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-115">115</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-116">116</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-117">117</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-118">118</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-119">119</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-120">120</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-121">121</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-122">122</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-123">123</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-124">124</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-125">125</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-126">126</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-127">127</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-128">128</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-129">129</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-130">130</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-131">131</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-132">132</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-133">133</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-134">134</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-135">135</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-136">136</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-137">137</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-138">138</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-139">139</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-140">140</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-141">141</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-142">142</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-143">143</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-144">144</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-145">145</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-146">146</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-147">147</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-148">148</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-149">149</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-150">150</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-151">151</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-152">152</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-153">153</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-154">154</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-155">155</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-156">156</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-157">157</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-158">158</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-159">159</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-160">160</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-161">161</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-162">162</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-163">163</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-164">164</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-165">165</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-166">166</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-167">167</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-168">168</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-169">169</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-170">170</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-171">171</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efa8238827031-172">172</div><div class="crayon-num" data-line="crayon-6224a7401efa8238827031-173">173</div></div>
-				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224a7401efa8238827031-1"><?php</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-2">class PHPGangsta_GoogleAuthenticator</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-3">{</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-4">    protected $_codeLength = 6;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-5">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-6">    public function createSecret($secretLength = 16)</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-7">    {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-8">        $validChars = $this->_getBase32LookupTable();</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-9">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-10">        if ($secretLength < 16 || $secretLength > 128) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-11">            throw new Exception('Bad secret length');</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-12">        }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-13">        $secret = '';</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-14">        $rnd = false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-15">        if (function_exists('random_bytes')) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-16">            $rnd = random_bytes($secretLength);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-17">        } elseif (function_exists('mcrypt_create_iv')) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-18">            $rnd = mcrypt_create_iv($secretLength, MCRYPT_DEV_URANDOM);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-19">        } elseif (function_exists('openssl_random_pseudo_bytes')) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-20">            $rnd = openssl_random_pseudo_bytes($secretLength, $cryptoStrong);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-21">            if (!$cryptoStrong) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-22">                $rnd = false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-23">            }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-24">        }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-25">        if ($rnd !== false) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-26">            for ($i = 0; $i < $secretLength; ++$i) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-27">                $secret .= $validChars[ord($rnd[$i]) & 31];</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-28">            }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-29">        } else {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-30">            throw new Exception('No source of secure random');</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-31">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-32">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-33">        return $secret;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-34">    }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-35">    public function getCode($secret, $timeSlice = null)</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-36">    {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-37">        if ($timeSlice === null) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-38">            $timeSlice = floor(time() / 30);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-39">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-40">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-41">        $secretkey = $this->_base32Decode($secret);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-42">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-43">        $time = chr(0).chr(0).chr(0).chr(0).pack('N*', $timeSlice);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-44">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-45">        $hm = hash_hmac('SHA1', $time, $secretkey, true);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-46">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-47">        $offset = ord(substr($hm, -1)) & 0x0F;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-48">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-49">        $hashpart = substr($hm, $offset, 4);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-50">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-51">        $value = unpack('N', $hashpart);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-52">        $value = $value[1];</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-53">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-54">        $value = $value & 0x7FFFFFFF;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-55">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-56">        $modulo = pow(10, $this->_codeLength);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-57">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-58">        return str_pad($value % $modulo, $this->_codeLength, '0', STR_PAD_LEFT);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-59">    }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-60">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-61">    public function getQRCodeGoogleUrl($name, $secret, $title = null, $params = array())</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-62">    {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-63">        $width = !empty($params['width']) && (int) $params['width'] > 0 ? (int) $params['width'] : 200;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-64">        $height = !empty($params['height']) && (int) $params['height'] > 0 ? (int) $params['height'] : 200;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-65">        $level = !empty($params['level']) && array_search($params['level'], array('L', 'M', 'Q', 'H')) !== false ? $params['level'] : 'M';</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-66">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-67">        $urlencoded = urlencode('otpauth://totp/'.$name.'?secret='.$secret.'');</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-68">        if (isset($title)) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-69">            $urlencoded .= urlencode('&issuer='.urlencode($title));</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-70">        }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-71">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-72">        return 'https://chart.googleapis.com/chart?chs='.$width.'x'.$height.'&chld='.$level.'|0&cht=qr&chl='.$urlencoded.'';</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-73">    }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-74">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-75">    public function verifyCode($secret, $code, $discrepancy = 1, $currentTimeSlice = null)</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-76">    {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-77">        if ($currentTimeSlice === null) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-78">            $currentTimeSlice = floor(time() / 30);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-79">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-80">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-81">        if (strlen($code) != 6) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-82">            return false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-83">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-84">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-85">        for ($i = -$discrepancy; $i <= $discrepancy; ++$i) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-86">            $calculatedCode = $this->getCode($secret, $currentTimeSlice + $i);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-87">            if ($this->timingSafeEquals($calculatedCode, $code)) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-88">                return true;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-89">            }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-90">        }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-91">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-92">        return false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-93">    }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-94">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-95">    public function setCodeLength($length)</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-96">    {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-97">        $this->_codeLength = $length;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-98">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-99">        return $this;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-100">    }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-101">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-102">    protected function _base32Decode($secret)</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-103">    {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-104">        if (empty($secret)) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-105">            return '';</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-106">        }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-107">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-108">        $base32chars = $this->_getBase32LookupTable();</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-109">        $base32charsFlipped = array_flip($base32chars);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-110">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-111">        $paddingCharCount = substr_count($secret, $base32chars[32]);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-112">        $allowedValues = array(6, 4, 3, 1, 0);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-113">        if (!in_array($paddingCharCount, $allowedValues)) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-114">            return false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-115">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-116">        for ($i = 0; $i < 4; ++$i) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-117">            if ($paddingCharCount == $allowedValues[$i] &&</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-118">                substr($secret, -($allowedValues[$i])) != str_repeat($base32chars[32], $allowedValues[$i])) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-119">                return false;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-120">            }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-121">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-122">        $secret = str_replace('=', '', $secret);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-123">        $secret = str_split($secret);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-124">        $binaryString = '';</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-125">        for ($i = 0; $i < count($secret); $i = $i + 8) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-126">            $x = '';</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-127">            if (!in_array($secret[$i], $base32chars)) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-128">                return false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-129">            }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-130">            for ($j = 0; $j < 8; ++$j) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-131">                $x .= str_pad(base_convert(@$base32charsFlipped[@$secret[$i + $j]], 10, 2), 5, '0', STR_PAD_LEFT);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-132">            }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-133">            $eightBits = str_split($x, 8);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-134">            for ($z = 0; $z < count($eightBits); ++$z) {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-135">                $binaryString .= (($y = chr(base_convert($eightBits[$z], 2, 10))) || ord($y) == 48) ? $y : '';</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-136">            }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-137">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-138">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-139">        return $binaryString;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-140">    }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-141">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-142">    protected function _getBase32LookupTable()</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-143">    {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-144">        return array(</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-145">            'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', //  7</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-146">            'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', // 15</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-147">            'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', // 23</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-148">            'Y', 'Z', '2', '3', '4', '5', '6', '7', // 31</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-149">            '=',</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-150">        );</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-151">    }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-152">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-153">    private function timingSafeEquals($safeString, $userString)</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-154">    {</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-155">        if (function_exists('hash_equals')) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-156">            return hash_equals($safeString, $userString);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-157">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-158">        $safeLen = strlen($safeString);</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-159">        $userLen = strlen($userString);</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-160">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-161">        if ($userLen != $safeLen) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-162">            return false;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-163">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-164">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-165">        $result = 0;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-166">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-167">        for ($i = 0; $i < $userLen; ++$i) {</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-168">            $result |= (ord($safeString[$i]) ^ ord($userString[$i]));</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-169">        }</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-170">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-171">        return $result === 0;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efa8238827031-172">    }</div><div class="crayon-line" id="crayon-6224a7401efa8238827031-173">}</div></div></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-<!-- [Format Time: 0.0001 seconds] -->
-</div>
-<p>调用方法如下 <br />
-新建index.php</p>
-<div data-mode="php"><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
-
-		<div id="crayon-6224a7401efb0169317541" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
-		
-			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
-			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
-			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
-			<div class="crayon-plain-wrap"><textarea  class="crayon-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
-&lt;?php
-
-//调用上面计算代码保存的文件
-require_once './GoogleAuthenticator.php';
-$ga = new PHPGangsta_GoogleAuthenticator();
-//要计算的key
-$secret = "ZKU7DAJX7S33ZCPM";
-echo "Key: ".$secret."\n\n";
-$oneCode = $ga-&gt;getCode($secret); //服务端计算"一次性验证码"
-echo "验证码:".$oneCode."\n\n";
-
-?&gt;</textarea></div>
-			<div class="crayon-main" style=" max-height: 200px;">
-				<table class="crayon-table">
-					<tr class="crayon-row">
-				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224a7401efb0169317541-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efb0169317541-2">2</div><div class="crayon-num" data-line="crayon-6224a7401efb0169317541-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efb0169317541-4">4</div><div class="crayon-num" data-line="crayon-6224a7401efb0169317541-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efb0169317541-6">6</div><div class="crayon-num" data-line="crayon-6224a7401efb0169317541-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efb0169317541-8">8</div><div class="crayon-num" data-line="crayon-6224a7401efb0169317541-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efb0169317541-10">10</div><div class="crayon-num" data-line="crayon-6224a7401efb0169317541-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224a7401efb0169317541-12">12</div></div>
-				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224a7401efb0169317541-1"><?php</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efb0169317541-2">&nbsp;</div><div class="crayon-line" id="crayon-6224a7401efb0169317541-3">//调用上面计算代码保存的文件</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efb0169317541-4">require_once './GoogleAuthenticator.php';</div><div class="crayon-line" id="crayon-6224a7401efb0169317541-5">$ga = new PHPGangsta_GoogleAuthenticator();</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efb0169317541-6">//要计算的key</div><div class="crayon-line" id="crayon-6224a7401efb0169317541-7">$secret = "ZKU7DAJX7S33ZCPM";</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efb0169317541-8">echo "Key: ".$secret."\n\n";</div><div class="crayon-line" id="crayon-6224a7401efb0169317541-9">$oneCode = $ga->getCode($secret); //服务端计算"一次性验证码"</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efb0169317541-10">echo "验证码:".$oneCode."\n\n";</div><div class="crayon-line" id="crayon-6224a7401efb0169317541-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-6224a7401efb0169317541-12">?></div></div></td>
-					</tr>
-				</table>
-			</div>
-		</div>
-<!-- [Format Time: 0.0000 seconds] -->
-</div>
-<p>访问域名/index.php <br />
-完成。</p>
-<p><wiz_tmp_tag id="wiz-table-range-border" contenteditable="false" style="display: none;"></p>
-<div id="wiz-table-col-line" style="display: none;"></div>
-<div id="wiz-table-row-line" style="display: none;"></div>
-<div id="wiz-table-range-border_start" style="display: none;">
-<div id="wiz-table-range-border_start_top"></div>
-<div id="wiz-table-range-border_start_right"></div>
-<div id="wiz-table-range-border_start_bottom"></div>
-<div id="wiz-table-range-border_start_left"></div>
-<div id="wiz-table-range-border_start_dot"></div>
-</div>
-<div id="wiz-table-range-border_range" style="display: none;">
-<div id="wiz-table-range-border_range_top"></div>
-<div id="wiz-table-range-border_range_right"></div>
-<div id="wiz-table-range-border_range_bottom"></div>
-<div id="wiz-table-range-border_range_left"></div>
-<div id="wiz-table-range-border_range_dot"></div>
-</div>
-<p></wiz_tmp_tag></p>
-<div class='favorite-box'><span class='favorite-e'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=1814' rel='nofollow'> 收 <i class="fa-heart fa"></i> 藏</a></span></div>			</div>
-
-						
-									
-						
-									<div class="s-weixin">
-	<ul class="weimg1">
-		<li>
-			<strong>我的微信</strong>
-		</li>
-		<li>这是我的微信扫一扫</li>
-		<li>
-			<img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/11.jpg" alt="weinxin" />
-		</li>
-	</ul>
-	<ul class="weimg2">
-		<li>
-			<strong>我的微信公众号</strong>
-		</li>
-		<li>我的微信公众号扫一扫</li>
-		<li>
-			<img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/20.jpg" alt="weinxin" />
-		</li>
-	</ul>
-	<div class="clear"></div>
-</div>
-				
-									<div class="clear"></div>
-<div id="social">
-	<div class="social-main">
-		<span class="like">
-			<a href="javascript:;" data-action="ding" data-id="1814" title="点赞" class="dingzan"><i class="fa fa-thumbs-up"></i>赞 <i class="count">
-				0</i>
-			</a>
+					<div class="searchbar">
+	<form method="get" id="searchform" action="https://shusanjing.github.io/wp/wp2static/">
+		<span>
+			<input type="text" value="" name="s" id="s" placeholder="输入搜索内容" required />
+			<button type="submit" id="searchsubmit">搜索</button>
 		</span>
-		<div class="shang-p">
-			<div class="shang-empty"><span></span></div>
-							<span class="tipso_style" id="tip-p" data-tipso='
-					<span id="shang">
-						<span class="shang-main">
-							<h4><i class="fa fa-heart" aria-hidden="true"></i> 您可以选择一种方式赞助本站</h4>														
-																					<span class="clear"></span>
-						</span>
-					</span>'>
-					<span class="shang-s"><a title="赞助本站">赏</a></span>
-				</span>
-					</div>
-		<div class="share-sd">
-			<span class="share-s"><a href="javascript:void(0)" id="share-s" title="分享"><i class="fa fa-share-alt"></i>分享</a></span>
-			<div id="share">
-	<ul class="bdsharebuttonbox">
-		<li><a title="更多" class="bds_more fa fa-plus-square" data-cmd="more" onclick="return false;" href="#"></a></li>
-		<li><a title="分享到QQ空间" class="fa fa-qq" data-cmd="qzone" onclick="return false;" href="#"></a></li>
-		<li><a title="分享到新浪微博" class="fa fa-weibo" data-cmd="tsina" onclick="return false;" href="#"></a></li>
-		<li><a title="分享到腾讯微博" class="fa fa-pinterest-square" data-cmd="tqq" onclick="return false;" href="#"></a></li>
-		<li><a title="分享到人人网" class="fa fa-renren" data-cmd="renren" onclick="return false;" href="#"></a></li>
-		<li><a title="分享到微信" class="fa fa-weixin" data-cmd="weixin" onclick="return false;" href="#"></a></li>
-	</ul>
-</div>		</div>
-		<div class="clear"></div>
-	</div>
-</div>				
-				
-			<footer class="single-footer">
-				<ul id="fontsize"><li>A+</li></ul><div class="single-cat-tag"><div class="single-cat">所属分类：<a href="https://shusanjing.github.io/wp/wp2static/wp/" rel="category tag">WordPress</a></div></div>			</footer><!-- .entry-footer -->
 
-				<div class="clear"></div>
-	</div><!-- .entry-content -->
-
-	</article><!-- #post -->
-
-<div class="single-tag"><ul class="wow fadeInUp" data-wow-delay="0.3s"><li><a href="https://shusanjing.github.io/wp/wp2static/tag/authenticator/" rel="tag">authenticator</a></li><li><a href="https://shusanjing.github.io/wp/wp2static/tag/google/" rel="tag">google</a></li><li><a href="https://shusanjing.github.io/wp/wp2static/tag/php/" rel="tag">php</a></li></ul></div>
-									<div class="authorbio wow fadeInUp" data-wow-delay="0.3s">
-	<img src="https://secure.gravatar.com/avatar/c4723e619739212f4061540431fa5910?s=128&d=mm" alt="avatar" class="avatar avatar-128" height="128" width="128">
-	<ul class="spostinfo">
-		<li>
-								<li><strong>版权声明：</strong>本站原创文章，于2019年5月10日<i class="i-time">10:14:08</i>，由 <b><a href="https://shusanjing.github.io/wp/wp2static/author/huzongsi/" title="文章作者 huzongsi" rel="author">huzongsi</a></b> 发表，共 229 字。</li>
-		<li class="reprinted"><strong>转载请注明：</strong><a href="https://shusanjing.github.io/wp/wp2static/1814.html" rel="bookmark" title="本文固定链接 https://shusanjing.github.io/wp/wp2static/1814.html">Google Authenticator验证的php客户端 | 逻辑门.博客</a></li>
-			</ul>
-	<div class="clear"></div>
+			</form>
 </div>
-				
-				
-									<div id="related-img" class="wow fadeInUp" data-wow-delay="0.3s">
-		
-	<div class="r4">
-		<div class="related-site">
-			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/1969.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/5.jpg" alt="rclone批量编辑谷歌共享盘" /></a>			 </figure>
-			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/1969.html">rclone批量编辑谷歌共享盘</a></div>
-		</div>
-	</div>
+					<br /><br /><br /><br /><br />
+				</div><!-- .page-content -->
+			</section><!-- .error-404 -->
 
-		
-	<div class="r4">
-		<div class="related-site">
-			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/251.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=http://shusanjing.github.io/wp/wp2static/wp-content/uploads/2020/11/754163bc5e345e36f46ef97022e469a3_0.5357013986474854.png&w=280&h=210&a=&zc=1" alt="条条大路通罗马：网站的301转跳优化" /></a>			 </figure>
-			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/251.html">条条大路通罗马：网站的301转跳优化</a></div>
-		</div>
-	</div>
-
-		
-	<div class="r4">
-		<div class="related-site">
-			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/1817.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/15.jpg" alt="wiz编辑器代码高亮和wordpress的兼容性测试" /></a>			 </figure>
-			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/1817.html">wiz编辑器代码高亮和wordpress的兼容性测试</a></div>
-		</div>
-	</div>
-
-		
-	<div class="r4">
-		<div class="related-site">
-			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/1798.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2019/05/003707dc-e3bd-48d2-945d-6945ed5bab36_thumb-1.jpg&w=280&h=210&a=&zc=1" alt="open live writer 测试效果" /></a>			 </figure>
-			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/1798.html">open live writer 测试效果</a></div>
-		</div>
-	</div>
-
-			<div class="clear"></div>
-</div>				
-				<div id="single-widget">
-	<div class="wow fadeInUp" data-wow-delay="0.3s">
-		<aside id="cx_tag_cloud-4" class="widget cx_tag_cloud wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><span class="s-icon"></span>热门标签</h3>	<div class="tagcloud">
-	<a href="https://shusanjing.github.io/wp/wp2static/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" class="tag-cloud-link tag-link-19 tag-link-position-1" style="font-size: 14px;">浏览器</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/webdav/" class="tag-cloud-link tag-link-52 tag-link-position-2" style="font-size: 14px;">webdav</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/wordpress/" class="tag-cloud-link tag-link-3 tag-link-position-3" style="font-size: 14px;">wordpress</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/pt/" class="tag-cloud-link tag-link-9 tag-link-position-4" style="font-size: 14px;">pt</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e5%bc%80%e5%a7%8b/" class="tag-cloud-link tag-link-69 tag-link-position-5" style="font-size: 14px;">开始</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e7%bd%91%e7%ab%99/" class="tag-cloud-link tag-link-5 tag-link-position-6" style="font-size: 14px;">网站</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/ubuntu/" class="tag-cloud-link tag-link-34 tag-link-position-7" style="font-size: 14px;">ubuntu</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e4%b8%8b%e8%bd%bd/" class="tag-cloud-link tag-link-21 tag-link-position-8" style="font-size: 14px;">下载</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e6%98%af%e5%90%a6/" class="tag-cloud-link tag-link-68 tag-link-position-9" style="font-size: 14px;">是否</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e6%89%8b%e6%9c%ba/" class="tag-cloud-link tag-link-26 tag-link-position-10" style="font-size: 14px;">手机</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e8%a7%86%e9%a2%91/" class="tag-cloud-link tag-link-20 tag-link-position-11" style="font-size: 14px;">视频</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e7%94%b5%e8%84%91/" class="tag-cloud-link tag-link-11 tag-link-position-12" style="font-size: 14px;">电脑</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e8%bd%af%e4%bb%b6/" class="tag-cloud-link tag-link-10 tag-link-position-13" style="font-size: 14px;">软件</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e8%84%9a%e6%9c%ac/" class="tag-cloud-link tag-link-36 tag-link-position-14" style="font-size: 14px;">脚本</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/linux/" class="tag-cloud-link tag-link-33 tag-link-position-15" style="font-size: 14px;">linux</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/vps/" class="tag-cloud-link tag-link-14 tag-link-position-16" style="font-size: 14px;">vps</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e5%8d%9a%e5%ae%a2/" class="tag-cloud-link tag-link-4 tag-link-position-17" style="font-size: 14px;">博客</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e9%82%ae%e4%bb%b6/" class="tag-cloud-link tag-link-16 tag-link-position-18" style="font-size: 14px;">邮件</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/amp/" class="tag-cloud-link tag-link-43 tag-link-position-19" style="font-size: 14px;">amp</a>
-<a href="https://shusanjing.github.io/wp/wp2static/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" class="tag-cloud-link tag-link-77 tag-link-position-20" style="font-size: 14px;">路由器</a>	<div class="clear"></div>
-	</div>
-
-<div class="clear"></div></aside>	</div>
-	<div class="clear"></div>
-</div>
-
-				
-				<nav class="nav-single wow fadeInUp" data-wow-delay="0.3s">
-					<a href="https://shusanjing.github.io/wp/wp2static/1798.html" rel="prev"><span class="meta-nav"><span class="post-nav"><i class="fa fa-angle-left"></i> 上一篇</span><br/>open live writer 测试效果</span></a><a href="https://shusanjing.github.io/wp/wp2static/1817.html" rel="next"><span class="meta-nav"><span class="post-nav">下一篇 <i class="fa fa-angle-right"></i></span><br/>wiz编辑器代码高亮和wordpress的兼容性测试</span></a>					<div class="clear"></div>
-				</nav>
-
-				
-	<nav class="navigation post-navigation" aria-label="文章">
-		<h2 class="screen-reader-text">文章导航</h2>
-		<div class="nav-links"><div class="nav-previous"><a href="https://shusanjing.github.io/wp/wp2static/1798.html" rel="prev"><span class="meta-nav-r" aria-hidden="true"><i class="fa fa-angle-left"></i></span></a></div><div class="nav-next"><a href="https://shusanjing.github.io/wp/wp2static/1817.html" rel="next"><span class="meta-nav-l" aria-hidden="true"><i class="fa fa-angle-right"></i></span></a></div></div>
-	</nav>
-				
-			
 		</main><!-- .site-main -->
 	</div><!-- .content-area -->
 
@@ -599,58 +156,10 @@ echo "验证码:".$oneCode."\n\n";
 
 	
 	
-			<aside id="zmtabs-4" class="widget widget_zm_tabs wow fadeInUp" data-wow-delay="0.3s">
-<div class="zm-tabs-nav group tab-count-4"><span class="zm-tab tab-recent"><a href="#tab-recent-4" title="最新文章"><i class="fa fa-sticky-note-o"></i><span>最新文章</span></a></span><span class="zm-tab tab-popular"><a href="#tab-popular-4" title="热评文章"><i class="fa fa-heart-o"></i><span>热评文章</span></a></span><span class="zm-tab tab-viewe"><a href="#tab-viewe-4" title="热门文章"><i class="fa fa-bookmark-o"></i><span>热门文章</span></a></span><span class="zm-tab tab-comments"><a href="#tab-comments-4" title="最近留言"><i class="fa fa-comment-o"></i><span>最近留言</span></a></span></div>
-	<div class="zm-tabs-container">
-
-		
-						
-			<div class="new_cat">
-				<ul id="tab-recent-4" class="zm-tab group " style="display:block;">
-				<h4>最新文章</h4>
-										<li>
-												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2169.html" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
-						<span class="date">02/28</span>
-						<span class="views"><i class="fa fa-eye"></i> 18 views</span>					</li>
-														</ul><!--/.zm-tab-->
-			</div>
-		
-		
-			
-			<div class="new_cat">
-				<ul id="tab-popular-4" class="zm-tab group ">
-				<h4>热评文章</h4>
-										<li>
-												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2138.html" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></span>
-						<span class="date">12/22</span>
-						<span class="views"><i class="fa fa-eye"></i> 2,736 views</span>					</li>
-														</ul><!--/.zm-tab-->
-			</div>
-		
-		
-			<ul id="tab-viewe-4" class="zm-tab group">
-				<h4>热门文章</h4>
-			     
-			    <li><span class='li-icon li-icon-1'>1</span><a href="https://shusanjing.github.io/wp/wp2static/2162.html">PrimoCache激活工具测试有效性</a></li><li><span class='li-icon li-icon-2'>2</span><a href="https://shusanjing.github.io/wp/wp2static/2169.html">UPS无通讯功能Windows停电自动关机脚本</a></li>			    							</ul>
-
-		
-		
-						<div class="message-tab message-widget">
-				<ul>
-				<h4>最近留言</h4>
-												<li>
-								<a href="https://shusanjing.github.io/wp/wp2static/2138.html#anchor-comment-2" title="手机改装无电池工作(法拉电容替代电池)[教程]" rel="external nofollow">
-									<img src="https://secure.gravatar.com/avatar/38d5afa82294015541a86339ac95259b?s=128&d=mm" alt="avatar" class="avatar avatar-128" height="128" width="128">									<span class="comment_author"><strong>Fox</strong></span>
-									你好，想请教下，如果用容量更大的超级电容（大于1.0F ），会不会带来更长的亮屏时间？								</a>
-							</li>
-											</ul>
-			</div>
-		
-	</div>
-
-<div class="clear"></div></aside>
 	
-	</div>
+			
+			</aside>
+			</div>
 
 <div class="clear"></div>	</div><!-- .site-content -->
 
@@ -663,29 +172,29 @@ echo "验证码:".$oneCode."\n\n";
 		<span class="img-box">
 		<span class="img-x2">
 			<span class="insets">
-				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/2169.html" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
-				<a href="https://shusanjing.github.io/wp/wp2static/2169.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
 		</span>
 	</span>
 		<span class="img-box">
 		<span class="img-x2">
 			<span class="insets">
-				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/2162.html" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
-				<a href="https://shusanjing.github.io/wp/wp2static/2162.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
 		</span>
 	</span>
 		<span class="img-box">
 		<span class="img-x2">
 			<span class="insets">
-				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/2151.html" rel="bookmark">windows开机启动文件夹在哪里</a></span>
-				<a href="https://shusanjing.github.io/wp/wp2static/2151.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/2.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/14.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
 		</span>
 	</span>
 		<span class="img-box">
 		<span class="img-x2">
 			<span class="insets">
-				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/2148.html" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
-				<a href="https://shusanjing.github.io/wp/wp2static/2148.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/12.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/13.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
 		</span>
 	</span>
 			<div class="clear"></div>
@@ -696,34 +205,34 @@ echo "验证码:".$oneCode."\n\n";
 	<ul>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/2169.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
-			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2169.html" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
 			<span class="date">02/28</span>
-			<span class="views"><i class="fa fa-eye"></i> 18 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 19 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/2162.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
-			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2162.html" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
 			<span class="date">02/28</span>
-			<span class="views"><i class="fa fa-eye"></i> 18 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 19 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/2151.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/10.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
-			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2151.html" rel="bookmark">windows开机启动文件夹在哪里</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/13.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
 			<span class="date">03/03</span>
-			<span class="views"><i class="fa fa-eye"></i> 463 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 464 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/2148.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/17.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
-			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2148.html" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/15.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
 			<span class="date">03/03</span>
-			<span class="views"><i class="fa fa-eye"></i> 376 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 377 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/2140.html"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/5.jpg" alt="Faststone Capture使用优化设置" /></a>			</span>
-			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/2140.html" rel="bookmark">Faststone Capture使用优化设置</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2140/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/17.jpg" alt="Faststone Capture使用优化设置" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></span>
 			<span class="date">01/10</span>
-			<span class="views"><i class="fa fa-eye"></i> 443 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 444 views</span>		</li>
 					</ul>
 </div>
 
@@ -794,12 +303,10 @@ echo "验证码:".$oneCode."\n\n";
 
 	</div>
 
-
-
 <ul id="scroll">
 	<li class="log log-no"><a class="log-button" title="文章目录"><i class="fa fa-bars"></i></a><div class="log-prompt"><div class="log-arrow">文章目录</div></div></li>
 	<li><a class="scroll-h" title="返回顶部"><i class="fa fa-angle-up"></i></a></li>
-	<li><a class="scroll-c" title="评论"><i class="fa fa-comment-o"></i></a></li>	<li><a class="scroll-b" title="转到底部"><i class="fa fa-angle-down"></i></a></li>
+		<li><a class="scroll-b" title="转到底部"><i class="fa fa-angle-down"></i></a></li>
 	<li class="gb2-site"><a id="gb2big5"><span>繁</span></a></li>				<li class="qr-site"><a href="javascript:void(0)" class="qr" title="本页二维码"><i class="fa fa-qrcode"></i><span class="qr-img"><span id="output"><img class="alignnone" src="" alt="icon"/></span><span class="arrow arrow-z"><i class="fa fa-caret-right"></i></span><span class="arrow arrow-y"><i class="fa fa-caret-right"></i></span></span></a></li>
 		<script type="text/javascript">$(document).ready(function(){if(!+[1,]){present="table";} else {present="canvas";}$('#output').qrcode({render:present,text:window.location.href,width:"150",height:"150"});});</script>
 	</ul>
@@ -840,17 +347,12 @@ echo "验证码:".$oneCode."\n\n";
             </div>
         </div>
     </div>
-</div><script type="text/javascript" src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/qaptcha.jquery.js"></script>
-<script type="text/javascript">var QaptchaJqueryPage="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/inc/qaptcha.jquery.php"</script>
-<script type="text/javascript">$(document).ready(function(){$('.qaptcha').QapTcha();});</script>
-<script type='text/javascript' id='toc-front-js-extra'>
+</div><script type='text/javascript' id='toc-front-js-extra'>
 /* <![CDATA[ */
 var tocplus = {"smooth_scroll":"1"};
 /* ]]> */
 </script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/table-of-contents-plus/front.min.js?ver=2002' id='toc-front-js'></script>
-<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/getqqinfo.js?ver=2017.05.10' id='qqinfo-js'></script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/superfish.js?ver=2017.05.10' id='superfish-js'></script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/gb2big5.js?ver=2017.05.10' id='gb2big5-js'></script>
 <script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/carousel.min.js?ver=2017.05.10' id='carousel-js'></script>
