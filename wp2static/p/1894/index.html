@@ -147,7 +147,7 @@ $(function() {
 
 	<div class="entry-content">
 		
-			<div class="begin-single-meta"><span class="my-date"><i class="fa fa-clock-o"></i> 2020年3月1日<i class="i-time">17:18:28</i></span><span class="comment"><span><span class="screen-reader-text">padavan首选EXT4格式化U盘</span>已关闭评论</span></span><span class="views"><i class="fa fa-eye"></i> 1,190 views</span><span class="print"><a href="javascript:printme()" target="_self" title="打印"><i class="fa fa-print"></i></a></span><span class="s-hide r-hide"><a href="javascript:pr()" title="侧边栏"><i class="fa fa-caret-left"></i> <i class="fa fa-caret-right"></i></a></span></div>
+			<div class="begin-single-meta"><span class="my-date"><i class="fa fa-clock-o"></i> 2020年3月1日<i class="i-time">17:18:28</i></span><span class="comment"><span><span class="screen-reader-text">padavan首选EXT4格式化U盘</span>已关闭评论</span></span><span class="views"><i class="fa fa-eye"></i> 1,191 views</span><span class="print"><a href="javascript:printme()" target="_self" title="打印"><i class="fa fa-print"></i></a></span><span class="s-hide r-hide"><a href="javascript:pr()" title="侧边栏"><i class="fa fa-caret-left"></i> <i class="fa fa-caret-right"></i></a></span></div>
 			<div class="single-content">
 				
 							<div class="ad-pc ad-site"><script type="text/javascript">
@@ -180,23 +180,23 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <li>其他两种EXFAT和NTFS在实际使用中都会遇到严重影响使用的bug.这对文件备份这种本身需求便是高重要性的业务来说,不可忍受.</li>
 <li>实践环境:
 <ul>
-<li>服务端:<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" title="查看与 路由器 相关的文章" target="_blank">路由器</a>(newifi3)[固件:padavan-hiboy]</li>
+<li>服务端:路由器(newifi3)[固件:padavan-hiboy]</li>
 <li>服务端存储:USB3.0移动硬盘2.5寸西部数码2T(SMR)</li>
 <li>服务端<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%bd%af%e4%bb%b6/" title="查看与 软件 相关的文章" target="_blank">软件</a>:caddy-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/webdav/" title="查看与 webdav 相关的文章" target="_blank">webdav</a>文件服务</li>
 <li>客户端:widnows(z7m笔记本)</li>
 <li>客户端<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%bd%af%e4%bb%b6/" title="查看与 软件 相关的文章" target="_blank">软件</a>:Goodsync同步软件</li>
-<li>业务流程:windows使用[GS]通过[webdav文件服务]备份本地文件夹到路由器挂载的USB硬盘.</li>
+<li>业务流程:windows使用[GS]通过[<a href="https://shusanjing.github.io/wp/wp2static/p/tag/webdav/" title="查看与 webdav 相关的文章" target="_blank">webdav</a>文件服务]备份本地文件夹到路由器挂载的USB硬盘.</li>
 </ul>
 </li>
 </ul>
 <h1><span id="caddyERROR_401">caddy后台提示ERROR 401</span></h1>
 <ul>
-<li>测试webdav目录是不管是中文还是英文,只要caddy配置用户名和密码验证,依旧会每次GS连接分析目录,caddy服务端后台都会出现提示ERROR 401 .但也能传输数据.未发现其他影响,非官方搜到有网友说这是因为<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" title="查看与 浏览器 相关的文章" target="_blank">浏览器</a>只有第一次401错误后才会出现UI登录窗口"这只是基本身份验证工作方式的副作用。现代<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" title="查看与 浏览器 相关的文章" target="_blank">浏览器</a>仅在第一个请求得到401之后才会抛出登录UI。严格来说，由于这是身份验证失败-已记录。"(来源:<a href="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/inc/go.php?url=https://caddy.community/t/basicauth-spits-error-401/5674" >https://caddy.community/t/basicauth-spits-error-401/5674</a>)</li>
+<li>测试webdav目录是不管是中文还是英文,只要caddy配置用户名和密码验证,依旧会每次GS连接分析目录,caddy服务端后台都会出现提示ERROR 401 .但也能传输数据.未发现其他影响,非官方搜到有网友说这是因为<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" title="查看与 浏览器 相关的文章" target="_blank">浏览器</a>只有第一次401错误后才会出现UI登录窗口"这只是基本身份验证工作方式的副作用。现代浏览器仅在第一个请求得到401之后才会抛出登录UI。严格来说，由于这是身份验证失败-已记录。"(来源:<a href="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/inc/go.php?url=https://caddy.community/t/basicauth-spits-error-401/5674" >https://caddy.community/t/basicauth-spits-error-401/5674</a>)</li>
 </ul>
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51c2346320540" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357b7321535723" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -207,9 +207,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51c2346320540-1">1</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357b7321535723-1">1</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51c2346320540-1">03/Mar/2020:16:24:57 +0000 [ERROR 401 /media/2t-ext4/ext4澶.唤Goodsync/] BasicAuth: user "" was not found or password was incorrect. 192.168.123.181 192.168.123.1:2080 /media/2t-ext4/ext4%E5%A4%87%E4%BB%BDGoodsync/ HTTP/1.1</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357b7321535723-1">03/Mar/2020:16:24:57 +0000 [ERROR 401 /media/2t-ext4/ext4澶.唤Goodsync/] BasicAuth: user "" was not found or password was incorrect. 192.168.123.181 192.168.123.1:2080 /media/2t-ext4/ext4%E5%A4%87%E4%BB%BDGoodsync/ HTTP/1.1</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -251,7 +251,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51c9935796395" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357bf397770564" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -266,9 +266,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51c9935796395-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51c9935796395-2">2</div><div class="crayon-num" data-line="crayon-6224bc6fb51c9935796395-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51c9935796395-4">4</div><div class="crayon-num" data-line="crayon-6224bc6fb51c9935796395-5">5</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357bf397770564-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357bf397770564-2">2</div><div class="crayon-num" data-line="crayon-6224c131357bf397770564-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357bf397770564-4">4</div><div class="crayon-num" data-line="crayon-6224c131357bf397770564-5">5</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51c9935796395-1">214048 -- 分析开始 User Command</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51c9935796395-2">214105 右侧: State file does not exist: http://192.168.123.1:80/media/2t-exfat/备份(goodsync)/_gsdata_/_file_state_v4._gs</div><div class="crayon-line" id="crayon-6224bc6fb51c9935796395-3">214113 变更：298,718， 冲突：0， 复制时间：0， 复制状态：530,352， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51c9935796395-4">214113 Left to Right: Copy File: 298718 </div><div class="crayon-line" id="crayon-6224bc6fb51c9935796395-5">214113 -- 分析已结束。历时 00:00:28, 速度： 10K 文件/秒</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357bf397770564-1">214048 -- 分析开始 User Command</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357bf397770564-2">214105 右侧: State file does not exist: http://192.168.123.1:80/media/2t-exfat/备份(goodsync)/_gsdata_/_file_state_v4._gs</div><div class="crayon-line" id="crayon-6224c131357bf397770564-3">214113 变更：298,718， 冲突：0， 复制时间：0， 复制状态：530,352， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357bf397770564-4">214113 Left to Right: Copy File: 298718 </div><div class="crayon-line" id="crayon-6224c131357bf397770564-5">214113 -- 分析已结束。历时 00:00:28, 速度： 10K 文件/秒</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -283,7 +283,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51cc362923468" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357c2524749662" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -294,9 +294,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51cc362923468-1">1</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357c2524749662-1">1</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51cc362923468-1">151516 == 同步完成. 历时: 04:08:28, 速度: 11.7 MB/s, 完成: 829,070, 错误: 0</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357c2524749662-1">151516 == 同步完成. 历时: 04:08:28, 速度: 11.7 MB/s, 完成: 829,070, 错误: 0</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -310,7 +310,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51ce869264200" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357c4140919476" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -323,14 +323,14 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51ce869264200-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51ce869264200-2">2</div><div class="crayon-num" data-line="crayon-6224bc6fb51ce869264200-3">3</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357c4140919476-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357c4140919476-2">2</div><div class="crayon-num" data-line="crayon-6224c131357c4140919476-3">3</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51ce869264200-1">161727 -- 分析开始 User Command</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51ce869264200-2">162447 变更：0， 冲突：0， 复制时间：0， 复制状态：0， 错误： 0, All: 829074</div><div class="crayon-line" id="crayon-6224bc6fb51ce869264200-3">162447 -- 分析已结束。历时 00:07:20, 速度： 14K 文件/秒</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357c4140919476-1">161727 -- 分析开始 User Command</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357c4140919476-2">162447 变更：0， 冲突：0， 复制时间：0， 复制状态：0， 错误： 0, All: 829074</div><div class="crayon-line" id="crayon-6224c131357c4140919476-3">162447 -- 分析已结束。历时 00:07:20, 速度： 14K 文件/秒</div></div></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-<!-- [Format Time: 0.0009 seconds] -->
+<!-- [Format Time: 0.0000 seconds] -->
 
 </div>
 <h2 id="exfat格式耗时5时59分有报错一个文件"><span id="exfat559">exfat格式耗时5时59分有报错一个文件</span></h2>
@@ -340,7 +340,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51d0194571052" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357c6921157720" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -351,9 +351,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51d0194571052-1">1</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357c6921157720-1">1</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51d0194571052-1">051046 == 同步完成. 历时: 05:59:01, 速度: 8.09 MB/s, 完成: 829,069, 错误: 1</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357c6921157720-1">051046 == 同步完成. 历时: 05:59:01, 速度: 8.09 MB/s, 完成: 829,069, 错误: 1</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -367,7 +367,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51d2969986237" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357c8047280481" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -378,14 +378,14 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51d2969986237-1">1</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357c8047280481-1">1</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51d2969986237-1">093034 Error analyzing http://192.168.123.1:2080/media/2t-exfat/备份(goodsync): no reply after 180(120)-sec timeout on verb PROPFIND: receiving HTTP header: [receiving data 192.168.123.1:80]: Time out</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357c8047280481-1">093034 Error analyzing http://192.168.123.1:2080/media/2t-exfat/备份(goodsync): no reply after 180(120)-sec timeout on verb PROPFIND: receiving HTTP header: [receiving data 192.168.123.1:80]: Time out</div></div></td>
 					</tr>
 				</table>
 			</div>
 		</div>
-<!-- [Format Time: 0.0000 seconds] -->
+<!-- [Format Time: 0.0001 seconds] -->
 
 </div>
 <ul>
@@ -399,7 +399,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51d4715585397" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357c9572763383" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -414,9 +414,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51d4715585397-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51d4715585397-2">2</div><div class="crayon-num" data-line="crayon-6224bc6fb51d4715585397-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51d4715585397-4">4</div><div class="crayon-num" data-line="crayon-6224bc6fb51d4715585397-5">5</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357c9572763383-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357c9572763383-2">2</div><div class="crayon-num" data-line="crayon-6224c131357c9572763383-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357c9572763383-4">4</div><div class="crayon-num" data-line="crayon-6224c131357c9572763383-5">5</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51d4715585397-1">163406 -- 分析开始 User Command</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51d4715585397-2">163423 右侧: State file does not exist: http://192.168.123.1:2080/media/2t-ntfs/ntfs备份GoodSync/_gsdata_/_file_state_v4._gs</div><div class="crayon-line" id="crayon-6224bc6fb51d4715585397-3">163431 变更：298,718， 冲突：0， 复制时间：0， 复制状态：530,352， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51d4715585397-4">163431 Left to Right: Copy File: 298718 </div><div class="crayon-line" id="crayon-6224bc6fb51d4715585397-5">163431 -- 分析已结束。历时 00:00:25, 速度： 11K 文件/秒</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357c9572763383-1">163406 -- 分析开始 User Command</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357c9572763383-2">163423 右侧: State file does not exist: http://192.168.123.1:2080/media/2t-ntfs/ntfs备份GoodSync/_gsdata_/_file_state_v4._gs</div><div class="crayon-line" id="crayon-6224c131357c9572763383-3">163431 变更：298,718， 冲突：0， 复制时间：0， 复制状态：530,352， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357c9572763383-4">163431 Left to Right: Copy File: 298718 </div><div class="crayon-line" id="crayon-6224c131357c9572763383-5">163431 -- 分析已结束。历时 00:00:25, 速度： 11K 文件/秒</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -430,7 +430,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51d6054721131" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357cb462474241" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -441,9 +441,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51d6054721131-1">1</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357cb462474241-1">1</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51d6054721131-1">204302 == 同步完成. 历时: 04:06:52, 速度: 11.7 MB/s, 完成: 829,070, 错误: 0</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357cb462474241-1">204302 == 同步完成. 历时: 04:06:52, 速度: 11.7 MB/s, 完成: 829,070, 错误: 0</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -457,7 +457,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51d8051468420" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357cd416480464" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -470,9 +470,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51d8051468420-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51d8051468420-2">2</div><div class="crayon-num" data-line="crayon-6224bc6fb51d8051468420-3">3</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357cd416480464-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357cd416480464-2">2</div><div class="crayon-num" data-line="crayon-6224c131357cd416480464-3">3</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51d8051468420-1">211556 变更：185， 冲突：0， 复制时间：0， 复制状态：0， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51d8051468420-2">211556 Left to Right: Copy File: 185 </div><div class="crayon-line" id="crayon-6224bc6fb51d8051468420-3">211556 -- 分析已结束。历时 00:11:18, 速度： 16K 文件/秒</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357cd416480464-1">211556 变更：185， 冲突：0， 复制时间：0， 复制状态：0， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357cd416480464-2">211556 Left to Right: Copy File: 185 </div><div class="crayon-line" id="crayon-6224c131357cd416480464-3">211556 -- 分析已结束。历时 00:11:18, 速度： 16K 文件/秒</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -486,7 +486,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51d9729560004" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357ce610412117" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -497,9 +497,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51d9729560004-1">1</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357ce610412117-1">1</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51d9729560004-1">223911 == 同步完成. 历时: 00:55:36, 速度: 25.6 MB/s, 完成: 187, 错误: 0</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357ce610412117-1">223911 == 同步完成. 历时: 00:55:36, 速度: 25.6 MB/s, 完成: 187, 错误: 0</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -513,7 +513,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 <div>
 <!-- Crayon Syntax Highlighter v_2.7.2_beta -->
 
-		<div id="crayon-6224bc6fb51db019273078" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		<div id="crayon-6224c131357d0477509125" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-always wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
 		
 			<div class="crayon-toolbar" data-settings=" show" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><span class="crayon-title"></span>
 			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div><span class="crayon-language">Default</span></div></div>
@@ -526,9 +526,9 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<table class="crayon-table">
 					<tr class="crayon-row">
 				<td class="crayon-nums " data-settings="show">
-					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224bc6fb51db019273078-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224bc6fb51db019273078-2">2</div><div class="crayon-num" data-line="crayon-6224bc6fb51db019273078-3">3</div></div>
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-6224c131357d0477509125-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-6224c131357d0477509125-2">2</div><div class="crayon-num" data-line="crayon-6224c131357d0477509125-3">3</div></div>
 				</td>
-						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224bc6fb51db019273078-1">230822 变更：157， 冲突：0， 复制时间：0， 复制状态：10， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224bc6fb51db019273078-2">230822 Left to Right: Copy File: 157 </div><div class="crayon-line" id="crayon-6224bc6fb51db019273078-3">230822 -- 分析已结束。历时 00:10:06, 速度： 49K 文件/秒</div></div></td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-6224c131357d0477509125-1">230822 变更：157， 冲突：0， 复制时间：0， 复制状态：10， 错误： 0, All: 829074</div><div class="crayon-line crayon-striped-line" id="crayon-6224c131357d0477509125-2">230822 Left to Right: Copy File: 157 </div><div class="crayon-line" id="crayon-6224c131357d0477509125-3">230822 -- 分析已结束。历时 00:10:06, 速度： 49K 文件/秒</div></div></td>
 					</tr>
 				</table>
 			</div>
@@ -642,7 +642,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 	<div class="r4">
 		<div class="related-site">
 			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2138/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/8.jpg" alt="手机改装无电池工作(法拉电容替代电池)[教程]" /></a>			 </figure>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2138/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/1.jpg" alt="手机改装无电池工作(法拉电容替代电池)[教程]" /></a>			 </figure>
 			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2138/">手机改装无电池工作(法拉电容替代电池)[教程]</a></div>
 		</div>
 	</div>
@@ -651,7 +651,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 	<div class="r4">
 		<div class="related-site">
 			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2135/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/15.jpg" alt="南瓜电影app投屏到windows" /></a>			 </figure>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2135/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/14.jpg" alt="南瓜电影app投屏到windows" /></a>			 </figure>
 			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2135/">南瓜电影app投屏到windows</a></div>
 		</div>
 	</div>
@@ -660,7 +660,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 	<div class="r4">
 		<div class="related-site">
 			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2090/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/16.jpg" alt="手机改装无电池工作(5V适配器替代电池)[教程]" /></a>			 </figure>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2090/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/5.jpg" alt="手机改装无电池工作(5V适配器替代电池)[教程]" /></a>			 </figure>
 			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2090/">手机改装无电池工作(5V适配器替代电池)[教程]</a></div>
 		</div>
 	</div>
@@ -669,7 +669,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 	<div class="r4">
 		<div class="related-site">
 			<figure class="related-site-img">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2023/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/2.jpg" alt="[猫盘]安装Tmux[群晖][ARM]" /></a>			 </figure>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2023/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/16.jpg" alt="[猫盘]安装Tmux[群晖][ARM]" /></a>			 </figure>
 			<div class="related-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2023/">[猫盘]安装Tmux[群晖][ARM]</a></div>
 		</div>
 	</div>
@@ -679,25 +679,25 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<div id="single-widget">
 	<div class="wow fadeInUp" data-wow-delay="0.3s">
 		<aside id="cx_tag_cloud-4" class="widget cx_tag_cloud wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><span class="s-icon"></span>热门标签</h3>	<div class="tagcloud">
-	<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e5%bc%80%e5%a7%8b/" class="tag-cloud-link tag-link-69 tag-link-position-1" style="font-size: 14px;">开始</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e7%94%b5%e8%84%91/" class="tag-cloud-link tag-link-11 tag-link-position-2" style="font-size: 14px;">电脑</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/wordpress/" class="tag-cloud-link tag-link-3 tag-link-position-3" style="font-size: 14px;">wordpress</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/ubuntu/" class="tag-cloud-link tag-link-34 tag-link-position-4" style="font-size: 14px;">ubuntu</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" class="tag-cloud-link tag-link-77 tag-link-position-5" style="font-size: 14px;">路由器</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e9%82%ae%e4%bb%b6/" class="tag-cloud-link tag-link-16 tag-link-position-6" style="font-size: 14px;">邮件</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/vps/" class="tag-cloud-link tag-link-14 tag-link-position-7" style="font-size: 14px;">vps</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e7%bd%91%e7%ab%99/" class="tag-cloud-link tag-link-5 tag-link-position-8" style="font-size: 14px;">网站</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" class="tag-cloud-link tag-link-19 tag-link-position-9" style="font-size: 14px;">浏览器</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%89%8b%e6%9c%ba/" class="tag-cloud-link tag-link-26 tag-link-position-10" style="font-size: 14px;">手机</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/amp/" class="tag-cloud-link tag-link-43 tag-link-position-11" style="font-size: 14px;">amp</a>
+	<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%98%af%e5%90%a6/" class="tag-cloud-link tag-link-68 tag-link-position-1" style="font-size: 14px;">是否</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/ubuntu/" class="tag-cloud-link tag-link-34 tag-link-position-2" style="font-size: 14px;">ubuntu</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%89%8b%e6%9c%ba/" class="tag-cloud-link tag-link-26 tag-link-position-3" style="font-size: 14px;">手机</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e5%bc%80%e5%a7%8b/" class="tag-cloud-link tag-link-69 tag-link-position-4" style="font-size: 14px;">开始</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e9%82%ae%e4%bb%b6/" class="tag-cloud-link tag-link-16 tag-link-position-5" style="font-size: 14px;">邮件</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/amp/" class="tag-cloud-link tag-link-43 tag-link-position-6" style="font-size: 14px;">amp</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/pt/" class="tag-cloud-link tag-link-9 tag-link-position-7" style="font-size: 14px;">pt</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" class="tag-cloud-link tag-link-19 tag-link-position-8" style="font-size: 14px;">浏览器</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e4%b8%8b%e8%bd%bd/" class="tag-cloud-link tag-link-21 tag-link-position-9" style="font-size: 14px;">下载</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%84%9a%e6%9c%ac/" class="tag-cloud-link tag-link-36 tag-link-position-10" style="font-size: 14px;">脚本</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" class="tag-cloud-link tag-link-77 tag-link-position-11" style="font-size: 14px;">路由器</a>
 <a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e5%8d%9a%e5%ae%a2/" class="tag-cloud-link tag-link-4 tag-link-position-12" style="font-size: 14px;">博客</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/pt/" class="tag-cloud-link tag-link-9 tag-link-position-13" style="font-size: 14px;">pt</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/vps/" class="tag-cloud-link tag-link-14 tag-link-position-13" style="font-size: 14px;">vps</a>
 <a href="https://shusanjing.github.io/wp/wp2static/p/tag/linux/" class="tag-cloud-link tag-link-33 tag-link-position-14" style="font-size: 14px;">linux</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%98%af%e5%90%a6/" class="tag-cloud-link tag-link-68 tag-link-position-15" style="font-size: 14px;">是否</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%a7%86%e9%a2%91/" class="tag-cloud-link tag-link-20 tag-link-position-16" style="font-size: 14px;">视频</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/webdav/" class="tag-cloud-link tag-link-52 tag-link-position-17" style="font-size: 14px;">webdav</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%84%9a%e6%9c%ac/" class="tag-cloud-link tag-link-36 tag-link-position-18" style="font-size: 14px;">脚本</a>
-<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e4%b8%8b%e8%bd%bd/" class="tag-cloud-link tag-link-21 tag-link-position-19" style="font-size: 14px;">下载</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%a7%86%e9%a2%91/" class="tag-cloud-link tag-link-20 tag-link-position-15" style="font-size: 14px;">视频</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/wordpress/" class="tag-cloud-link tag-link-3 tag-link-position-16" style="font-size: 14px;">wordpress</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e7%bd%91%e7%ab%99/" class="tag-cloud-link tag-link-5 tag-link-position-17" style="font-size: 14px;">网站</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e7%94%b5%e8%84%91/" class="tag-cloud-link tag-link-11 tag-link-position-18" style="font-size: 14px;">电脑</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/webdav/" class="tag-cloud-link tag-link-52 tag-link-position-19" style="font-size: 14px;">webdav</a>
 <a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%bd%af%e4%bb%b6/" class="tag-cloud-link tag-link-10 tag-link-position-20" style="font-size: 14px;">软件</a>	<div class="clear"></div>
 	</div>
 
@@ -736,7 +736,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 										<li>
 												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
 						<span class="date">02/28</span>
-						<span class="views"><i class="fa fa-eye"></i> 19 views</span>					</li>
+						<span class="views"><i class="fa fa-eye"></i> 20 views</span>					</li>
 														</ul><!--/.zm-tab-->
 			</div>
 		
@@ -748,7 +748,7 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 										<li>
 												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></span>
 						<span class="date">12/22</span>
-						<span class="views"><i class="fa fa-eye"></i> 2,738 views</span>					</li>
+						<span class="views"><i class="fa fa-eye"></i> 2,739 views</span>					</li>
 														</ul><!--/.zm-tab-->
 			</div>
 		
@@ -803,14 +803,14 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 		<span class="img-x2">
 			<span class="insets">
 				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/3.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/5.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
 		</span>
 	</span>
 		<span class="img-box">
 		<span class="img-x2">
 			<span class="insets">
 				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/1.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/11.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
 		</span>
 	</span>
 			<div class="clear"></div>
@@ -824,31 +824,31 @@ document.write(['<a class="qcShareQQDiv" href="https://connect.qq.com/widget/sha
 				<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
 			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
 			<span class="date">02/28</span>
-			<span class="views"><i class="fa fa-eye"></i> 19 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 20 views</span>		</li>
 				<li>
 			<span class="thumbnail">
 				<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
 			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
 			<span class="date">02/28</span>
-			<span class="views"><i class="fa fa-eye"></i> 19 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 20 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/8.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/18.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
 			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
 			<span class="date">03/03</span>
-			<span class="views"><i class="fa fa-eye"></i> 464 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 465 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/8.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/11.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
 			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
 			<span class="date">03/03</span>
-			<span class="views"><i class="fa fa-eye"></i> 377 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 378 views</span>		</li>
 				<li>
 			<span class="thumbnail">
-				<a href="https://shusanjing.github.io/wp/wp2static/p/2140/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/3.jpg" alt="Faststone Capture使用优化设置" /></a>			</span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2140/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/12.jpg" alt="Faststone Capture使用优化设置" /></a>			</span>
 			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></span>
 			<span class="date">01/10</span>
-			<span class="views"><i class="fa fa-eye"></i> 444 views</span>		</li>
+			<span class="views"><i class="fa fa-eye"></i> 445 views</span>		</li>
 					</ul>
 </div>
 
