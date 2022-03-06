@@ -1,0 +1,926 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<title>逻辑门.博客 | www.luoji.men    技术生活&amp;智能家庭 - 第10页</title>
+<meta name="description" content="一般不超过200个字符" />
+<meta name="keywords" content="一般不超过100个字符" />
+<link rel="shortcut icon" href="">
+<link rel="apple-touch-icon" sizes="114x114" href="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/favicon.png" />
+<link rel="pingback" href="https://shusanjing.github.io/wp/wp2static/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/html5.js"></script>
+<script src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/css3-mediaqueries.js"></script>
+<![endif]-->
+<meta name='robots' content='max-image-preview:large' />
+<link rel='stylesheet' id='crayon-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/css/min/crayon.min.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/themes/classic/classic.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/fonts/monaco.css?ver=_2.7.2_beta' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://shusanjing.github.io/wp/wp2static/wp-includes/css/dist/block-library/style.min.css?ver=5.9.1' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='lbwps-lib-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/lightbox-photoswipe/lib/photoswipe.css?ver=3.1.3' type='text/css' media='all' />
+<link rel='stylesheet' id='photoswipe-skin-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/lightbox-photoswipe/lib/skins/default/skin.css?ver=3.1.3' type='text/css' media='all' />
+<link rel='stylesheet' id='toc-screen-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/table-of-contents-plus/screen.min.css?ver=2002' type='text/css' media='all' />
+<link rel='stylesheet' id='begin-style-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/style.css?ver=4.6' type='text/css' media='all' />
+<link rel='stylesheet' id='fonts-css'  href='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/css/fonts.css?ver=2017.05.10' type='text/css' media='all' />
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery.min.js?ver=1.10.1' id='jquery-js'></script>
+<script type='text/javascript' id='crayon_js-js-extra'>
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"https:\/\/shusanjing.github.io\/wp\/wp2static\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/crayon-syntax-highlighter/js/min/crayon.min.js?ver=_2.7.2_beta' id='crayon_js-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/lightbox-photoswipe/lib/photoswipe.min.js?ver=3.1.3' id='lbwps-lib-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/lightbox-photoswipe/lib/photoswipe-ui-default.min.js?ver=3.1.3' id='lbwps-ui-default-js'></script>
+<script type='text/javascript' id='lbwps-frontend-js-extra'>
+/* <![CDATA[ */
+var lbwpsOptions = {"label_facebook":"Share on Facebook","label_twitter":"Tweet","label_pinterest":"Pin it","label_download":"Download image","label_copyurl":"Copy image URL","share_facebook":"1","share_twitter":"1","share_pinterest":"1","share_download":"1","share_direct":"0","share_copyurl":"0","share_custom_label":"","share_custom_link":"","wheelmode":"close","close_on_drag":"1","history":"1","show_counter":"1","show_fullscreen":"1","show_zoom":"1","show_caption":"1","loop":"1","pinchtoclose":"1","taptotoggle":"1","spacing":"12","close_on_click":"1","fulldesktop":"0","use_alt":"0","desktop_slider":"1","idletime":"4000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/lightbox-photoswipe/js/frontend.min.js?ver=3.1.3' id='lbwps-frontend-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/slides.js?ver=2017.05.10' id='slides-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery.qrcode.min.js?ver=2017.05.10' id='jquery.qrcode.min-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/wow.js?ver=0.1.9' id='wow-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/sticky.js?ver=1.6.0' id='sticky-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery-ias.js?ver=2.2.1' id='jquery-ias-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/jquery.lazyload.js?ver=2017.05.10' id='lazyload-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/tipso.js?ver=1.0.1' id='tipso-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/script.js?ver=2017.05.10' id='script-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/flexisel.js?ver=2017.05.10' id='flexisel-js'></script>
+
+
+<script type="text/javascript">  
+$(function() {  
+    $('.single-content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='fancybox' onclick='return hs.expand(this);'></a>");  
+        }  
+    });  
+});  
+</script>  
+
+
+</head>
+<body class="home blog paged paged-10">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header">
+
+	<nav id="top-header">
+		<div class="top-nav">
+							<div id="user-profile">
+					<div class="user-login">欢迎光临！</div>
+			
+						<div class="nav-set">
+			 	<div class="nav-login">
+			 					<a href="#login" class="flatbtn" id="login-main" ><i class="fa fa-sign-in"></i>登录</a>
+								</div>
+			</div>
+					<div class="clear"></div>
+</div>			
+			<div class="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e5%88%86%e7%b1%bb%e8%8f%9c%e5%8d%95" class="top-menu"><li id="menu-item-512" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-512"><a href="https://shusanjing.github.io/wp/wp2static/">首页</a></li>
+<li id="menu-item-508" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-508"><a href="https://shusanjing.github.io/wp/wp2static/p/uncategorized/">其他</a></li>
+<li id="menu-item-509" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-509"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/">网站运维</a></li>
+<li id="menu-item-510" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-510"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></li>
+</ul></div>		</div>
+	</nav><!-- #top-header -->
+
+	<div id="menu-box">
+		<div id="top-menu">
+			<span class="nav-search"><i class="fa fa-search"></i></span>
+												<span class="mobile-login"><a href="#login" id="login-mobile" ><i class="fa fa-user"></i></a></span>
+													<div class="logo-site">
+																			<h1 class="site-title"><a href="https://shusanjing.github.io/wp/wp2static/" title="逻辑门.博客" rel="home">逻辑门.博客</a></h1>
+						<p class="site-description">www.luoji.men    技术生活&amp;智能家庭</p>
+													</div><!-- .logo-site -->
+
+			<div id="site-nav-wrap">
+				<div id="sidr-close"><a href="#sidr-close" class="toggle-sidr-close">×</a></div>
+				<nav id="site-nav" class="main-nav">
+																						<a href="#sidr-main" id="navigation-toggle" class="bars"><i class="fa fa-bars"></i></a>
+																				<div class="menu-%e9%a1%b6%e9%83%a8%e8%8f%9c%e5%8d%95-container"><ul id="menu-%e9%a1%b6%e9%83%a8%e8%8f%9c%e5%8d%95" class="down-menu nav-menu"><li id="menu-item-342" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home menu-item-342"><a href="https://shusanjing.github.io/wp/wp2static">首页</a></li>
+<li id="menu-item-343" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-343"><a href="https://shusanjing.github.io/wp/wp2static/%e5%9c%a8%e7%ba%bf%e5%b7%a5%e5%85%b7%e7%ab%99/">在线工具站</a></li>
+<li id="menu-item-344" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-344"><a href="https://shusanjing.github.io/wp/wp2static/%e6%8a%95%e7%a8%bf/">投稿</a></li>
+<li id="menu-item-391" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-391"><a href="https://shusanjing.github.io/wp/wp2static/%e8%bf%90%e7%bb%b4/">运维</a></li>
+<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><a href="https://shusanjing.github.io/wp/wp2static/%e5%8f%8b%e6%83%85%e9%93%be%e6%8e%a5/">友情链接</a></li>
+</ul></div>				</nav><!-- #site-nav -->
+			</div><!-- #site-nav-wrap -->
+			<div class="clear"></div>
+		</div><!-- #top-menu -->
+	</div><!-- #menu-box -->
+</header><!-- #masthead -->
+
+<div id="search-main">
+	<div class="searchbar">
+	<form method="get" id="searchform" action="https://shusanjing.github.io/wp/wp2static/">
+		<span>
+			<input type="text" value="" name="s" id="s" placeholder="输入搜索内容" required />
+			<button type="submit" id="searchsubmit">搜索</button>
+		</span>
+
+			</form>
+</div>		<div class="clear"></div>
+</div>					<nav class="breadcrumb">
+		<i class="fa fa-home"></i>现在位置<i class="fa fa-angle-right"></i>首页	</nav>
+		
+		<div id="content" class="site-content">
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+			<!-- 幻灯 -->
+							<div id="slideshow"  class="wow fadeInUp" data-wow-delay="0.3s">
+	<ul class="rslides" id="slider">
+												</ul>
+</div>						<!-- 置顶 -->
+						<!-- 最新文章 -->
+									<article id="post-2169" class="wow fadeInUp post-2169 post type-post status-publish format-standard hentry category-7 rvy" data-wow-delay="0.3s">
+	
+									<figure class="thumbnail">
+					<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>					<span class="cat"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span>
+				</figure>
+					
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				适用场景：Windows有UPS供电，但UPS没有USB通讯功能，无法自己停电后通知Win，就需要Win自己判断关机， 脚本逻辑规则：通过间隔ping路由器，若是ping不通则判断为停电，会在（shutdown /s /t 300）5分钟后执行关机。若是在5分钟内又成功ping通路由器则判定为市电恢复，自行取消关机命令...			</div>
+			<span class="title-l"></span>
+							<span class="new-icon">NEW</span>			
+												<span class="entry-meta">
+						<span class="date">2022年2月28日</span><span class="views"><i class="fa fa-eye"></i> 20 views</span><span class="comment"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/#respond" rel="external nofollow"><i class="fa fa-comment-o"></i> 发表评论</a></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2169' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+			<!-- 图文日志 -->
+					<div class="line-four">
+				<div class="clear"></div>			</div>
+					<article id="post-2162" class="wow fadeInUp post-2162 post type-post status-publish format-standard hentry category-7 rvy" data-wow-delay="0.3s">
+	
+									<figure class="thumbnail">
+					<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>					<span class="cat"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span>
+				</figure>
+					
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				初次安装显示试用期剩余30天：。 禁用PrimoLTR激活工具：。&nbsp; 3天后，显示剩余28天：。 启用PrimoLTR激活工具的计划任务：。 第一次Win重启后，仍然显示28天：。 第二手动重启，PrimiCache试用期成功重置为30天：。			</div>
+			<span class="title-l"></span>
+							<span class="new-icon">NEW</span>			
+												<span class="entry-meta">
+						<span class="date">2022年2月28日</span><span class="views"><i class="fa fa-eye"></i> 20 views</span><span class="comment"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/#respond" rel="external nofollow"><i class="fa fa-comment-o"></i> 发表评论</a></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2162' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+				<!-- 广告 -->
+				<article id="post-2151" class="wow fadeInUp post-2151 post type-post status-publish format-standard hentry category-7 rvy" data-wow-delay="0.3s">
+	
+							
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				运行“shell:startup”（复制，不带引号）即可弹出开机启动文件夹“C:\Users\用户名\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup”			</div>
+			<span class="title-l"></span>
+										
+												<span class="entry-meta-no">
+						<span class="date">2021年3月3日</span><span class="format-cat"><i class="fa fa-folder-o"></i> <a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span><span class="views"><i class="fa fa-eye"></i> 465 views</span><span class="comment"><span><span class="screen-reader-text">windows开机启动文件夹在哪里</span>已关闭评论</span></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2151' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+			<article id="post-2148" class="wow fadeInUp post-2148 post type-post status-publish format-standard hentry category-7 rvy" data-wow-delay="0.3s">
+	
+							
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				自定义运行（windows键+R）里面命令，启动设置的程序 创建文件夹“D:\cmd自定义快速启动” 我的电脑 》高级电脑设置 》高级 》环境变量 》Path 》编辑 》新建 输入第一步建立的cmd启动目录“D:\cmd自定义快速启动” 确定保存，完成。			</div>
+			<span class="title-l"></span>
+										
+												<span class="entry-meta-no">
+						<span class="date">2021年3月3日</span><span class="format-cat"><i class="fa fa-folder-o"></i> <a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span><span class="views"><i class="fa fa-eye"></i> 378 views</span><span class="comment"><span><span class="screen-reader-text">windows自定义快速启动（运行）命令</span>已关闭评论</span></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2148' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+			<article id="post-2140" class="wow fadeInUp post-2140 post type-post status-publish format-standard hentry category-7 tag-pt rvy" data-wow-delay="0.3s">
+	
+							
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				Faststone Capture使用优化设置 自动保存到文件 悬浮框 &gt; 目标(磁盘图标) &gt; 到文件(自动保存) 设置 &gt; 自动保存 &gt; 输出文件夹 (改成方便自己整理的目录) 自动添加边缘或水印 悬浮框 &gt; 目标(磁盘图标) &gt; 选项 &gt; 自动添加边缘或水印 文件名 设置...			</div>
+			<span class="title-l"></span>
+										
+												<span class="entry-meta-no">
+						<span class="date">2021年1月10日</span><span class="format-cat"><i class="fa fa-folder-o"></i> <a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span><span class="views"><i class="fa fa-eye"></i> 445 views</span><span class="comment"><span><span class="screen-reader-text">Faststone Capture使用优化设置</span>已关闭评论</span></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2140' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+			<article id="post-2138" class="wow fadeInUp post-2138 post type-post status-publish format-standard hentry category-7 category-76 tag-26 tag-68 rvy" data-wow-delay="0.3s">
+	
+							
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				电容选择注意点:由于开机电流较大,对电容放电能力有要求,因此不是什么电容都可以,像纽扣型电容放电能力较弱无法启动手机就不能胜任,需要选用峰值放电6瓦以上的组合型电容 实践设备: 手机: 红米Note5 (2018年设备) 电容: 法拉电容组合型5.5V 1.0F //可给手机亮屏续航4秒. https://item.t...			</div>
+			<span class="title-l"></span>
+										
+												<span class="entry-meta-no">
+						<span class="date">2020年12月22日</span><span class="format-cat"><i class="fa fa-folder-o"></i> <a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span><span class="views"><i class="fa fa-eye"></i> 2,739 views</span><span class="comment"><a href="https://shusanjing.github.io/wp/wp2static/p/2138/#comments" rel="external nofollow"><i class="fa fa-comment-o"></i> 1 </a></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2138' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+			<article id="post-2135" class="wow fadeInUp post-2135 post type-post status-publish format-standard hentry category-7 category-76 tag-21 tag-69 tag-26 tag-11 tag-20 rvy" data-wow-delay="0.3s">
+	
+							
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2135/" rel="bookmark">南瓜电影app投屏到windows</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				有些视频平台只有手机端APP(如韩剧TV),没有电脑端,如果这些app支持视屏投屏功能,那么可以投屏给电脑端的KODI *优点:KODI投屏接收端没有乐播投屏的广告 到 https://kodi.tv/download 下载PC端KODI后安装 KODI &gt; 设置 &gt; 服务 &gt; UPnP/DLNA &...			</div>
+			<span class="title-l"></span>
+										
+												<span class="entry-meta-no">
+						<span class="date">2020年12月21日</span><span class="format-cat"><i class="fa fa-folder-o"></i> <a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/">电脑相关</a></span><span class="views"><i class="fa fa-eye"></i> 550 views</span><span class="comment"><span><span class="screen-reader-text">南瓜电影app投屏到windows</span>已关闭评论</span></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2135' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2135/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+			<article id="post-2114" class="wow fadeInUp post-2114 post type-post status-publish format-standard hentry category-linux category-2 rvy" data-wow-delay="0.3s">
+	
+							
+		<header class="entry-header">
+					<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2114/" rel="bookmark">从rclone配置中自动提取主/从路径进行一对多备份(主/从标识模式)</a></h2>			</header><!-- .entry-header -->
+
+	<div class="entry-content">
+					<div class="archive-content">
+				原理:自动从rclone.conf配置中提取含有"MASTER"(主盘)和"SLAVE"(从盘)字符的配置名称列表, 配置名称格式参考 然后循环执行 gclone sync 或者 rclone sync 命令(根据你使用的rclone客户端) 需要安装Tmux 只能存在一个主盘 可以存在多个从盘(一个主盘同步到多个从盘...			</div>
+			<span class="title-l"></span>
+										
+												<span class="entry-meta-no">
+						<span class="date">2020年11月22日</span><span class="format-cat"><i class="fa fa-folder-o"></i> <a href="https://shusanjing.github.io/wp/wp2static/p/linux/">Linux</a></span><span class="views"><i class="fa fa-eye"></i> 755 views</span><span class="comment"><span><span class="screen-reader-text">从rclone配置中自动提取主/从路径进行一对多备份(主/从标识模式)</span>已关闭评论</span></span><span class='favorite-s'><a class='wpzm-link' href='?wpzmaction=add&amp;postid=2114' title='收藏本文' rel='nofollow'> <i class="fa fa-heart-o"></i> <span>收藏</span></a></span>					</span>
+							
+				<div class="clear"></div>
+	</div><!-- .entry-content -->
+
+					<span class="entry-more"><a href="https://shusanjing.github.io/wp/wp2static/p/2114/" rel="bookmark">阅读全文</a></span>
+			</article><!-- #post -->
+
+		<div class="clear"></div>						<!-- 单栏小工具  -->
+							<!-- 单栏分类5篇 -->
+							<div class="line-one">
+						<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/" title=""><i class="fa fa-bars"></i>电脑相关<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+			<div class="line-one-img one-img-5">
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/2082/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/8.jpg" alt="路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]" /></a>					</figure>
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/2067/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/4.jpg" alt="手机Android通电自动开机(关机状态下)教程" /></a>					</figure>
+								<div class="clear"></div>
+			</div>
+			<ul class="cat-one-list">
+													<li class="list-date">11/20</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></li>									<li class="list-date">11/18</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2067/" rel="bookmark">手机Android通电自动开机(关机状态下)教程</a></li>									<li class="list-date">10/27</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2059/" rel="bookmark">企业微信-推送通知到普通微信-POST调用API</a></li>									<li class="list-date">10/27</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2051/" rel="bookmark">IFTTT通过POST调用API发送邮件</a></li>									<li class="list-date">09/17</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2040/" rel="bookmark">[猫盘]原版Frp.安装使用教程 (群晖)(ARM)</a></li>											</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/" title=""><i class="fa fa-bars"></i>网站运维<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+			<div class="line-one-img one-img-5">
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/1983/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/19.jpg" alt="python脚本getcwd报错'No such file or directory'" /></a>					</figure>
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/1974/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/12.jpg" alt="rclone.config-mail.notif 报错邮件通知" /></a>					</figure>
+								<div class="clear"></div>
+			</div>
+			<ul class="cat-one-list">
+													<li class="list-date">06/12</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1983/" rel="bookmark">python脚本getcwd报错&#8217;No such file or directory&#8217;</a></li>									<li class="list-date">05/29</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1974/" rel="bookmark">rclone.config-mail.notif 报错邮件通知</a></li>									<li class="list-date">05/28</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1969/" rel="bookmark">rclone批量编辑谷歌共享盘</a></li>									<li class="list-date">04/14</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1935/" rel="bookmark">debian9安装docker+compose(最新版)</a></li>									<li class="list-date">08/01</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1860/" rel="bookmark">windows10使用锐速加速上传</a></li>											</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+				</div>
+						<!-- 单栏分类10篇 -->
+							<div class="line-one">
+						<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/" title=""><i class="fa fa-bars"></i>电脑相关<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+			<div class="line-one-img">
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/2082/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/15.jpg" alt="路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]" /></a>					</figure>
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/2067/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/4.jpg" alt="手机Android通电自动开机(关机状态下)教程" /></a>					</figure>
+								<div class="clear"></div>
+			</div>
+			<ul class="cat-one-list">
+													<li class="list-date">11/20</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></li>									<li class="list-date">11/18</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2067/" rel="bookmark">手机Android通电自动开机(关机状态下)教程</a></li>									<li class="list-date">10/27</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2059/" rel="bookmark">企业微信-推送通知到普通微信-POST调用API</a></li>									<li class="list-date">10/27</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2051/" rel="bookmark">IFTTT通过POST调用API发送邮件</a></li>									<li class="list-date">09/17</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2040/" rel="bookmark">[猫盘]原版Frp.安装使用教程 (群晖)(ARM)</a></li>									<li class="list-date">09/16</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2029/" rel="bookmark">[猫盘]内网穿透SakuraFrp[群辉][ARM]</a></li>									<li class="list-date">09/16</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2023/" rel="bookmark">[猫盘]安装Tmux[群晖][ARM]</a></li>									<li class="list-date">09/09</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2005/" rel="bookmark">[猫盘]ipv6和ipv4动态域名(dynv6)[群晖]</a></li>									<li class="list-date">08/22</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2000/" rel="bookmark">clover导致Win10蓝屏</a></li>									<li class="list-date">07/19</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1998/" rel="bookmark">Win10关闭“最近使用的文件”的功能</a></li>											</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/" title=""><i class="fa fa-bars"></i>网站运维<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+			<div class="line-one-img">
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/1983/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/14.jpg" alt="python脚本getcwd报错'No such file or directory'" /></a>					</figure>
+									<figure class="line-one-thumbnail">
+						<a href="https://shusanjing.github.io/wp/wp2static/p/1974/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/20.jpg" alt="rclone.config-mail.notif 报错邮件通知" /></a>					</figure>
+								<div class="clear"></div>
+			</div>
+			<ul class="cat-one-list">
+													<li class="list-date">06/12</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1983/" rel="bookmark">python脚本getcwd报错&#8217;No such file or directory&#8217;</a></li>									<li class="list-date">05/29</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1974/" rel="bookmark">rclone.config-mail.notif 报错邮件通知</a></li>									<li class="list-date">05/28</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1969/" rel="bookmark">rclone批量编辑谷歌共享盘</a></li>									<li class="list-date">04/14</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1935/" rel="bookmark">debian9安装docker+compose(最新版)</a></li>									<li class="list-date">08/01</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1860/" rel="bookmark">windows10使用锐速加速上传</a></li>									<li class="list-date">12/18</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1709/" rel="bookmark">Tmux命令表:管理远程SSH会话(替代Screen)</a></li>									<li class="list-date">12/09</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1641/" rel="bookmark">禁用 medium_large_size_w参数 禁止WordPress自动生成768宽度缩略图</a></li>									<li class="list-date">12/07</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1588/" rel="bookmark">backup2mail.sh 服务器内容自动压缩分卷成附件大小发送到邮箱备份</a></li>									<li class="list-date">12/06</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1531/" rel="bookmark">插件:[耗尽性能]DNUI (Delete Not Used Image)删除无用图片</a></li>									<li class="list-date">09/18</li>					<li class="list-cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1235/" rel="bookmark">Quotmarks Replacer：禁止WordPress将半角符号转换成全角符号（字符转义）</a></li>											</ul>
+			<div class="clear"></div>
+		</div>
+	</div>
+				</div>
+						<!-- 图片日志 -->
+							<div class="line-four">
+					<div class="clear"></div>				</div>
+						<!-- 两栏小工具 -->
+				<div id="cms-widget-two" class="wow fadeInUp" data-wow-delay="0.5s">
+			<aside class="add-widgets">
+			<a href="https://shusanjing.github.io/wp/wp2static/wp-admin/widgets.php" target="_blank">为“杂志两栏小工具”添加小工具</a>
+		</aside>
+		<div class="clear"></div>
+</div>
+			<!-- 视频日志 -->
+							<div class="line-four">
+					<div class="clear"></div>				</div>
+						<!-- 主体两栏分类 -->
+							<div class="line-small">
+					<div class="xl2 xm2">
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/" title=""><i class="fa fa-bars"></i>电脑相关<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+													<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></h2>						<figure class="thumbnail"><a href="https://shusanjing.github.io/wp/wp2static/p/2082/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/13.jpg" alt="路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]" /></a></figure>
+														<div class="cat-main">
+						说明:把手机流量通过USB共享给路由器 原理:手机USB连接路由器后, 路由器USB...					</div>
+							
+			<div class="clear"></div>
+			<ul class="cat-list">
+													<li class="list-date">11/18</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2067/" rel="bookmark">手机Android通电自动开机(关机状态下)教程</a></li>									<li class="list-date">10/27</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2059/" rel="bookmark">企业微信-推送通知到普通微信-POST调用API</a></li>									<li class="list-date">10/27</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2051/" rel="bookmark">IFTTT通过POST调用API发送邮件</a></li>									<li class="list-date">09/17</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2040/" rel="bookmark">[猫盘]原版Frp.安装使用教程 (群晖)(ARM)</a></li>											</ul>
+		</div>
+	</div>
+</div>
+<div class="xl2 xm2">
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/" title=""><i class="fa fa-bars"></i>网站运维<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+													<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1983/" rel="bookmark">python脚本getcwd报错&#8217;No such file or directory&#8217;</a></h2>						<figure class="thumbnail"><a href="https://shusanjing.github.io/wp/wp2static/p/1983/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/1.jpg" alt="python脚本getcwd报错'No such file or directory'" /></a></figure>
+														<div class="cat-main">
+						提示错误shell-init: error retrieving current d...					</div>
+							
+			<div class="clear"></div>
+			<ul class="cat-list">
+													<li class="list-date">05/29</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1974/" rel="bookmark">rclone.config-mail.notif 报错邮件通知</a></li>									<li class="list-date">05/28</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1969/" rel="bookmark">rclone批量编辑谷歌共享盘</a></li>									<li class="list-date">04/14</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1935/" rel="bookmark">debian9安装docker+compose(最新版)</a></li>									<li class="list-date">08/01</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1860/" rel="bookmark">windows10使用锐速加速上传</a></li>											</ul>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>				</div>
+						<!-- TAB切换 -->
+							<div class="tab-site wow fadeInUp" data-wow-delay="0.3s">
+	<div id="layout-tab" class="tab-product">
+	    <h2 class="tab-hd">
+		    <span class="tab-hd-con"><a href="javascript:">推荐文章</a></span>
+		    <span class="tab-hd-con"><a href="javascript:">专题文章</a></span>
+		    <span class="tab-hd-con"><a href="javascript:">分类文章</a></span>
+	    </h2>
+
+		<div class="tab-bd dom-display">
+
+			<ul class="tab-bd-con current">
+								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2135/" rel="bookmark">南瓜电影app投屏到windows</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></li>											</ul>
+
+			<ul class="tab-bd-con">
+								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2135/" rel="bookmark">南瓜电影app投屏到windows</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></li>										    </ul>
+
+			<ul class="tab-bd-con">
+								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2135/" rel="bookmark">南瓜电影app投屏到windows</a></li>								<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></li>											</ul>
+
+		</div>
+	</div>
+</div>
+<div class="clear"></div>			
+		</main><!-- .site-main -->
+	</div><!-- .content-area -->
+<!-- 侧边小工具 -->
+<div id="sidebar" class="widget-area cms-sidebar">
+	<div class="wow fadeInUp" data-wow-delay="0.5s">
+		<aside id="cx_tag_cloud-2" class="widget cx_tag_cloud wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><i class="fa fa-bars"></i>热门标签</h3>	<div class="tagcloud">
+	<a href="https://shusanjing.github.io/wp/wp2static/p/tag/wordpress/" class="tag-cloud-link tag-link-3 tag-link-position-1" style="font-size: 14px;">wordpress</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%a7%86%e9%a2%91/" class="tag-cloud-link tag-link-20 tag-link-position-2" style="font-size: 14px;">视频</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%89%8b%e6%9c%ba/" class="tag-cloud-link tag-link-26 tag-link-position-3" style="font-size: 14px;">手机</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e4%b8%8b%e8%bd%bd/" class="tag-cloud-link tag-link-21 tag-link-position-4" style="font-size: 14px;">下载</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e5%8d%9a%e5%ae%a2/" class="tag-cloud-link tag-link-4 tag-link-position-5" style="font-size: 14px;">博客</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/webdav/" class="tag-cloud-link tag-link-52 tag-link-position-6" style="font-size: 14px;">webdav</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/vps/" class="tag-cloud-link tag-link-14 tag-link-position-7" style="font-size: 14px;">vps</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%84%9a%e6%9c%ac/" class="tag-cloud-link tag-link-36 tag-link-position-8" style="font-size: 14px;">脚本</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" class="tag-cloud-link tag-link-19 tag-link-position-9" style="font-size: 14px;">浏览器</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/ubuntu/" class="tag-cloud-link tag-link-34 tag-link-position-10" style="font-size: 14px;">ubuntu</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e6%98%af%e5%90%a6/" class="tag-cloud-link tag-link-68 tag-link-position-11" style="font-size: 14px;">是否</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" class="tag-cloud-link tag-link-77 tag-link-position-12" style="font-size: 14px;">路由器</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/linux/" class="tag-cloud-link tag-link-33 tag-link-position-13" style="font-size: 14px;">linux</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/amp/" class="tag-cloud-link tag-link-43 tag-link-position-14" style="font-size: 14px;">amp</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e5%bc%80%e5%a7%8b/" class="tag-cloud-link tag-link-69 tag-link-position-15" style="font-size: 14px;">开始</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e7%bd%91%e7%ab%99/" class="tag-cloud-link tag-link-5 tag-link-position-16" style="font-size: 14px;">网站</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e9%82%ae%e4%bb%b6/" class="tag-cloud-link tag-link-16 tag-link-position-17" style="font-size: 14px;">邮件</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e8%bd%af%e4%bb%b6/" class="tag-cloud-link tag-link-10 tag-link-position-18" style="font-size: 14px;">软件</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/%e7%94%b5%e8%84%91/" class="tag-cloud-link tag-link-11 tag-link-position-19" style="font-size: 14px;">电脑</a>
+<a href="https://shusanjing.github.io/wp/wp2static/p/tag/pt/" class="tag-cloud-link tag-link-9 tag-link-position-20" style="font-size: 14px;">pt</a>	<div class="clear"></div>
+	</div>
+
+<div class="clear"></div></aside><aside id="site_profile-2" class="widget site_profile wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><i class="fa fa-bars"></i>网站概况</h3>
+<div class="site-profile">
+	<ul>
+		<li><i class="fa fa-file-o"></i>文章总数<span>95 篇</span></li>
+		<li><i class="fa fa-commenting-o"></i>评论留言<span>1 条</span></li>
+		<li><i class="fa fa-folder-o"></i>分类目录<span>7 个</span></li>
+		<li><i class="fa fa-tags"></i>文章标签<span>68 个</span></li>
+		<li><i class="fa fa-link"></i>友情链接<span>0 个</span></li>
+		<li><i class="fa fa-clock-o"></i>网站运行<span>1890 天</span></li>
+		<li><i class="fa fa-eye"></i>浏览总量<span>128738 次</span></li>
+		<li><i class="fa fa-pencil-square-o"></i>最后更新<span>2022年2月28日</span></li>
+	</ul>
+</div>
+
+<div class="clear"></div></aside><aside id="zmtabs-2" class="widget widget_zm_tabs wow fadeInUp" data-wow-delay="0.3s">
+<div class="zm-tabs-nav group tab-count-2"><span class="zm-tab tab-recent"><a href="#tab-recent-2" title="最新文章"><i class="fa fa-sticky-note-o"></i><span>最新文章</span></a></span><span class="zm-tab tab-popular"><a href="#tab-popular-2" title="热评文章"><i class="fa fa-heart-o"></i><span>热评文章</span></a></span></div>
+	<div class="zm-tabs-container">
+
+		
+						
+			<div class="new_cat">
+				<ul id="tab-recent-2" class="zm-tab group thumbs-enabled" style="display:block;">
+				<h4>最新文章</h4>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+						<span class="date">02/28</span>
+						<span class="views"><i class="fa fa-eye"></i> 20 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
+						<span class="date">02/28</span>
+						<span class="views"><i class="fa fa-eye"></i> 20 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/20.jpg" alt="windows开机启动文件夹在哪里" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
+						<span class="date">03/03</span>
+						<span class="views"><i class="fa fa-eye"></i> 465 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/19.jpg" alt="windows自定义快速启动（运行）命令" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
+						<span class="date">03/03</span>
+						<span class="views"><i class="fa fa-eye"></i> 378 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2140/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/5.jpg" alt="Faststone Capture使用优化设置" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></span>
+						<span class="date">01/10</span>
+						<span class="views"><i class="fa fa-eye"></i> 445 views</span>					</li>
+														</ul><!--/.zm-tab-->
+			</div>
+		
+		
+			
+			<div class="new_cat">
+				<ul id="tab-popular-2" class="zm-tab group thumbs-enabled">
+				<h4>热评文章</h4>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2138/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/1.jpg" alt="手机改装无电池工作(法拉电容替代电池)[教程]" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2138/" rel="bookmark">手机改装无电池工作(法拉电容替代电池)[教程]</a></span>
+						<span class="date">12/22</span>
+						<span class="views"><i class="fa fa-eye"></i> 2,739 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/251/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=http://shusanjing.github.io/wp/wp2static/wp-content/uploads/2020/11/754163bc5e345e36f46ef97022e469a3_0.5357013986474854.png&w=280&h=210&a=&zc=1" alt="条条大路通罗马：网站的301转跳优化" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/251/" rel="bookmark">条条大路通罗马：网站的301转跳优化</a></span>
+						<span class="date">05/26</span>
+						<span class="views"><i class="fa fa-eye"></i> 969 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/286/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2017/09/52334eb3167912ed40175a7c4b974b24_0.24863470446921543.png&w=280&h=210&a=&zc=1" alt="UPS APC BK650-CN在windows10上的使用" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/286/" rel="bookmark">UPS APC BK650-CN在windows10上的使用</a></span>
+						<span class="date">05/26</span>
+						<span class="views"><i class="fa fa-eye"></i> 3,550 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/308/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=http://shusanjing.github.io/wp/wp2static/wp-content/uploads/2019/07/c52b9a08bbbc685ef863ea8d75b3d1c1_81cba5c6-c76f-4710-b2b0-de15befb9488.jpg&w=280&h=210&a=&zc=1" alt="宝塔linux面板部署SSL免费证书" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/308/" rel="bookmark">宝塔linux面板部署SSL免费证书</a></span>
+						<span class="date">05/26</span>
+						<span class="views"><i class="fa fa-eye"></i> 1,128 views</span>					</li>
+										<li>
+													<span class="thumbnail">
+								<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>							</span>
+												<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+						<span class="date">02/28</span>
+						<span class="views"><i class="fa fa-eye"></i> 20 views</span>					</li>
+														</ul><!--/.zm-tab-->
+			</div>
+		
+		
+		
+	</div>
+
+<div class="clear"></div></aside>
+<aside id="post_cat-2" class="widget post_cat wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><i class="fa fa-bars"></i>分类文章</h3>
+<div class="post_cat">
+	<ul>
+					<li class="cat-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></li>					<li class="cat-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></li>					<li class="cat-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></li>					<li class="cat-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></li>					<li class="cat-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></li>					</ul>
+	<div class="clear"></div>
+</div>
+
+<div class="clear"></div></aside><aside id="new_cat-2" class="widget new_cat wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><i class="fa fa-bars"></i>最新文章</h3>
+<div class="new_cat">
+	<ul>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+			<span class="date">02/28</span>
+			<span class="views"><i class="fa fa-eye"></i> 20 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
+			<span class="date">02/28</span>
+			<span class="views"><i class="fa fa-eye"></i> 20 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/8.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
+			<span class="date">03/03</span>
+			<span class="views"><i class="fa fa-eye"></i> 465 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/17.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
+			<span class="date">03/03</span>
+			<span class="views"><i class="fa fa-eye"></i> 378 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2140/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/1.jpg" alt="Faststone Capture使用优化设置" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></span>
+			<span class="date">01/10</span>
+			<span class="views"><i class="fa fa-eye"></i> 445 views</span>		</li>
+					</ul>
+</div>
+
+<div class="clear"></div></aside><aside id="login-2" class="widget login wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><i class="fa fa-bars"></i>用户登录</h3>
+<div id="login_widget">
+			<form action="https://shusanjing.github.io/wp/wp2static/wp-login.php?redirect_to=https%3A%2F%2Fwww.luoji.men%2Fp%2F346%2F" method="post" class="loginform">
+			<p>
+				<input class="username" name="log" required="required" type="text" placeholder="名称"/>
+			</p>
+			<p>
+				<input class="password" name="pwd" required="required" type="password" placeholder="密码" />
+			</p>
+			<div class="login-form"></div>
+			<p class="login button"> 
+				<input type="submit" value="登录" />
+			</p>
+			<div class="login-widget-reg">
+				<input type="hidden" name="redirect_to" value="/page/10/" />
+				<label><input type="checkbox" name="rememberme" class="modlogn_remember" value="yes"  checked="checked">自动登录</label>
+				<a href="https://shusanjing.github.io/wp/wp2static/wp-login.php?action=lostpassword">&nbsp;&nbsp;找回密码</a>
+							</div>
+		</form>
+		</div>
+
+<div class="clear"></div></aside>	</div>
+</div>
+<div class="clear"></div><!-- 横向图片滚动 -->
+<div class="wow fadeInUp" data-wow-delay="0.3s">
+	<ul id="flexisel">
+	    <li>
+    	<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>    	<h2 class="flexisel-h-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></h2>	</li>
+	    <li>
+    	<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>    	<h2 class="flexisel-h-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></h2>	</li>
+	    <li>
+    	<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/19.jpg" alt="windows开机启动文件夹在哪里" /></a>    	<h2 class="flexisel-h-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></h2>	</li>
+	    <li>
+    	<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/2.jpg" alt="windows自定义快速启动（运行）命令" /></a>    	<h2 class="flexisel-h-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></h2>	</li>
+		</ul>
+<div class="clear"></div></div>
+<!-- 底部分类 -->
+	<div class="line-big">
+		<div class="xl3 xm3">
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/" title=""><i class="fa fa-bars"></i>电脑相关<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+													<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></h2>						<figure class="thumbnail"><a href="https://shusanjing.github.io/wp/wp2static/p/2082/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/4.jpg" alt="路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]" /></a></figure>
+														<div class="cat-main">
+						说明:把手机流量通过USB共享给路由器 原理:手机USB连接路由器后, 路由器USB接口作为路由器的WAN外网出口. 过程非常简单 1.手机开启USB网络共享 2.路由器上启用USB调制解调...					</div>
+							
+			<div class="clear"></div>
+
+			<ul class="cat-list">
+													<li class="list-date">11/18</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2067/" rel="bookmark">手机Android通电自动开机(关机状态下)教程</a></li>									<li class="list-date">10/27</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2059/" rel="bookmark">企业微信-推送通知到普通微信-POST调用API</a></li>									<li class="list-date">10/27</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2051/" rel="bookmark">IFTTT通过POST调用API发送邮件</a></li>									<li class="list-date">09/17</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2040/" rel="bookmark">[猫盘]原版Frp.安装使用教程 (群晖)(ARM)</a></li>											</ul>
+		</div>
+	</div>
+</div>
+<div class="xl3 xm3">
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/" title=""><i class="fa fa-bars"></i>网站运维<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+													<h2 class="entry-title"><a href="https://shusanjing.github.io/wp/wp2static/p/1983/" rel="bookmark">python脚本getcwd报错&#8217;No such file or directory&#8217;</a></h2>						<figure class="thumbnail"><a href="https://shusanjing.github.io/wp/wp2static/p/1983/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/16.jpg" alt="python脚本getcwd报错'No such file or directory'" /></a></figure>
+														<div class="cat-main">
+						提示错误shell-init: error retrieving current directory: getcwd: cannot access parent directories: N...					</div>
+							
+			<div class="clear"></div>
+
+			<ul class="cat-list">
+													<li class="list-date">05/29</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1974/" rel="bookmark">rclone.config-mail.notif 报错邮件通知</a></li>									<li class="list-date">05/28</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1969/" rel="bookmark">rclone批量编辑谷歌共享盘</a></li>									<li class="list-date">04/14</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1935/" rel="bookmark">debian9安装docker+compose(最新版)</a></li>									<li class="list-date">08/01</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1860/" rel="bookmark">windows10使用锐速加速上传</a></li>											</ul>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>	</div>
+<!-- 淘客 -->
+	<div class="line-tao">
+		<div class="clear"></div>	</div>
+<!-- 下载 -->
+<!-- 产品 -->
+<!-- 无缩略图分类 -->
+	<div class="line-big">
+		<div class="xl3 xm3">
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e7%94%b5%e8%84%91%e7%9b%b8%e5%85%b3/" title=""><i class="fa fa-bars"></i>电脑相关<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+			<ul class="cat-list">
+									<li class="list-date">11/20</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2082/" rel="bookmark">路由器Padavan通过手机USB共享上网并且允许ipv6穿透[教程]</a></li>									<li class="list-date">11/18</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2067/" rel="bookmark">手机Android通电自动开机(关机状态下)教程</a></li>									<li class="list-date">10/27</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2059/" rel="bookmark">企业微信-推送通知到普通微信-POST调用API</a></li>									<li class="list-date">10/27</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/2051/" rel="bookmark">IFTTT通过POST调用API发送邮件</a></li>											</ul>
+		</div>
+	</div>
+</div>
+<div class="xl3 xm3">
+	<div class="cat-box wow fadeInUp" data-wow-delay="0.3s">
+		<h3 class="cat-title"><a href="https://shusanjing.github.io/wp/wp2static/p/%e6%9c%ac%e7%ab%99%e8%bf%90%e7%bb%b4/" title=""><i class="fa fa-bars"></i>网站运维<i class="fa fa-angle-right"></i></a></h3>
+		<div class="clear"></div>
+		<div class="cat-site">
+			<ul class="cat-list">
+									<li class="list-date">06/12</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1983/" rel="bookmark">python脚本getcwd报错&#8217;No such file or directory&#8217;</a></li>									<li class="list-date">05/29</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1974/" rel="bookmark">rclone.config-mail.notif 报错邮件通知</a></li>									<li class="list-date">05/28</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1969/" rel="bookmark">rclone批量编辑谷歌共享盘</a></li>									<li class="list-date">04/14</li>					<li class="list-title"><i class="fa fa-angle-right"></i><a href="https://shusanjing.github.io/wp/wp2static/p/1935/" rel="bookmark">debian9安装docker+compose(最新版)</a></li>											</ul>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>	</div>
+<!-- 页脚 -->
+	</div><!-- .site-content -->
+
+	<div class="clear"></div>
+	
+	<div id="footer-widget-box" class="site-footer wow fadeInUp" data-wow-delay="0.3s">
+	<div class="footer-widget">
+		<aside id="img_cat-2" class="widget img_cat wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><span class="s-icon"></span>分类图片</h3>
+<div class="picture img_cat">
+		<span class="img-box">
+		<span class="img-x2">
+			<span class="insets">
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
+		</span>
+	</span>
+		<span class="img-box">
+		<span class="img-x2">
+			<span class="insets">
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
+		</span>
+	</span>
+		<span class="img-box">
+		<span class="img-x2">
+			<span class="insets">
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/18.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+		</span>
+	</span>
+		<span class="img-box">
+		<span class="img-x2">
+			<span class="insets">
+				<span class="img-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/12.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+		</span>
+	</span>
+			<div class="clear"></div>
+</div>
+
+<div class="clear"></div></aside><aside id="new_cat-3" class="widget new_cat wow fadeInUp" data-wow-delay="0.3s"><h3 class="widget-title"><span class="s-icon"></span>最新文章</h3>
+<div class="new_cat">
+	<ul>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2169/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/089f6f9d29ac74a5765be5878041d794_cfa8a76a-c88b-4b0d-adad-633e6e1d382e.jpg&w=280&h=210&a=&zc=1" alt="UPS无通讯功能Windows停电自动关机脚本" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2169/" rel="bookmark">UPS无通讯功能Windows停电自动关机脚本</a></span>
+			<span class="date">02/28</span>
+			<span class="views"><i class="fa fa-eye"></i> 20 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2162/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/timthumb.php?src=https://shusanjing.github.io/wp/wp2static/wp-content/uploads/2022/02/013b123ddb107b62e413fd09f9a2207e_a0532c64-f385-4f2b-b614-c0239a9cd349.png&w=280&h=210&a=&zc=1" alt="PrimoCache激活工具测试有效性" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2162/" rel="bookmark">PrimoCache激活工具测试有效性</a></span>
+			<span class="date">02/28</span>
+			<span class="views"><i class="fa fa-eye"></i> 20 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2151/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/16.jpg" alt="windows开机启动文件夹在哪里" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2151/" rel="bookmark">windows开机启动文件夹在哪里</a></span>
+			<span class="date">03/03</span>
+			<span class="views"><i class="fa fa-eye"></i> 465 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2148/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/15.jpg" alt="windows自定义快速启动（运行）命令" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2148/" rel="bookmark">windows自定义快速启动（运行）命令</a></span>
+			<span class="date">03/03</span>
+			<span class="views"><i class="fa fa-eye"></i> 378 views</span>		</li>
+				<li>
+			<span class="thumbnail">
+				<a href="https://shusanjing.github.io/wp/wp2static/p/2140/"><img src="https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/img/random/5.jpg" alt="Faststone Capture使用优化设置" /></a>			</span>
+			<span class="new-title"><a href="https://shusanjing.github.io/wp/wp2static/p/2140/" rel="bookmark">Faststone Capture使用优化设置</a></span>
+			<span class="date">01/10</span>
+			<span class="views"><i class="fa fa-eye"></i> 445 views</span>		</li>
+					</ul>
+</div>
+
+<div class="clear"></div></aside>		<div class="clear"></div>
+	</div>
+</div>
+
+	<footer id="colophon" class="site-footer wow fadeInUp" data-wow-delay="0.3s" role="contentinfo">
+		<div class="site-info">
+			Copyright ©  逻辑门  版权所有.			<span class="add-info">
+											</span>
+		</div><!-- .site-info -->
+	</footer><!-- .site-footer -->
+<div id="login">
+	
+	<div id="login-tab" class="login-tab-product">
+	    <h2 class="login-tab-hd">
+			<span class="login-tab-hd-con"><a href="javascript:">登录</a></span>
+									<span class="login-tab-hd-con"><a href="javascript:">找回密码</a></span>	    </h2>
+	
+		<div class="login-tab-bd login-dom-display">
+			<div class="login-tab-bd-con login-current">
+				<div id="tab1_login" class="tab_content_login">
+					<form method="post" action="https://shusanjing.github.io/wp/wp2static/wp-login.php" class="wp-user-form">
+						<div class="username">
+							<label for="user_login">用户名</label>
+							<input type="text" name="log" value="" size="20" id="user_login" tabindex="11" />
+						</div>
+						<div class="password">
+							<label for="user_pass">密码</label>
+							<input type="password" name="pwd" value="" size="20" id="user_pass" tabindex="12" />
+						</div>
+						<div class="login-form"></div>
+						<div class="login_fields">
+							<div class="rememberme">
+								<label for="rememberme">
+									<input type="checkbox" name="rememberme" value="forever" checked="checked" id="rememberme" tabindex="13" />记住我的登录信息								</label>
+							</div>
+							<input type="submit" name="user-submit" value="登录" tabindex="14" class="user-submit" />
+							<input type="hidden" name="redirect_to" value="/page/10/" />
+							<input type="hidden" name="user-cookie" value="1" />
+						</div>
+					</form>
+				</div>
+			</div>
+
+						
+						<div class="login-tab-bd-con">
+				<div id="tab3_login" class="tab_content_login">
+					<p class="message">输入用户名或电子邮箱地址，您会收到一封新密码链接的电子邮件。</p>
+					<form method="post" action="https://shusanjing.github.io/wp/wp2static/wp-login.php?action=lostpassword" class="wp-user-form">
+						<div class="username">
+							<label for="user_login" class="hide">用户名或电子邮件地址</label>
+							<input type="text" name="user_login" value="" size="20" id="user_login" tabindex="1001" />
+						</div>
+						<div class="login_fields">
+							<div class="login-form"></div>
+							<input type="submit" name="user-submit" value="获取新密码" class="user-submit" tabindex="1002" />
+														<input type="hidden" name="redirect_to" value="/page/10/?reset=true" />
+							<input type="hidden" name="user-cookie" value="1" />
+						</div>
+					</form>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+
+	</div>
+
+<ul id="scroll">
+	<li class="log log-no"><a class="log-button" title="文章目录"><i class="fa fa-bars"></i></a><div class="log-prompt"><div class="log-arrow">文章目录</div></div></li>
+	<li><a class="scroll-h" title="返回顶部"><i class="fa fa-angle-up"></i></a></li>
+		<li><a class="scroll-b" title="转到底部"><i class="fa fa-angle-down"></i></a></li>
+	<li class="gb2-site"><a id="gb2big5"><span>繁</span></a></li>				<li class="qr-site"><a href="javascript:void(0)" class="qr" title="本页二维码"><i class="fa fa-qrcode"></i><span class="qr-img"><span id="output"><img class="alignnone" src="" alt="icon"/></span><span class="arrow arrow-z"><i class="fa fa-caret-right"></i></span><span class="arrow arrow-y"><i class="fa fa-caret-right"></i></span></span></a></li>
+		<script type="text/javascript">$(document).ready(function(){if(!+[1,]){present="table";} else {present="canvas";}$('#output').qrcode({render:present,text:window.location.href,width:"150",height:"150"});});</script>
+	</ul>
+<script type="text/javascript">
+    document.onkeydown = chang_page;function chang_page(e) {
+        var e = e || event,
+        keycode = e.which || e.keyCode;
+        if (keycode == 37) location = 'https://shusanjing.github.io/wp/wp2static/page/9/';
+        if (keycode == 39) location = 'https://shusanjing.github.io/wp/wp2static/page/11/';
+    }
+</script>
+
+</div><!-- .site -->
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip">
+                </div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div><script type='text/javascript' id='toc-front-js-extra'>
+/* <![CDATA[ */
+var tocplus = {"smooth_scroll":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/plugins/table-of-contents-plus/front.min.js?ver=2002' id='toc-front-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/superfish.js?ver=2017.05.10' id='superfish-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/gb2big5.js?ver=2017.05.10' id='gb2big5-js'></script>
+<script type='text/javascript' src='https://shusanjing.github.io/wp/wp2static/wp-content/themes/begin/js/carousel.min.js?ver=2017.05.10' id='carousel-js'></script>
+
+</body>
+</html>

@@ -1,0 +1,519 @@
+#noty_center_layout_container img {
+	vertical-align: middle;
+}
+
+#qqworld-auto-save-images-tabs {
+	height: 40px;
+	margin-top: 35px;
+	border-bottom: 1px solid #aaa;
+	box-shadow: inset 0 -7px 10px rgba(0,0,0,.05);
+}
+#qqworld-auto-save-images-tabs li {
+	float: left;
+	height: 39px;
+	line-height: 39px;
+	font-size: 24px;
+	padding: 0 40px;
+	border: 1px solid #aaa;
+	margin: 0 5px;
+	cursor: pointer;
+	border-radius: 5px 5px 0 0;
+	color: #aaa;
+	-webkit-transition: width .25s, height .25s, background .25s, color .25s, box-shadow .25s;
+	-moz-transition: width .25s, height .25s, background .25s, color .25s, box-shadow .25s;
+	-o-transition: width .25s, height .25s, background .25s, color .25s, box-shadow .25s;
+	-ms-transition: width .25s, height .25s, background .25s, color .25s, box-shadow .25s;
+	transition: width .25s, height .25s, background .25s, color .25s, box-shadow .25s;
+}
+#qqworld-auto-save-images-tabs li:hover {
+	color: #666;
+	background: #fff;
+	box-shadow: inset 0 -7px 10px rgba(0,0,0,.05);
+}
+#qqworld-auto-save-images-tabs li.current {
+	color: #333;
+	position: relative;
+	top: 1px;
+	height: 43px;
+	line-height: 40px;
+	border-bottom: none;
+	background: #f1f1f1;
+	box-shadow: none;
+}
+.tab-content.hidden {
+	display: none;
+}
+
+#watermark-align-to {
+	border-collapse: collapse;
+	border: 3px solid #ddd;
+
+}
+#watermark-align-to td {
+	border: 1px solid #ddd;
+	background: #fff;
+	padding: 0;
+}
+#watermark-align-to td label{
+	display: block;
+	padding: 5px;
+}
+#watermark-align-to td:hover {
+	background: #f4f4f4;
+}
+#watermark-align-to td input {
+	margin: 0;
+}
+
+#watermark-position {
+	border: 10px solid #fff;
+	display: inline-block;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.1);
+	position: relative;
+	width: 800px;
+	height: 450px;
+}
+#watermark-test {
+	position: absolute;
+	cursor: move;
+}
+#upload-watermark-image img {
+	width: auto;
+	height: auto;
+}
+
+.readme {
+	background: #fff;
+	margin: 25px 0 15px;
+	border-left: 4px solid #7ad03a;
+	padding: 1px 12px;
+	background-color: #fff;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.readme p {
+	margin: .5em 0;
+	padding: 2px;
+}
+
+.qc-banner {
+	max-width: 100%;
+	display: block;
+	margin: 20px 0;
+	border: 10px solid #fff;
+	box-sizing: border-box;
+	box-shadow: 3px 3px 3px rgba(0,0,0,.1);
+}
+#post_types_list, #exclude_domain_list {
+	margin: 0;
+}
+#scan_old_post_list,
+#comparison-table {
+	border-collapse: collapse;
+	border: 1px solid #e4e4e4;
+	border-bottom: 3px solid #e4e4e4;
+	text-align: left;
+	background: #fff;
+	width: 100%;
+}
+#comparison-table thead th {
+	color: #fff;
+}
+#comparison-table .comparison-cell {
+	width: 70px;
+	text-align: center;
+}
+#scan_old_post_list tbody tr:nth-child(odd),
+#comparison-table tbody tr:nth-child(odd) {
+	background: #fafafa;
+}
+#scan_old_post_list tbody tr:hover,
+#comparison-table tbody tr:hover {
+	background: #fcfcb7;
+}
+#scan_old_post_list tbody tr a,
+#comparison-table tbody tr a {
+	text-decoration: none;
+}
+#scan_old_post_list thead tr,
+#comparison-table thead tr {
+	background: #2ea2cc;
+	border-bottom: 2px solid #0074a2;
+	color: #fff;
+}
+#scan_old_post_list td, #scan_old_post_list th,
+#comparison-table td, #comparison-table th {
+	padding: 5px 20px;
+	border-bottom: 1px solid #e4e4e4;
+}
+#comparison-table td, #comparison-table th {
+	padding: 15px 20px;
+	min-height: 18px;
+}
+#scan_old_post_list td.hr,
+#comparison-table td.hr {
+	padding: 1px 0 0 0;
+}
+#scan_old_post_list .green {
+	color: green;
+}
+#scan_old_post_list .red {
+	color: red;
+}
+#comparison-table td.green {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAQCAMAAAAlM38UAAABMlBMVEUAAAAvmgcznA0wjA4tlQojkwAklAE0nQwtmAgikgAumAotmAYvmgohkgEolgYhkwNesUY0nQw4hBk1ihQplgRDox8qlwRLpyM2nRVDox03mRA1nBI1nA5KpicmlQc5nhAgkgByuzI9oBFPqStesCVitCWKxT2SyT05nhB+wDWcz0ZcpTV9v1Cdz0CZzEa02neCwjh2vTNptTNuuDBsuC2Jxm9suCHO52CGwzbC4Vuw2FBSqjC934CTykK221as1lDN54Sk0kpvs0daqSuFw2CIxDO63nLU6YB+wFeKxTu02luEw0LB4HSt1m5ntCk4kxVqsD1ntidKpyeUy1yUymB4vCfH5Ky1236s14F3vSvF457b7Wfn85bi8IHP53m93oxZrjnW6oi43FLC4H2h0UpLpycSo93OAAAAU3RSTlMANA6/v5hWCz9PxSk4oEVC/QX+9yPJzu/r5/eiqv2A+lv//////////v///////////////////////////////////////////////////////kPDU5EAAADWSURBVBjTY8AAnKnSDFhElWOCebGIJkbHhsgAWdyc7EiiDuZJ5nGpQFFxHVaYKJuyg6WVpZUSH4OIhK87TJzTOtnO0c5RiZ+BQVLfS9fHAyzOZm1jr2WvpcQHZIt66+qpu7kALVdIsNFST7FV4gApYRcz1vN01TeV4xOIV7ew9QSKggETl5+aQWi4qUCUhaaaJkQUrJ5F1cDQLCIs0kxTUYMH4QV2LhXDQBNFVUVjDahaqDkszooqKiZGUjyoXhZk0TZSDfBnRA8KdmZtJ2GgCZjiQshqAS2MHUxeD+kOAAAAAElFTkSuQmCC);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#comparison-table td.red {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAzFBMVEUAAADNNx3KMRXOMRrMOyDLNRrJLxPMPSHILxLMPCDOPiHPQSbTUz7QLBTTSDLLMxnHLhPKNRnNMRrOLRnVLxjtLxrpJBLVAgHoHg7dBgTUUDrlEgbqMRjySijTSDL5UivyLhn7bl3XTTn+WS7gVEH9YTP9cVvhHxHvQSPdDgfLBALYCQXsVUvvNRjkFwzMJBTiDwjmTUjeRETPKBbnUUnUTTnpSDX3WDLzcFjzUij2Syn2XjD9Vkr4Nhz/UCf+cFX5ajj7bzfURC3YSzZTfvKQAAAAH3RSTlMAjm37bWpQZ2dQhony8vuJhlD9///////////////+4lBxZAAAANBJREFUGNMtjlUSg0AQRBuCxqt2Q7AQPO6u2P3vlF3Cq6mZ7vl6AIRSRI1YCvwM46DSeNCqIB4CgziL0lBjPUyjLB7Ae3+LJA0VJUyT4vv2INNPkkdBvx9EefKhMqBSf/qa3u9s+VQFQ6L+83G7PZ4+lVCj99wJw+3p+KN0r5v5fHPtKo2PvR65IzZrW6x97LNpGLOZYZhnWwPky8Ext4tWa7E1ncNFhne0nP2K6DpZ7R3r6KFzGltjogIqYeHUAdq7Je/8s9y1eRBI4yMRAfgB/N4W4X0kdh8AAAAASUVORK5CYII=);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#comparison-table .price {
+	font-size: 22px;
+	font-family: fantasy;
+}
+
+#scan-result {
+	margin-top: 20px;
+}
+span.icon.help {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWhQTFRF8vf7UJvOM32pAF2UzN3tf67JQorDRo/HdrPaWZHGYJq80ez3ksPcvN/vpsXhOH69tNXputzuRo20jbzYfLPQgK7Ke7HQTI26xuPyEWief6rTQIC9dKbFOX+9m8PfX5fCZqDHN328jszpv9XprcjjRYu0yODwerjdkbfXPIG+wOPzqcjjdK3WdLXcyef02ebyU5TJlrvcvOHycqLPb6LPmsLgl8jkn9LrqsrkDmWbap7NndDqgb7hnMrmZ6jUe7bbXaLSUJLIQITASoy4OH28ZaTSSpHIXZ/PudfrN3y7yuf0yeb0cafSSZHIx+TzcKTRgL7gS4y4fLLZUpXJocbia6zXQIbBaaDOYqLRZKPRs83lPIPARonDQofBqsnj5e72R4jBD2acn9DpuNfrmb3doNTtTIvDgbndZZnKWqHRbKTQm87oqsvkQYnDo9btSIvEUJC2S5XKMHuocKTDM3i54Ovy////////zvRcUAAAAHh0Uk5T//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AfFcYjAAAAPZJREFUeNosj9VuxEAUQ++Es8zMXGZm2C0zMzNNBpLfb9KtJcuWn3zAssVlLAhY5k4H23LI43W7vZ6Q3B5wpHfwqVT67lyPYGeIxraneg6W2c/R2EYsagGvJj5m0+dgSvrKfaLKIRMO7l5KZmoIbjqmg+EM4MBo/fRVX1jsg7X6TACDUJvTtOZZugypfu2lJoC4+oYQuiiD/oXQ/IMIJNdtGEZWkrJ27OcIuAojW6rqZ8yvqq3Dggt4cvxdUZhpMkXZ/ExysGi86+S4yFjxauc6Tp3rZM/3OHn7PDzgWyJtOHqXb1QqjfwE/ae1OCWiSOgf/q8AAwAHVUGvSjYh9gAAAABJRU5ErkJggg==);
+	vertical-align: middle;
+	cursor: help;
+}
+ul[id^="noty_"] li {
+	margin-bottom: 0;
+}
+
+#categories_block .postbox {
+	float: left;
+	margin-right: 25px;
+	min-width: initial;
+}
+#categories_block .postbox .hndle {
+	padding: 10px 15px;
+	cursor: initial;
+}
+#categories_block .postbox .inside {
+	padding: 0 25px 1px 15px;
+	max-height: 310px;
+	overflow: auto;
+}
+#categories_block .postbox .children {
+	margin: 10px 0 0 25px;
+}
+#categories_block .postbox .tabs-panel > ul {
+	margin: 0;
+}
+
+.common-list-table {
+	border-collapse: collapse;
+	width: 100%;
+	border: 1px solid #e4e4e4;
+	border-bottom: 3px solid #e4e4e4;
+	text-align: left;
+	background: #fff;
+}
+.common-list-table tbody tr:nth-child(odd) {
+	background: #fafafa;
+}
+.common-list-table tbody tr:hover {
+	background: #fcfcb7;
+}
+.common-list-table tbody tr a {
+	text-decoration: none;
+}
+.common-list-table thead tr {
+	background: #2ea2cc;
+	border-bottom: 2px solid #0074a2;
+	color: #fff;
+}
+.common-list-table td, .common-list-table th {
+	padding: 5px 20px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.common-list-table td.hr {
+	padding: 1px 0 0 0;
+}
+.common-list-table .green {
+	color: green;
+}
+.common-list-table .red {
+	color: red;
+}
+
+@media screen and ( max-width: 1320px ) {
+	#qqworld-auto-save-images-tabs li {
+		font-size: 24px;
+		padding: 0 26px;
+	}
+}
+@media screen and ( max-width: 1132px ) {
+	#qqworld-auto-save-images-tabs li {
+		font-size: 20px;
+		padding: 0 22px;
+	}
+}
+@media screen and ( max-width: 1000px ) {
+	#banner {
+		height: auto;
+	}
+	#qqworld-auto-save-images-tabs li {
+		font-size: 18px;
+		padding: 0 18px;
+	}
+}
+@media screen and ( max-width: 728px ) {
+	#qqworld-auto-save-images-tabs li {
+		font-size: 14px;
+		padding: 0 10px;
+		margin: 0 3px;
+	}
+}
+@media screen and ( max-width: 640px ) {
+	#qqworld-auto-save-images-tabs li {
+		font-size: 12px;
+		padding: 0 8px;
+		margin: 0 2px;
+	}
+}
+
+#qqworld-auto-save-images-container .qqworld-product-list {
+	padding: 10px 0;
+}
+#qqworld-auto-save-images-container .qqworld-product-list:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li {
+	float: left;
+	position: relative;
+	width: 250px;
+	filter: drop-shadow(1px 1px 5px rgba(0,0,0,.15));
+	box-sizing: border-box;
+	margin: 20px;
+	border-bottom: 2px solid #0073aa;
+	transition: filter .5s;
+	z-index: 1;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li:hover {
+	filter: drop-shadow(1px 1px 10px rgba(0,0,0,.25));
+	z-index: 2;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo {
+	position: relative;
+	margin: 0;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li:hover figure.photo a:after {
+	opacity: 1;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo a:after {
+	opacity: 0;
+	font-family: dashicons;
+	content: '\f312';
+	font-size: 28px;
+	color: rgba(255,255,255,.75);
+	width: 42px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	border: 3px solid rgba(255,255,255,.75);
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	text-shadow: 1px 1px 2px rgba(0,0,0,.15);
+	transition: all .3s;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo a:hover:after {
+	font-size: 32px;
+	color: #fff;
+	background: #fc0;
+	width: 58px;
+	height: 58px;
+	line-height: 58px;
+	border: 0 solid #fc0;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo a {
+	overflow: hidden;
+	display: block;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo img {
+	width: 100%;
+	height: auto;
+	float: left;
+	transform: scale(1, 1);
+	transition: transform .5s, filter .5s;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo:hover img {
+	transform: scale(1.1, 1.1);
+	filter: blur(3px);
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo .recommend {
+	background: #fc0;
+	display: block;
+	position: absolute;
+	left: -10px;
+	bottom: 0;
+	z-index: 1;
+	padding: 5px 15px;
+	text-shadow: 1px 1px 2px rgba(255,255,255,.85);
+	transition: opacity .5s;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo .recommend:before {
+	font-family: dashicons;
+	content: '\f529';
+	margin-right: 5px;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo .recommend:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 10px 0;
+	border-color: transparent #333 transparent transparent; 
+}
+#qqworld-auto-save-images-container .qqworld-product-list li figure.photo:hover .recommend {
+	opacity: 0;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li h3 {
+	margin: 0;
+	padding: 10px;
+	font-weight: 500;
+	background: #fff;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li h3:before {
+	font-family: dashicons;
+	content: '\f106';
+	margin-right: 5px;
+	color: #ccc;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li p.description {
+	background: #f7f7f7;
+	margin: 0;
+	padding: 10px;
+	text-align: justify;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li p.metas {
+	font-size: 12px;
+	margin: 0;
+	height: 0;
+	line-height: 39px;
+	padding: 0 10px;
+	background: #dcdcdc;
+	text-shadow: 1px 1px 1px #fff;
+	float: left;
+    width: 100%;
+    box-sizing: border-box;
+	transition: height .5s cubic-bezier(0.175,0.885,0.320,1.275);
+	overflow: hidden;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li:hover p.metas {
+	height: 39px;
+}
+
+#qqworld-auto-save-images-container .qqworld-product-list li p.metas span:before {
+	font-family: dashicons;
+	margin-right: 5px;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li p.metas .author {
+	float: left;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li p.metas .author:before {
+	content: '\f110';
+}
+#qqworld-auto-save-images-container .qqworld-product-list li p.metas .company {
+	float: right;
+}
+#qqworld-auto-save-images-container .qqworld-product-list li p.metas .company:before {
+	content: '\f102';
+}
+
+#product-info thead th {
+	white-space: nowrap;
+	width: auto;
+	text-align: center;
+	padding: 8px 5px;
+}
+#product-info tbody td.green {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAQCAMAAAAlM38UAAABMlBMVEUAAAAvmgcznA0wjA4tlQojkwAklAE0nQwtmAgikgAumAotmAYvmgohkgEolgYhkwNesUY0nQw4hBk1ihQplgRDox8qlwRLpyM2nRVDox03mRA1nBI1nA5KpicmlQc5nhAgkgByuzI9oBFPqStesCVitCWKxT2SyT05nhB+wDWcz0ZcpTV9v1Cdz0CZzEa02neCwjh2vTNptTNuuDBsuC2Jxm9suCHO52CGwzbC4Vuw2FBSqjC934CTykK221as1lDN54Sk0kpvs0daqSuFw2CIxDO63nLU6YB+wFeKxTu02luEw0LB4HSt1m5ntCk4kxVqsD1ntidKpyeUy1yUymB4vCfH5Ky1236s14F3vSvF457b7Wfn85bi8IHP53m93oxZrjnW6oi43FLC4H2h0UpLpycSo93OAAAAU3RSTlMANA6/v5hWCz9PxSk4oEVC/QX+9yPJzu/r5/eiqv2A+lv//////////v///////////////////////////////////////////////////////kPDU5EAAADWSURBVBjTY8AAnKnSDFhElWOCebGIJkbHhsgAWdyc7EiiDuZJ5nGpQFFxHVaYKJuyg6WVpZUSH4OIhK87TJzTOtnO0c5RiZ+BQVLfS9fHAyzOZm1jr2WvpcQHZIt66+qpu7kALVdIsNFST7FV4gApYRcz1vN01TeV4xOIV7ew9QSKggETl5+aQWi4qUCUhaaaJkQUrJ5F1cDQLCIs0kxTUYMH4QV2LhXDQBNFVUVjDahaqDkszooqKiZGUjyoXhZk0TZSDfBnRA8KdmZtJ2GgCZjiQshqAS2MHUxeD+kOAAAAAElFTkSuQmCC);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+#product-info tbody td.red {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAzFBMVEUAAADNNx3KMRXOMRrMOyDLNRrJLxPMPSHILxLMPCDOPiHPQSbTUz7QLBTTSDLLMxnHLhPKNRnNMRrOLRnVLxjtLxrpJBLVAgHoHg7dBgTUUDrlEgbqMRjySijTSDL5UivyLhn7bl3XTTn+WS7gVEH9YTP9cVvhHxHvQSPdDgfLBALYCQXsVUvvNRjkFwzMJBTiDwjmTUjeRETPKBbnUUnUTTnpSDX3WDLzcFjzUij2Syn2XjD9Vkr4Nhz/UCf+cFX5ajj7bzfURC3YSzZTfvKQAAAAH3RSTlMAjm37bWpQZ2dQhony8vuJhlD9///////////////+4lBxZAAAANBJREFUGNMtjlUSg0AQRBuCxqt2Q7AQPO6u2P3vlF3Cq6mZ7vl6AIRSRI1YCvwM46DSeNCqIB4CgziL0lBjPUyjLB7Ae3+LJA0VJUyT4vv2INNPkkdBvx9EefKhMqBSf/qa3u9s+VQFQ6L+83G7PZ4+lVCj99wJw+3p+KN0r5v5fHPtKo2PvR65IzZrW6x97LNpGLOZYZhnWwPky8Ext4tWa7E1ncNFhne0nP2K6DpZ7R3r6KFzGltjogIqYeHUAdq7Je/8s9y1eRBI4yMRAfgB/N4W4X0kdh8AAAAASUVORK5CYII=);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+#product-info .qc-svg {
+	padding-left: 120px;
+	background-size: 120px;
+	background-position: 0 center;
+	background-repeat: no-repeat;
+}
+	#product-info .qc-svg.collection {
+		background-image: url(../images/svg/collection.svg);
+	}
+	#product-info .qc-svg.attachments {
+		background-image: url(../images/svg/attachments.svg);
+	}
+	#product-info .qc-svg.watermark {
+		background-image: url(../images/svg/footprint.svg);
+	}
+	#product-info .qc-svg.translate {
+		background-image: url(../images/svg/chinese.svg);
+	}
+	#product-info .qc-svg.cloud-storage {
+		background-image: url(../images/svg/cloud-storage.svg);
+	}
+	#product-info .qc-svg.proxy {
+		background-image: url(../images/svg/agent.svg);
+	}
+	#product-info .qc-svg.database {
+		background-image: url(../images/svg/database.svg);
+	}
+	#product-info .qc-svg.anchor {
+		background-image: url(../images/svg/anchor.svg);
+	}
+	#product-info .qc-svg.pseudo-original {
+		background-image: url(../images/svg/pseudo-original.svg);
+	}
+	#product-info .qc-svg.cleaner {
+		background-image: url(../images/svg/cleaner.svg);
+	}
+
+/* 联系方式 */
+#qqworld-auto-save-images-container #contact-list .qr-code {
+	width: 200px;
+	position: relative;
+	-webkit-transition: filter .5s;
+	-moz-transition: filter .5s;
+	-o-transition: filter .5s;
+	-ms-transition: filter .5s;
+	transition: filter .5s;
+}
+#qqworld-auto-save-images-container #contact-list .qr-code:hover {
+	filter: drop-shadow(0 0 10px rgba(0,0,0,.15));
+	z-index: 1;
+}
+	#qqworld-auto-save-images-container #contact-list .qr-code.qq,
+	#qqworld-auto-save-images-container #contact-list .qr-code.wechat {
+		width: 420px;
+	}
