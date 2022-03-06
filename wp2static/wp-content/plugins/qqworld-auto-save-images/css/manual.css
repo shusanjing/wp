@@ -1,0 +1,8 @@
+#qqworld-gutenberg-toolbar-buttons #save-remote-images-button:before {
+    content: '\f161';
+	margin-right: 5px;
+    font-family: dashicons;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
