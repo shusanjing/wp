@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>padavan首选EXT4格式化U盘 - LuoJi.men</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="keywords" content="webdav,开始,浏览器,路由器,软件">
+    <meta name="description" itemprop="description" content="前言 路由器挂载USB硬盘时候,格式化成EXT4使用,最稳定. 其他两种EXFAT和NTFS在实际使用中都会遇到严重影响使用的bug.这对文件备份这种本身需求便是高重要性的业务来说,不可忍受. 实践环 [&hellip;]">
+    <meta name="theme-color" content="#282a2c">
+    <meta itemprop="image" content="https://luoji.men/wp-content/themes/kratos-4.1.2/assets/img/default.jpg" />
+        <meta name='description' content='前言 路由器挂载USB硬盘时候,格式化成EXT4使用,最稳定. 其他两种EXFAT和NTFS在实际使用中都会遇到严重影响使用的bug.这对文件备份这种本身需求便是高重要性的业务来说,不可忍受. 实践环 [&hellip;]' />
+<meta name='keywords' content='webdav,开始,浏览器,路由器,软件' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdn.seatonjiang.com' />
+<link rel='dns-prefetch' href='//zz.bdstatic.com' />
+<link rel='stylesheet' id='urvanov_syntax_highlighter-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/css/min/urvanov_syntax_highlighter.min.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/themes/classic/classic.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/fonts/monaco.css?ver=2.8.27' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/bootstrap.min.css?ver=4.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kicon-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/iconfont.min.css?ver=4.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/layer.min.css?ver=3.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/lightgallery.min.css?ver=1.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/style.css?ver=4.1.2' type='text/css' media='all' />
+<style id='kratos-inline-css' type='text/css'>
+
+        @media screen and (min-width: 992px) {
+            .k-nav .navbar-brand h1 {
+                color: #ffffff;
+            }
+            .k-nav .navbar-nav > li.nav-item > a {
+                color: #ffffff;
+            }
+        }
+        
+.sticky-sidebar {
+                position: sticky;
+                top: 8px;
+                height: 100%;
+            }
+</style>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2020%2F03%2Fpadavan%25e4%25bd%25bf%25e7%2594%25a8exfatext4ntfs%25e7%259a%2584%25e5%25bb%25ba%25e8%25ae%25ae%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2020%2F03%2Fpadavan%25e4%25bd%25bf%25e7%2594%25a8exfatext4ntfs%25e7%259a%2584%25e5%25bb%25ba%25e8%25ae%25ae%2F&#038;format=xml" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- 谷歌收录的验证方式 -->
+<meta name="google-site-verification" content="XxPfUFFG0MmfvRUNs2AFXHfRXRx_xVLXdD_6Si95rJ0" />
+<!-- bing收录验证luojimen.netlify.app -->
+<meta name="msvalidate.01" content="508C6C00EA05098C32CD4DB253B3CB66" />
+<!-- baidu收录验证luojimen.netlify.app -->
+<meta name="baidu-site-verification" content="code-DlUhxrKYUP" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '');
+		</script>
+
+				<script type="text/javascript">
+		var _hmt = _hmt || [];
+				_hmt.push(['_trackPageview']);
+						(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?cff4b8fde8a7abf46d402c4fd284f0cc";
+		hm.setAttribute('async', 'true');
+		document.getElementsByTagName('head')[0].appendChild(hm);
+		})();
+		</script>
+		    <script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/jquery.min.js?ver=3.4.1' id='jquery-js'></script>
+    </head>
+
+<body>
+    <script type="text/javascript">  
+    $(function() {  
+    $('.content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='highslide-image' onclick='return hs.expand(this);'></a>");  
+                                    }  
+                                            });  
+                });  
+    </script> 
+    <div class="k-header">
+        <nav class="k-nav navbar navbar-expand-lg navbar-light fixed-top" style="background:#1e73be">
+            <div class="container">
+                <a class="navbar-brand" href="http://luojimen.netlify.app">
+                    <h1>LuoJi.men</h1>                </a>
+                                    <button class="navbar-toggler navbar-toggler-right" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="line first-line"></span>
+                        <span class="line second-line"></span>
+                        <span class="line third-line"></span>
+                    </button>
+                <div id="navbarResponsive" class="collapse navbar-collapse"><ul id="menu-menu-1" class="navbar-nav ml-auto"><li class="nav-item" ><a title="首页" href="https://luoji.men/" class="nav-link">首页</a></li>
+<li class="nav-item" ><a title="在线工具站" href="/online-tool-station/" class="nav-link">在线工具站</a></li>
+<li class="nav-item" ><a title="运维log" href="/%e8%bf%90%e7%bb%b4log/" class="nav-link">运维log</a></li>
+<li class="nav-item" ><a title="归档时间轴" href="/time/" class="nav-link">归档时间轴</a></li>
+</ul></div>            </div>
+        </nav>
+            </div>
+<div class="k-main color" style="background:#f5f5f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details">
+                                    <div class="article">
+                        <div class="breadcrumb-box">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-dark" href="https://luojimen.netlify.app"> 首页</a>
+                                </li>
+                                <li class="breadcrumb-item"> <a class="text-dark" href="/category/linux/">Linux</a></li>                                <li class="breadcrumb-item active" aria-current="page"> 正文</li>
+                            </ol>
+                        </div>
+                        <div class="header">
+                            <h1 class="title">padavan首选EXT4格式化U盘</h1>
+                            <div class="meta">
+                                <span>2020年3月1日</span>
+                                                                    <span>414点热度</span>
+                                                                                            </div>
+                        </div>
+                        <div class="content" id="lightgallery">
+                            <div style="margin-bottom:5px"><a href="" target="_blank" rel="noreferrer"><img src=""></a></div><h1 ><a name="toc-1"></a>前言</h1>
+<ul>
+<li>路由器挂载USB硬盘时候,格式化成EXT4使用,最稳定.</li>
+<li>其他两种EXFAT和NTFS在实际使用中都会遇到严重影响使用的bug.这对文件备份这种本身需求便是高重要性的业务来说,不可忍受.</li>
+<li>实践环境:
+<ul>
+<li>服务端:路由器(newifi3)[固件:padavan-hiboy]</li>
+<li>服务端存储:USB3.0移动硬盘2.5寸西部数码2T(SMR)</li>
+<li>服务端软件:caddy-webdav文件服务</li>
+<li>客户端:widnows(z7m笔记本)</li>
+<li>客户端软件:Goodsync同步软件</li>
+<li>业务流程:windows使用[GS]通过[webdav文件服务]备份本地文件夹到路由器挂载的USB硬盘.</li>
+</ul>
+</li>
+</ul>
+<h1 ><a name="toc-2"></a>caddy后台提示ERROR 401</h1>
+<ul>
+<li>测试webdav目录是不管是中文还是英文,只要caddy配置用户名和密码验证,依旧会每次GS连接分析目录,caddy服务端后台都会出现提示ERROR 401 .但也能传输数据.未发现其他影响,非官方搜到有网友说这是因为浏览器只有第一次401错误后才会出现UI登录窗口"这只是基本身份验证工作方式的副作用。现代浏览器仅在第一个请求得到401之后才会抛出登录UI。严格来说，由于这是身份验证失败-已记录。"(来源:<a href="https://caddy.community/t/basicauth-spits-error-401/5674" target="_blank"  rel="nofollow" >https://caddy.community/t/basicauth-spits-error-401/5674</a>)</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bb7918007450" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+03/Mar/2020:16:24:57 +0000 [ERROR 401 /media/2t-ext4/ext4澶.唤Goodsync/] BasicAuth: user "" was not found or password was incorrect. 192.168.123.181 192.168.123.1:2080 /media/2t-ext4/ext4%E5%A4%87%E4%BB%BDGoodsync/ HTTP/1.1</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bb7918007450-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bb7918007450-1"><span class="crayon-cn">03</span><span class="crayon-o">/</span><span class="crayon-v">Mar</span><span class="crayon-o">/</span><span class="crayon-cn">2020</span><span class="crayon-o">:</span><span class="crayon-cn">16</span><span class="crayon-o">:</span><span class="crayon-cn">24</span><span class="crayon-o">:</span><span class="crayon-cn">57</span><span class="crayon-h"> </span><span class="crayon-o">+</span><span class="crayon-cn">0000</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-i">ERROR</span><span class="crayon-h"> </span><span class="crayon-cn">401</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">ext4</span><span class="crayon-o">/</span><span class="crayon-i">ext4</span>澶<span class="crayon-sy">.</span>唤<span class="crayon-v">Goodsync</span><span class="crayon-o">/</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-v">BasicAuth</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-i">user</span><span class="crayon-h"> </span><span class="crayon-s">""</span><span class="crayon-h"> </span><span class="crayon-e">was </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-e">found </span><span class="crayon-st">or</span><span class="crayon-h"> </span><span class="crayon-e">password </span><span class="crayon-e">was </span><span class="crayon-v">incorrect</span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-cn">192.168.123.181</span><span class="crayon-h"> </span><span class="crayon-cn">192.168.123.1</span><span class="crayon-o">:</span><span class="crayon-cn">2080</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">ext4</span><span class="crayon-o">/</span><span class="crayon-v">ext4</span><span class="crayon-o">%</span><span class="crayon-v">E5</span><span class="crayon-o">%</span><span class="crayon-v">A4</span><span class="crayon-o">%</span><span class="crayon-cn">87</span><span class="crayon-o">%</span><span class="crayon-v">E4</span><span class="crayon-o">%</span><span class="crayon-v">BB</span><span class="crayon-o">%</span><span class="crayon-v">BDGoodsync</span><span class="crayon-o">/</span><span class="crayon-h"> </span><span class="crayon-v">HTTP</span><span class="crayon-o">/</span><span class="crayon-cn">1.1</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+
+</div>
+<h1 ><a name="toc-3"></a>EXT4 - 首选</h1>
+<ul>
+<li>优点:使用ext4没有重启后文件时间变化的问题.</li>
+<li>缺点:windows需要第三方软件查看.</li>
+</ul>
+<h1 ><a name="toc-4"></a>EXFAT - 莫选:GS实际目录测试同步出现超时,有utf8支持有问题)</h1>
+<ul>
+<li>缺点:在实际目录备份中,同步完82万个文件后再次gs分析目录,永远是超时报错.无法再使用了.</li>
+<li>缺点:utf8字符不支持.在同步后的gs记录文件中不显示中文.(另两种格式exfat和ntfs同步后的记录可以显示中文路径)</li>
+<li>缺点:在实际目录备份中,有个带特殊符号的文件名在exfat格式下经过多次尝试无法被同步,提示找不到路劲,切换ext4和ntfs测试这个文件并没有这个报错.</li>
+<li>缺点:smba写入文件似乎存在预分配机制,写入文件越大,正式写入前需要等待的时间越久.上G体积的文件等候时间长的离谱;读取文件没有问题.使用webdav写入则没有这个bug.但webav依旧存在以上其他bug.</li>
+<li>优点:可在路由器和windows之间直接识别使用.</li>
+<li>优点:使用exfat没有重启后文件时间变化的问题,并且可以方便windows读取.</li>
+</ul>
+<h1 ><a name="toc-5"></a>NTFS - 莫选:有时间bug</h1>
+<ul>
+<li>缺点:使用ntfs存储文件,某些文件在每次路由器重启后,会变化时间,导致同步软件判断错误,每次重启路由器后使用同步备份软件分析都需要再次传输.</li>
+<li>优点:有些版本比如intel(QNTFS)版padavan的ntfs闭源鸡血驱动会比exfat和ext4快到飞起,写入45MB/S读取90MB/S,其他版本的ntfs则和ext4与exfat无明显差距:写入皆为20-24M/S,读取60M/S.</li>
+</ul>
+<h1 ><a name="toc-6"></a>三种硬盘格式使用GoodSync海量文件分析与同步耗时对比</h1>
+<p><strong>* 实践环境:[goodsync(z7m笔记本)] ↔ LAN有线 ↔ [(newifi3路由器)caddy-webav] ↔ {USB-HUB(2T移动硬盘2.5寸)} *</strong></p>
+<ul>
+<li>从未同步过的目录进行全新分析耗时对比(差距可忽略):
+<ul>
+<li>exfat 历时28秒</li>
+<li>ext4 历时26秒</li>
+<li>ntfs 历时26秒</li>
+<li>exfat 历时25秒(二测)</li>
+</ul>
+</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bbe917092866" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+214048 -- 分析开始 User Command
+214105 右侧: State file does not exist: http://192.168.123.1:80/media/2t-exfat/备份(goodsync)/_gsdata_/_file_state_v4._gs
+214113 变更：298,718， 冲突：0， 复制时间：0， 复制状态：530,352， 错误： 0, All: 829074
+214113 Left to Right: Copy File: 298718 
+214113 -- 分析已结束。历时 00:00:28, 速度： 10K 文件/秒</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bbe917092866-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8bbe917092866-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bbe917092866-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8bbe917092866-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bbe917092866-5">5</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bbe917092866-1"><span class="crayon-cn">214048</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析开始<span class="crayon-h"> </span><span class="crayon-e">User </span><span class="crayon-i">Command</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8bbe917092866-2"><span class="crayon-cn">214105</span><span class="crayon-h"> </span>右侧<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">State </span><span class="crayon-e">file </span><span class="crayon-e">does </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">exist</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-c">//192.168.123.1:80/media/2t-exfat/备份(goodsync)/_gsdata_/_file_state_v4._gs</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bbe917092866-3"><span class="crayon-cn">214113</span><span class="crayon-h"> </span>变更：<span class="crayon-cn">298</span><span class="crayon-sy">,</span><span class="crayon-cn">718</span>，<span class="crayon-h"> </span>冲突：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制时间：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制状态：<span class="crayon-cn">530</span><span class="crayon-sy">,</span><span class="crayon-cn">352</span>，<span class="crayon-h"> </span>错误：<span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">All</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829074</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8bbe917092866-4"><span class="crayon-cn">214113</span><span class="crayon-h"> </span><span class="crayon-e">Left </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-v">Right</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Copy </span><span class="crayon-v">File</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">298718</span><span class="crayon-h"> </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bbe917092866-5"><span class="crayon-cn">214113</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析已结束。历时<span class="crayon-h"> </span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">28</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度：<span class="crayon-h"> </span><span class="crayon-cn">10K</span><span class="crayon-h"> </span>文件<span class="crayon-o">/</span>秒</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+
+</div>
+<h2  id="ext4格式:耗时4小8分无报错"><a name="toc-7"></a>ext4格式:耗时4小8分无报错</h2>
+<ul>
+<li>硬盘ext4格式,全新同步耗时4小时8分钟:</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bd5261694978" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+151516 == 同步完成. 历时: 04:08:28, 速度: 11.7 MB/s, 完成: 829,070, 错误: 0</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bd5261694978-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bd5261694978-1"><span class="crayon-cn">151516</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span>同步完成<span class="crayon-sy">.</span><span class="crayon-h"> </span>历时<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">04</span><span class="crayon-o">:</span><span class="crayon-cn">08</span><span class="crayon-o">:</span><span class="crayon-cn">28</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">11.7</span><span class="crayon-h"> </span><span class="crayon-v">MB</span><span class="crayon-o">/</span><span class="crayon-v">s</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>完成<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829</span><span class="crayon-sy">,</span><span class="crayon-cn">070</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>错误<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">0</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<ul>
+<li>ext4再次分析同步完的目录耗时7分20秒:</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bd9871398611" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+161727 -- 分析开始 User Command
+162447 变更：0， 冲突：0， 复制时间：0， 复制状态：0， 错误： 0, All: 829074
+162447 -- 分析已结束。历时 00:07:20, 速度： 14K 文件/秒</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bd9871398611-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8bd9871398611-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bd9871398611-3">3</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bd9871398611-1"><span class="crayon-cn">161727</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析开始<span class="crayon-h"> </span><span class="crayon-e">User </span><span class="crayon-i">Command</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8bd9871398611-2"><span class="crayon-cn">162447</span><span class="crayon-h"> </span>变更：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>冲突：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制时间：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制状态：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>错误：<span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">All</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829074</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bd9871398611-3"><span class="crayon-cn">162447</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析已结束。历时<span class="crayon-h"> </span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">07</span><span class="crayon-o">:</span><span class="crayon-cn">20</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度：<span class="crayon-h"> </span><span class="crayon-cn">14K</span><span class="crayon-h"> </span>文件<span class="crayon-o">/</span>秒</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<h2  id="exfat格式耗时5时59分有报错一个文件"><a name="toc-8"></a>exfat格式耗时5时59分有报错一个文件</h2>
+<ul>
+<li>exfat实际同步(webdav已配置需要用户密码登录):出现一个错误,是exfat对文件名不支持,其他格式备份相同目录并无报错.</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bdb317975142" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+051046 == 同步完成. 历时: 05:59:01, 速度: 8.09 MB/s, 完成: 829,069, 错误: 1</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bdb317975142-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bdb317975142-1"><span class="crayon-cn">051046</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span>同步完成<span class="crayon-sy">.</span><span class="crayon-h"> </span>历时<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">05</span><span class="crayon-o">:</span><span class="crayon-cn">59</span><span class="crayon-o">:</span><span class="crayon-cn">01</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">8.09</span><span class="crayon-h"> </span><span class="crayon-v">MB</span><span class="crayon-o">/</span><span class="crayon-v">s</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>完成<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829</span><span class="crayon-sy">,</span><span class="crayon-cn">069</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>错误<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">1</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<ul>
+<li>再次分析同步后的目录出现报错并且GS无法再操作远端目录</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bdc629249411" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+093034 Error analyzing http://192.168.123.1:2080/media/2t-exfat/备份(goodsync): no reply after 180(120)-sec timeout on verb PROPFIND: receiving HTTP header: [receiving data 192.168.123.1:80]: Time out</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bdc629249411-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bdc629249411-1"><span class="crayon-cn">093034</span><span class="crayon-h"> </span><span class="crayon-e">Error </span><span class="crayon-e">analyzing </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-c">//192.168.123.1:2080/media/2t-exfat/备份(goodsync): no reply after 180(120)-sec timeout on verb PROPFIND: receiving HTTP header: [receiving data 192.168.123.1:80]: Time out</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+<ul>
+<li>caddy配置取消密码验后,仍然是同一个文件无法读取,说明本错误与caddy是否使用密码无关.</li>
+<li>修改那个提示错误的文件名后,再次分析目录,这次报错time out,GS无法再操作远程目录,确认exfat格式在padavan上的兼容性确实问题很多.</li>
+</ul>
+<h2  id="ntfs格式耗时4时6分无报错."><a name="toc-9"></a>ntfs格式耗时4时6分无报错.</h2>
+<ul>
+<li>ntfs远端未备份过的目录全新分析耗时25秒:</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bde220457850" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+163406 -- 分析开始 User Command
+163423 右侧: State file does not exist: http://192.168.123.1:2080/media/2t-ntfs/ntfs备份GoodSync/_gsdata_/_file_state_v4._gs
+163431 变更：298,718， 冲突：0， 复制时间：0， 复制状态：530,352， 错误： 0, All: 829074
+163431 Left to Right: Copy File: 298718 
+163431 -- 分析已结束。历时 00:00:25, 速度： 11K 文件/秒</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bde220457850-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8bde220457850-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bde220457850-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8bde220457850-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bde220457850-5">5</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bde220457850-1"><span class="crayon-cn">163406</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析开始<span class="crayon-h"> </span><span class="crayon-e">User </span><span class="crayon-i">Command</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8bde220457850-2"><span class="crayon-cn">163423</span><span class="crayon-h"> </span>右侧<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">State </span><span class="crayon-e">file </span><span class="crayon-e">does </span><span class="crayon-st">not</span><span class="crayon-h"> </span><span class="crayon-v">exist</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-c">//192.168.123.1:2080/media/2t-ntfs/ntfs备份GoodSync/_gsdata_/_file_state_v4._gs</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bde220457850-3"><span class="crayon-cn">163431</span><span class="crayon-h"> </span>变更：<span class="crayon-cn">298</span><span class="crayon-sy">,</span><span class="crayon-cn">718</span>，<span class="crayon-h"> </span>冲突：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制时间：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制状态：<span class="crayon-cn">530</span><span class="crayon-sy">,</span><span class="crayon-cn">352</span>，<span class="crayon-h"> </span>错误：<span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">All</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829074</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8bde220457850-4"><span class="crayon-cn">163431</span><span class="crayon-h"> </span><span class="crayon-e">Left </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-v">Right</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Copy </span><span class="crayon-v">File</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">298718</span><span class="crayon-h"> </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bde220457850-5"><span class="crayon-cn">163431</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析已结束。历时<span class="crayon-h"> </span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">25</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度：<span class="crayon-h"> </span><span class="crayon-cn">11K</span><span class="crayon-h"> </span>文件<span class="crayon-o">/</span>秒</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+
+</div>
+<ul>
+<li>ntfs第一次全新目录同步4小6分:</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8bdf053620617" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+204302 == 同步完成. 历时: 04:06:52, 速度: 11.7 MB/s, 完成: 829,070, 错误: 0</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8bdf053620617-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8bdf053620617-1"><span class="crayon-cn">204302</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span>同步完成<span class="crayon-sy">.</span><span class="crayon-h"> </span>历时<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">04</span><span class="crayon-o">:</span><span class="crayon-cn">06</span><span class="crayon-o">:</span><span class="crayon-cn">52</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">11.7</span><span class="crayon-h"> </span><span class="crayon-v">MB</span><span class="crayon-o">/</span><span class="crayon-v">s</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>完成<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829</span><span class="crayon-sy">,</span><span class="crayon-cn">070</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>错误<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">0</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<ul>
+<li>ntfs再次分析第一次同步完的目录耗时11分钟,并且出现时间不一致的bug:</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8be1509869930" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+211556 变更：185， 冲突：0， 复制时间：0， 复制状态：0， 错误： 0, All: 829074
+211556 Left to Right: Copy File: 185 
+211556 -- 分析已结束。历时 00:11:18, 速度： 16K 文件/秒</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8be1509869930-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8be1509869930-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8be1509869930-3">3</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8be1509869930-1"><span class="crayon-cn">211556</span><span class="crayon-h"> </span>变更：<span class="crayon-cn">185</span>，<span class="crayon-h"> </span>冲突：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制时间：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制状态：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>错误：<span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">All</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829074</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8be1509869930-2"><span class="crayon-cn">211556</span><span class="crayon-h"> </span><span class="crayon-e">Left </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-v">Right</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Copy </span><span class="crayon-v">File</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">185</span><span class="crayon-h"> </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8be1509869930-3"><span class="crayon-cn">211556</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析已结束。历时<span class="crayon-h"> </span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">11</span><span class="crayon-o">:</span><span class="crayon-cn">18</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度：<span class="crayon-h"> </span><span class="crayon-cn">16K</span><span class="crayon-h"> </span>文件<span class="crayon-o">/</span>秒</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<ul>
+<li>二次同步上次分析后显示时间不一致的文件:</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8be2200561627" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+223911 == 同步完成. 历时: 00:55:36, 速度: 25.6 MB/s, 完成: 187, 错误: 0</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8be2200561627-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8be2200561627-1"><span class="crayon-cn">223911</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span>同步完成<span class="crayon-sy">.</span><span class="crayon-h"> </span>历时<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">55</span><span class="crayon-o">:</span><span class="crayon-cn">36</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">25.6</span><span class="crayon-h"> </span><span class="crayon-v">MB</span><span class="crayon-o">/</span><span class="crayon-v">s</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>完成<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">187</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>错误<span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">0</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<ul>
+<li>经过二次同步以后的目录再次分析仍然显示文件不相同(文件时间不一致),因此padavan不适合使用NTFS,因其文件时间的bug无法让同步软件正确操作</li>
+</ul>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5303c8be3883997286" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+230822 变更：157， 冲突：0， 复制时间：0， 复制状态：10， 错误： 0, All: 829074
+230822 Left to Right: Copy File: 157 
+230822 -- 分析已结束。历时 00:10:06, 速度： 49K 文件/秒</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8be3883997286-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5303c8be3883997286-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5303c8be3883997286-3">3</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8be3883997286-1"><span class="crayon-cn">230822</span><span class="crayon-h"> </span>变更：<span class="crayon-cn">157</span>，<span class="crayon-h"> </span>冲突：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制时间：<span class="crayon-cn">0</span>，<span class="crayon-h"> </span>复制状态：<span class="crayon-cn">10</span>，<span class="crayon-h"> </span>错误：<span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">All</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">829074</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5303c8be3883997286-2"><span class="crayon-cn">230822</span><span class="crayon-h"> </span><span class="crayon-e">Left </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-v">Right</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">Copy </span><span class="crayon-v">File</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-cn">157</span><span class="crayon-h"> </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5303c8be3883997286-3"><span class="crayon-cn">230822</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-h"> </span>分析已结束。历时<span class="crayon-h"> </span><span class="crayon-cn">00</span><span class="crayon-o">:</span><span class="crayon-cn">10</span><span class="crayon-o">:</span><span class="crayon-cn">06</span><span class="crayon-sy">,</span><span class="crayon-h"> </span>速度：<span class="crayon-h"> </span><span class="crayon-cn">49K</span><span class="crayon-h"> </span>文件<span class="crayon-o">/</span>秒</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+
+</div>
+<p>&nbsp;</p>
+<div id="wiz-table-col-line" style="display: none;"></div>
+<div id="wiz-table-row-line" style="display: none;"></div>
+<div id="wiz-table-range-border_start" style="display: none;">
+<div id="wiz-table-range-border_start_top"></div>
+<div id="wiz-table-range-border_start_right"></div>
+<div id="wiz-table-range-border_start_bottom"></div>
+<div id="wiz-table-range-border_start_left"></div>
+<div id="wiz-table-range-border_start_dot"></div>
+</div>
+<div id="wiz-table-range-border_range" style="display: none;">
+<div id="wiz-table-range-border_range_top"></div>
+<div id="wiz-table-range-border_range_right"></div>
+<div id="wiz-table-range-border_range_bottom"></div>
+<div id="wiz-table-range-border_range_left"></div>
+<div id="wiz-table-range-border_range_dot"></div>
+</div>
+<p>&nbsp;</p>
+                        </div>
+                                                <div class="footer clearfix">
+                            <div class="tags float-left">
+                                <span>标签：</span>
+                                <a href="/tag/webdav/" rel="tag">webdav</a> <a href="/tag/%e5%bc%80%e5%a7%8b/" rel="tag">开始</a> <a href="/tag/%e6%b5%8f%e8%a7%88%e5%99%a8/" rel="tag">浏览器</a> <a href="/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" rel="tag">路由器</a> <a href="/tag/%e8%bd%af%e4%bb%b6/" rel="tag">软件</a>                            </div>
+                            <div class="tool float-right d-none d-lg-block">
+                                <span>最后更新：2020年3月1日</span>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="toolbar clearfix">
+	<div class="meta float-md-left">
+		<img src="https://sdn.geekzu.org/avatar/8dc48ab2afc8d5058df4be411bc61a15?s=96&r=g">
+		<p class="name">SSJ</p>
+		<p class="motto mb-0">不积跬步无以至千里</p>
+	</div>
+	<div class="share float-md-right text-center">
+				<a href="javascript:;" id="thumbs" data-action="love" data-id="1894" role="button" class="btn btn-thumbs "><i class="kicon i-like"></i><span class="ml-1">点赞</span></a>
+	</div>
+</div>
+                <nav class="navigation post-navigation clearfix" role="navigation">
+                    <div class="nav-previous clearfix"><a title="IIS架设webdav并让手机可以访问" href="/2019/12/iis%e6%9e%b6%e8%ae%bewebdav%e5%b9%b6%e8%ae%a9%e6%89%8b%e6%9c%ba%e5%8f%af%e4%bb%a5%e8%ae%bf%e9%97%ae/">< 上一篇</a></div><div class="nav-next"><a title="hiboy-padavan使用opkg安装tmux教程" href="/2020/03/hiboy-padavan%e4%bd%bf%e7%94%a8opkg%e5%ae%89%e8%a3%85tmux%e6%95%99%e7%a8%8b/">下一篇 ></a></div>                </nav>
+                            </div>
+                    </div>
+    </div>
+</div>
+<div class="k-footer">
+    <div class="f-toolbox">
+        <div class="gotop ">
+            <div class="gotop-btn">
+                <span class="kicon i-up"></span>
+            </div>
+        </div>
+                <div class="search">
+            <span class="kicon i-find"></span>
+            <form class="search-form" role="search" method="get" action="/">
+                <input type="text" name="s" id="search-footer" placeholder="搜点什么呢?" style="display:none" />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="social">
+                                    </p>
+                <p>COPYRIGHT © 2022 luoji.men. ALL RIGHTS RESERVED.</p><p>Theme <a href="https://github.com/seatonjiang/kratos" target="_blank" rel="nofollow">Kratos</a> Made By <a href="https://seatonjiang.com" target="_blank" rel="nofollow">Seaton Jiang</a></p><script></script>            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' id='urvanov_syntax_highlighter_js-js-extra'>
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.27","is_admin":"0","ajaxurl":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/urvanov-syntax-highlighter/js/min/urvanov_syntax_highlighter.min.js?ver=2.8.27' id='urvanov_syntax_highlighter_js-js'></script>
+<script type='text/javascript' id='image-sizes-js-extra'>
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","medium","medium_large","large","1536x1536","2048x2048","kratos-thumbnail"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/image-sizes/assets/js/front.min.js?ver=3.5' id='image-sizes-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/bootstrap.bundle.min.js?ver=4.5.0' id='bootstrap-bundle-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/layer.min.js?ver=3.1.1' id='layer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/DPlayer.min.js?ver=4.1.2' id='dplayer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/lightgallery.min.js?ver=1.4.0' id='lightgallery-js'></script>
+<script type='text/javascript' id='kratos-js-extra'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/luojimen.netlify.app","directory":"https:\/\/cdn.seatonjiang.com\/kratos\/4.1.2","alipay":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","wechat":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","repeat":"\u60a8\u5df2\u7ecf\u8d5e\u8fc7\u4e86","thanks":"\u611f\u8c22\u60a8\u7684\u652f\u6301","donate":"\u6253\u8d4f\u4f5c\u8005","scan":"\u626b\u7801\u652f\u4ed8"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/kratos.js?ver=4.1.2' id='kratos-js'></script>
+<script type='text/javascript' id='comment-js-extra'>
+/* <![CDATA[ */
+var ajaxcomment = {"ajax_url":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","order":"asc","compost":"\u8bc4\u8bba\u6b63\u5728\u63d0\u4ea4\u4e2d","comsucc":"\u8bc4\u8bba\u63d0\u4ea4\u6210\u529f"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/comments.min.js?ver=4.1.2' id='comment-js'></script>
+<script type='text/javascript' src='https://zz.bdstatic.com/linksubmit/push.js?ver=6.0.2' id='baidu_zz_push-js'></script>
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WordPress代码高亮插件-配合Wiz使用 - LuoJi.men</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="keywords" content="wordpress">
+    <meta name="description" itemprop="description" content="【参考】：Crayon Syntax Highlighter的最佳替换方案-Urvanov Syntax Highlighter – Zaeyi的私宅 概述：代码高亮可以让代码区块和其他内容明显区别开 [&hellip;]">
+    <meta name="theme-color" content="#282a2c">
+    <meta itemprop="image" content="https://luoji.men/wp-content/themes/kratos-4.1.2/assets/img/default.jpg" />
+        <meta name='description' content='【参考】：Crayon Syntax Highlighter的最佳替换方案-Urvanov Syntax Highlighter – Zaeyi的私宅 概述：代码高亮可以让代码区块和其他内容明显区别开 [&hellip;]' />
+<meta name='keywords' content='wordpress' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdn.seatonjiang.com' />
+<link rel='dns-prefetch' href='//zz.bdstatic.com' />
+<link rel='stylesheet' id='urvanov_syntax_highlighter-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/css/min/urvanov_syntax_highlighter.min.css?ver=2.8.27' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/bootstrap.min.css?ver=4.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kicon-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/iconfont.min.css?ver=4.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/layer.min.css?ver=3.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/lightgallery.min.css?ver=1.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/style.css?ver=4.1.2' type='text/css' media='all' />
+<style id='kratos-inline-css' type='text/css'>
+
+        @media screen and (min-width: 992px) {
+            .k-nav .navbar-brand h1 {
+                color: #ffffff;
+            }
+            .k-nav .navbar-nav > li.nav-item > a {
+                color: #ffffff;
+            }
+        }
+        
+.sticky-sidebar {
+                position: sticky;
+                top: 8px;
+                height: 100%;
+            }
+</style>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2022%2F04%2Fwordpress-code-highlighting-plug-in-used-with-wiz%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2022%2F04%2Fwordpress-code-highlighting-plug-in-used-with-wiz%2F&#038;format=xml" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- 谷歌收录的验证方式 -->
+<meta name="google-site-verification" content="XxPfUFFG0MmfvRUNs2AFXHfRXRx_xVLXdD_6Si95rJ0" />
+<!-- bing收录验证luojimen.netlify.app -->
+<meta name="msvalidate.01" content="508C6C00EA05098C32CD4DB253B3CB66" />
+<!-- baidu收录验证luojimen.netlify.app -->
+<meta name="baidu-site-verification" content="code-DlUhxrKYUP" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '');
+		</script>
+
+				<script type="text/javascript">
+		var _hmt = _hmt || [];
+				_hmt.push(['_trackPageview']);
+						(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?cff4b8fde8a7abf46d402c4fd284f0cc";
+		hm.setAttribute('async', 'true');
+		document.getElementsByTagName('head')[0].appendChild(hm);
+		})();
+		</script>
+		    <script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/jquery.min.js?ver=3.4.1' id='jquery-js'></script>
+    </head>
+
+<body>
+    <script type="text/javascript">  
+    $(function() {  
+    $('.content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='highslide-image' onclick='return hs.expand(this);'></a>");  
+                                    }  
+                                            });  
+                });  
+    </script> 
+    <div class="k-header">
+        <nav class="k-nav navbar navbar-expand-lg navbar-light fixed-top" style="background:#1e73be">
+            <div class="container">
+                <a class="navbar-brand" href="http://luojimen.netlify.app">
+                    <h1>LuoJi.men</h1>                </a>
+                                    <button class="navbar-toggler navbar-toggler-right" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="line first-line"></span>
+                        <span class="line second-line"></span>
+                        <span class="line third-line"></span>
+                    </button>
+                <div id="navbarResponsive" class="collapse navbar-collapse"><ul id="menu-menu-1" class="navbar-nav ml-auto"><li class="nav-item" ><a title="首页" href="https://luoji.men/" class="nav-link">首页</a></li>
+<li class="nav-item" ><a title="在线工具站" href="/online-tool-station/" class="nav-link">在线工具站</a></li>
+<li class="nav-item" ><a title="运维log" href="/%e8%bf%90%e7%bb%b4log/" class="nav-link">运维log</a></li>
+<li class="nav-item" ><a title="归档时间轴" href="/time/" class="nav-link">归档时间轴</a></li>
+</ul></div>            </div>
+        </nav>
+            </div>
+<div class="k-main color" style="background:#f5f5f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details">
+                                    <div class="article">
+                        <div class="breadcrumb-box">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-dark" href="https://luojimen.netlify.app"> 首页</a>
+                                </li>
+                                <li class="breadcrumb-item"> <a class="text-dark" href="/category/wp/">WordPress</a></li>                                <li class="breadcrumb-item active" aria-current="page"> 正文</li>
+                            </ol>
+                        </div>
+                        <div class="header">
+                            <h1 class="title">WordPress代码高亮插件-配合Wiz使用</h1>
+                            <div class="meta">
+                                <span>2022年4月6日</span>
+                                                                    <span>348点热度</span>
+                                                                                            </div>
+                        </div>
+                        <div class="content" id="lightgallery">
+                            <div style="margin-bottom:5px"><a href="" target="_blank" rel="noreferrer"><img src=""></a></div><div><span style=""><b>【参考】：<a href="https://zaeyi.com/archives/957" style="text-decoration-skip-ink: none;" target="_blank"  rel="nofollow" >Crayon Syntax Highlighter的最佳替换方案-Urvanov Syntax Highlighter – Zaeyi的私宅</a></b></span></div>
+<div><span style="font-size: 1.67rem;"><b></b></span></div>
+<div><span style="font-size: 1.67rem;"><b>概述：</b></span><span style="">代码高亮可以让代码区块和其他内容明显区别开来,以避免"乱糟糟"的阅读感。</span></div>
+<div>为知(Wiz)作为一款笔记编辑和<span style="">管理</span>软件,附带有发布WP的功能,但WP的默认代码显示效果很朴素,这里介绍可以简单无需修改主题即可搭配使用的高亮插件。</div>
+<h2 ><a name="toc-1"></a><b><span style="" data-wiz-span="data-wiz-span">代码高亮插件：</span></b></h2>
+<h2 ><a name="toc-2"></a>wordpress.org/plugins/urvanov-syntax-highlighter/</h2>
+<div>说明：urvanov-syntax-highlighter是对已停更的crayon-syntax-highlighter继续维护的版本，使用方式和效果都一致。</div>
+<div>0、在线编辑可以触发代码高亮，<span style=""><span data-wiz-span="data-wiz-span" style="color: rgb(255, 0, 0);">Wiz发布不会触发代码高亮，需要在线更新文章重新发布</span>。</span></div>
+<div>1、启用插件后，历史文章需要重新编辑才会触发高亮插件对本篇文章的作用。</div>
+<div>3、历史文章批量处理：先启用插件，再通过XML导入文章可以实现所有历史文章都触发代码高亮。</div>
+<div>3、HTML转义：如果没开启HTML转义<img src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_de6143f1-0047-42e5-bff7-ae67a4711cd1-1.png" width="157" height="32" style="">，则一些“&lt;”特殊符号会变为乱码：</div>
+<div><span style="">&nbsp; &nbsp; WP原始代码框：</span><img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_bec034d4-91a0-4bb3-98aa-5f0d0411c473-1.png" width="199" height="71" style=""></div>
+<div>&nbsp; &nbsp; 没有HTML转义的高亮代码框：<img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_08eb0825-ed8f-4b8c-b8f2-5cb49f8db0ba-1.png" width="259" height="52" style=""></div>
+<div>&nbsp; &nbsp; 启用HTML转移的高亮代码框：<img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_5518e5c1-0d0b-45ae-8f08-314e4f332f18-1.png" width="210" height="57" style=""></div>
+<div>4、Wiz代码框使用的是&lt;pre&gt;&lt;code&gt;组合标签：</div>
+<div><span style="">&nbsp; &nbsp;&nbsp;</span><span style="">wiz编辑器中的代码框:</span><img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_fb3b7e94-659b-4d89-94b5-293504e42b67-1.jpg" border="0" width="58" height="52" style=""></div>
+<div><span style="">&nbsp; &nbsp;&nbsp;</span><span style="">wiz的代码框发布为WP后,使用的是</span><span style="">&lt;pre&gt;和&lt;code&gt;</span><span style="">组合</span><span style="">标签:</span><span style="">&nbsp;</span><img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_cf6ec2b8-cfa9-40bb-a375-451bf7b605ba-1.jpg" width="99" height="57" style=""></div>
+<div>
+<div>
+<div style="margin: 0px; font-style: normal; font-weight: normal; text-align: start; text-indent: 0px;"></div>
+<hr>
+<h2 ><a name="toc-3"></a>其他代码高亮插件：</h2>
+</div>
+<div>2019年5月10日以前：</div>
+<div>wiz发布博客后wp的默认显示效果(丑就一个字):&nbsp;</div>
+<div><img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_4b7970a2-d447-46f3-bff2-be6b34389427-1.jpg" width="188" height="59" style=""></p>
+<div>
+<ul>
+<li><b>wordpress.org/plugins/crayon-syntax-highlighter/</b> 【2016年停更】</li>
+<ul>
+<li>优点：√ 支持wiz编辑器的"插入代码"(不需另外再做修改配对来支持)</li>
+</ul>
+</ul>
+<ul>
+<ul>
+<li>效果：<img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_5b2cdeb8-7b18-4d05-bdc9-af898d19e155-1.jpg" style="" width="320" height="56"></li>
+</ul>
+<li><b>wordpress.org/plugins/enlighter/</b> 不支持默认渲染</li>
+<li><b>wordpress.org/plugins/syntax-highlighter-for-wp-editor/</b> 不支持默认渲染</li>
+<li><b>wordpress.org/plugins/syntaxhighlighter/</b>&nbsp; &nbsp;不支持默认渲染</li>
+</ul>
+<ul>
+<li><b>wordpress.org/plugins/wp-code-highlightjs/</b>【2019年停更】</li>
+<ul>
+<li>支持,只改变颜色，仅仅背景和字体颜色,视觉框架并没有大变化,并且不能显示行号.</li>
+<li>效果：<img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_2a608b2b-7879-471a-9eb4-134d0dbc10da-1.jpg" width="110" height="76" style=""></li>
+</ul>
+<li><b>wordpress.org/plugins/codecolorer/</b>【2018年停更】</li>
+<ul>
+<li>&nbsp;仅&lt;code&gt;,不含&lt;pre&gt;</li>
+<li>效果：<img loading="lazy" src="/wp-content/uploads/2022/04/1d483aefaff62b8d2bb95cf984248a81_9afa06e7-6ebd-42e1-88a3-a5476a938e55-1.jpg" width="85" height="81"></li>
+</ul>
+<li><b>wordpress.org/plugins/wp-syntax/</b>【2018年停更】</li>
+<ul>
+<li>不支持默认渲染</li>
+</ul>
+</ul>
+</div>
+</div>
+<div>
+<div>
+<div style="margin: 0px; font-style: normal; font-weight: normal; text-align: start; text-indent: 0px;">
+<div style="margin:0px;"></div>
+</div>
+</div>
+<h2 ><a name="toc-4"></a></h2>
+<div></div>
+</div>
+<div>&nbsp;</div>
+<div></p>
+<div>&nbsp;</div>
+</div>
+</div>
+                        </div>
+                                                <div class="footer clearfix">
+                            <div class="tags float-left">
+                                <span>标签：</span>
+                                <a href="/tag/wordpress/" rel="tag">wordpress</a>                            </div>
+                            <div class="tool float-right d-none d-lg-block">
+                                <span>最后更新：2022年4月6日</span>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="toolbar clearfix">
+	<div class="meta float-md-left">
+		<img src="https://sdn.geekzu.org/avatar/8dc48ab2afc8d5058df4be411bc61a15?s=96&r=g">
+		<p class="name">SSJ</p>
+		<p class="motto mb-0">不积跬步无以至千里</p>
+	</div>
+	<div class="share float-md-right text-center">
+				<a href="javascript:;" id="thumbs" data-action="love" data-id="2527" role="button" class="btn btn-thumbs "><i class="kicon i-like"></i><span class="ml-1">点赞</span></a>
+	</div>
+</div>
+                <nav class="navigation post-navigation clearfix" role="navigation">
+                    <div class="nav-previous clearfix"><a title="WordPress别名Slug翻译成英文[插件推荐和对比]" href="/2022/04/wordpress-alias-slug-translated-into-english-plug-in-recommendation-and-comparison/">< 上一篇</a></div><div class="nav-next"><a title="禁止WordPress系统和主题自动生成缩略图" href="/2022/04/prohibit-wordpress-system-and-theme-from-automatically-generating-thumbnails/">下一篇 ></a></div>                </nav>
+                            </div>
+                    </div>
+    </div>
+</div>
+<div class="k-footer">
+    <div class="f-toolbox">
+        <div class="gotop ">
+            <div class="gotop-btn">
+                <span class="kicon i-up"></span>
+            </div>
+        </div>
+                <div class="search">
+            <span class="kicon i-find"></span>
+            <form class="search-form" role="search" method="get" action="/">
+                <input type="text" name="s" id="search-footer" placeholder="搜点什么呢?" style="display:none" />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="social">
+                                    </p>
+                <p>COPYRIGHT © 2022 luoji.men. ALL RIGHTS RESERVED.</p><p>Theme <a href="https://github.com/seatonjiang/kratos" target="_blank" rel="nofollow">Kratos</a> Made By <a href="https://seatonjiang.com" target="_blank" rel="nofollow">Seaton Jiang</a></p><script></script>            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' id='urvanov_syntax_highlighter_js-js-extra'>
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.27","is_admin":"0","ajaxurl":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/urvanov-syntax-highlighter/js/min/urvanov_syntax_highlighter.min.js?ver=2.8.27' id='urvanov_syntax_highlighter_js-js'></script>
+<script type='text/javascript' id='image-sizes-js-extra'>
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","medium","medium_large","large","1536x1536","2048x2048","kratos-thumbnail"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/image-sizes/assets/js/front.min.js?ver=3.5' id='image-sizes-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/bootstrap.bundle.min.js?ver=4.5.0' id='bootstrap-bundle-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/layer.min.js?ver=3.1.1' id='layer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/DPlayer.min.js?ver=4.1.2' id='dplayer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/lightgallery.min.js?ver=1.4.0' id='lightgallery-js'></script>
+<script type='text/javascript' id='kratos-js-extra'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/luojimen.netlify.app","directory":"https:\/\/cdn.seatonjiang.com\/kratos\/4.1.2","alipay":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","wechat":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","repeat":"\u60a8\u5df2\u7ecf\u8d5e\u8fc7\u4e86","thanks":"\u611f\u8c22\u60a8\u7684\u652f\u6301","donate":"\u6253\u8d4f\u4f5c\u8005","scan":"\u626b\u7801\u652f\u4ed8"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/kratos.js?ver=4.1.2' id='kratos-js'></script>
+<script type='text/javascript' id='comment-js-extra'>
+/* <![CDATA[ */
+var ajaxcomment = {"ajax_url":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","order":"asc","compost":"\u8bc4\u8bba\u6b63\u5728\u63d0\u4ea4\u4e2d","comsucc":"\u8bc4\u8bba\u63d0\u4ea4\u6210\u529f"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/comments.min.js?ver=4.1.2' id='comment-js'></script>
+<script type='text/javascript' src='https://zz.bdstatic.com/linksubmit/push.js?ver=6.0.2' id='baidu_zz_push-js'></script>
+</body>
+
+</html>

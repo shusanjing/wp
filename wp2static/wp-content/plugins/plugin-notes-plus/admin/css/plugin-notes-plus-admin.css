@@ -1,0 +1,84 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+#pnp_plugin_notes_col {
+    width: 20%;
+}
+.pnp-note-form-wrapper {
+    display: none;
+    padding-bottom: 12px;
+}
+.pnp-note-form {
+    display: block;
+    width: 200px;
+    height: 100px;
+    margin-top: 5px;
+}
+.pnp-show-note-wrapper {
+    padding-bottom: 10px;
+}
+.pnp-add-note {
+    font-size: 11px;
+}
+.view-icon span {
+    vertical-align: middle;
+    font-size: 20px;
+}
+.pnp-plugin-note span.dashicons {
+    padding-right: 5px;
+    font-size: 20px;
+}
+.rtl .pnp-plugin-note span.dashicons {
+    padding-right: 0;
+    padding-left: 5px;
+}
+.pnp-note-meta {
+    font-size: 11px !important;
+    margin-top: 5px !important;
+}
+
+.column-description .pnp-wrapper {
+    padding-bottom: 10px;
+}
+
+/* Icon colors */
+.pnp-wrapper .dashicons-info {
+    color: deepskyblue;
+}
+.pnp-wrapper .dashicons-warning {
+    color: red;
+}
+.pnp-wrapper .dashicons-yes {
+    color: green;
+}
+
+/* Icon to indicate that link is opened in new tab */
+.pnp-plugin-note a[target="_blank"]:after {
+    content: "\f504";
+    font-family: dashicons;
+    padding-left: 3px;
+    vertical-align: top;
+}
+.rtl .pnp-plugin-note a[target="_blank"]:after {
+    padding-left: 0;
+    padding-right: 3px;
+}
+
+/* Spinner displayed while saving */
+.dashicons.pnp-spin {
+    display: none;
+    animation: dashicons-spin 1s infinite;
+    animation-timing-function: linear;
+    font-size: 20px;
+    color: #0073aa;
+}
+@keyframes dashicons-spin {
+    0% {
+        transform: rotate( 0deg );
+    }
+    100% {
+        transform: rotate( 360deg );
+    }
+}

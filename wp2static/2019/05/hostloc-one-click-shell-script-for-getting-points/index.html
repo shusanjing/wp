@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hostloc一键获取积分shell脚本 - LuoJi.men</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="keywords" content="hostloc,linux,脚本">
+    <meta name="description" itemprop="description" content="来源： https://github.com/mixool/script/blob/debian-9/hostloc.sh https://www.hostloc.com/forum.php?mod= [&hellip;]">
+    <meta name="theme-color" content="#282a2c">
+    <meta itemprop="image" content="https://luoji.men/wp-content/themes/kratos-4.1.2/assets/img/default.jpg" />
+        <meta name='description' content='来源： https://github.com/mixool/script/blob/debian-9/hostloc.sh https://www.hostloc.com/forum.php?mod= [&hellip;]' />
+<meta name='keywords' content='hostloc,linux,脚本' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdn.seatonjiang.com' />
+<link rel='dns-prefetch' href='//zz.bdstatic.com' />
+<link rel='stylesheet' id='urvanov_syntax_highlighter-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/css/min/urvanov_syntax_highlighter.min.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/themes/classic/classic.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/fonts/monaco.css?ver=2.8.27' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/bootstrap.min.css?ver=4.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kicon-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/iconfont.min.css?ver=4.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/layer.min.css?ver=3.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/lightgallery.min.css?ver=1.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/style.css?ver=4.1.2' type='text/css' media='all' />
+<style id='kratos-inline-css' type='text/css'>
+
+        @media screen and (min-width: 992px) {
+            .k-nav .navbar-brand h1 {
+                color: #ffffff;
+            }
+            .k-nav .navbar-nav > li.nav-item > a {
+                color: #ffffff;
+            }
+        }
+        
+.sticky-sidebar {
+                position: sticky;
+                top: 8px;
+                height: 100%;
+            }
+</style>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2019%2F05%2Fhostloc-one-click-shell-script-for-getting-points%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2019%2F05%2Fhostloc-one-click-shell-script-for-getting-points%2F&#038;format=xml" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- 谷歌收录的验证方式 -->
+<meta name="google-site-verification" content="XxPfUFFG0MmfvRUNs2AFXHfRXRx_xVLXdD_6Si95rJ0" />
+<!-- bing收录验证luojimen.netlify.app -->
+<meta name="msvalidate.01" content="508C6C00EA05098C32CD4DB253B3CB66" />
+<!-- baidu收录验证luojimen.netlify.app -->
+<meta name="baidu-site-verification" content="code-DlUhxrKYUP" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '');
+		</script>
+
+				<script type="text/javascript">
+		var _hmt = _hmt || [];
+				_hmt.push(['_trackPageview']);
+						(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?cff4b8fde8a7abf46d402c4fd284f0cc";
+		hm.setAttribute('async', 'true');
+		document.getElementsByTagName('head')[0].appendChild(hm);
+		})();
+		</script>
+		    <script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/jquery.min.js?ver=3.4.1' id='jquery-js'></script>
+    </head>
+
+<body>
+    <script type="text/javascript">  
+    $(function() {  
+    $('.content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='highslide-image' onclick='return hs.expand(this);'></a>");  
+                                    }  
+                                            });  
+                });  
+    </script> 
+    <div class="k-header">
+        <nav class="k-nav navbar navbar-expand-lg navbar-light fixed-top" style="background:#1e73be">
+            <div class="container">
+                <a class="navbar-brand" href="http://luojimen.netlify.app">
+                    <h1>LuoJi.men</h1>                </a>
+                                    <button class="navbar-toggler navbar-toggler-right" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="line first-line"></span>
+                        <span class="line second-line"></span>
+                        <span class="line third-line"></span>
+                    </button>
+                <div id="navbarResponsive" class="collapse navbar-collapse"><ul id="menu-menu-1" class="navbar-nav ml-auto"><li class="nav-item" ><a title="首页" href="https://luoji.men/" class="nav-link">首页</a></li>
+<li class="nav-item" ><a title="在线工具站" href="/online-tool-station/" class="nav-link">在线工具站</a></li>
+<li class="nav-item" ><a title="运维log" href="/%e8%bf%90%e7%bb%b4log/" class="nav-link">运维log</a></li>
+<li class="nav-item" ><a title="归档时间轴" href="/time/" class="nav-link">归档时间轴</a></li>
+</ul></div>            </div>
+        </nav>
+            </div>
+<div class="k-main color" style="background:#f5f5f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details">
+                                    <div class="article">
+                        <div class="breadcrumb-box">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-dark" href="https://luojimen.netlify.app"> 首页</a>
+                                </li>
+                                <li class="breadcrumb-item"> <a class="text-dark" href="/category/linux/">Linux</a></li>                                <li class="breadcrumb-item active" aria-current="page"> 正文</li>
+                            </ol>
+                        </div>
+                        <div class="header">
+                            <h1 class="title">hostloc一键获取积分shell脚本</h1>
+                            <div class="meta">
+                                <span>2019年5月8日</span>
+                                                                    <span>282点热度</span>
+                                                                                            </div>
+                        </div>
+                        <div class="content" id="lightgallery">
+                            <div style="margin-bottom:5px"><a href="" target="_blank" rel="noreferrer"><img src=""></a></div><div id="MathJax_Message" style="display: none;"></div>
+<p>来源： <br />
+https://github.com/mixool/script/blob/debian-9/hostloc.sh <br />
+<a href="https://www.hostloc.com/forum.php?mod=viewthread&amp;tid=545329&amp;highlight=%E7%A7%AF%E5%88%86" target="_blank"  rel="nofollow" >https://www.hostloc.com/forum.php?mod=viewthread&amp;tid=545329&amp;highlight=%E7%A7%AF%E5%88%86</a></p>
+<p>运行结果展示：</p>
+<div data-mode="shell"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52fa95f58688148504" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+bash /var/www/html/www/tools/hostloc.sh hostloc用户名 hostloc密码
+
+Tue May 7 15:52:47 CST 2019 登陆...www.hostloc.com
+Tue May 7 15:52:48 CST 2019 成功
+Tue May 7 15:52:50 CST 2019 目前积分为：4642
+
+Tue May 7 15:52:50 CST 2019 访问空间..............
+.....Tue May 7 15:55:54 CST 2019 完成
+Tue May 7 15:55:55 CST 2019 目前积分为：4662
+
+Tue May 7 15:55:55 CST 2019 huzongsi Accomplished. Thanks!</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-10">10</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f58688148504-11">11</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-1"><span class="crayon-v">bash</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-t">var</span><span class="crayon-o">/</span><span class="crayon-v">www</span><span class="crayon-o">/</span><span class="crayon-v">html</span><span class="crayon-o">/</span><span class="crayon-v">www</span><span class="crayon-o">/</span><span class="crayon-v">tools</span><span class="crayon-o">/</span><span class="crayon-v">hostloc</span><span class="crayon-sy">.</span><span class="crayon-e">sh </span><span class="crayon-i">hostloc</span>用户名<span class="crayon-h"> </span><span class="crayon-i">hostloc</span>密码</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-2">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-3"><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">52</span><span class="crayon-o">:</span><span class="crayon-cn">47</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span>登陆<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-v">www</span><span class="crayon-sy">.</span><span class="crayon-v">hostloc</span><span class="crayon-sy">.</span><span class="crayon-e">com</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-4"><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">52</span><span class="crayon-o">:</span><span class="crayon-cn">48</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span>成功</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-5"><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">52</span><span class="crayon-o">:</span><span class="crayon-cn">50</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span>目前积分为：<span class="crayon-cn">4642</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-6">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-7"><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">52</span><span class="crayon-o">:</span><span class="crayon-cn">50</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span>访问空间<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-8"><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">55</span><span class="crayon-o">:</span><span class="crayon-cn">54</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span>完成</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-9"><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">55</span><span class="crayon-o">:</span><span class="crayon-cn">55</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span>目前积分为：<span class="crayon-cn">4662</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-10">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f58688148504-11"><span class="crayon-e">Tue </span><span class="crayon-i">May</span><span class="crayon-h"> </span><span class="crayon-cn">7</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-o">:</span><span class="crayon-cn">55</span><span class="crayon-o">:</span><span class="crayon-cn">55</span><span class="crayon-h"> </span><span class="crayon-i">CST</span><span class="crayon-h"> </span><span class="crayon-cn">2019</span><span class="crayon-h"> </span><span class="crayon-e">huzongsi </span><span class="crayon-v">Accomplished</span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-v">Thanks</span><span class="crayon-o">!</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0007 seconds] -->
+</div>
+<p>创建hostloc.sh脚本：</p>
+<div data-mode="shell"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52fa95f5f989783061" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+#!/usr/bin/env bash
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
+export PATH
+# Usage:
+## wget --no-check-certificate https://raw.githubusercontent.com/mixool/script/debian-9/hostloc.sh &amp;&amp; chmod +x hostloc.sh.sh &amp;&amp; bash hostloc.sh
+### bash &lt;(curl -s https://raw.githubusercontent.com/mixool/script/debian-9/hostloc.sh) ${username} ${password}
+
+# user info: change them to yours or use parameters instead.
+username="$1"
+password="$2"
+
+#
+UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+
+# workdir
+workdir="/root/hostloc_cookie"
+[[ ! -d "$workdir" ]] &amp;&amp; mkdir $workdir
+
+function login() {
+  echo 
+  echo -n $(date) 登陆...
+  data="mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes&amp;inajax=1&amp;fastloginfield=username&amp;username=$username&amp;cookietime=$(shuf -i 1234567-7654321 -n 1)&amp;password=$password&amp;quickforward=yes&amp;handlekey=ls"
+  curl -s -H "$UA" -c $workdir/cookie_$username --data "$data" "https://www.hostloc.com/member.php" | grep -o "www.hostloc.com" &amp;&amp; echo -n $(date) 成功 || status="1"
+  [[ $status -eq 1 ]] &amp;&amp; echo -n $(date) 失败 &amp;&amp; exit 1
+}
+
+function credit() {
+  echo  
+  creditall=$(curl -s -H "$UA" -b $workdir/cookie_$username "https://www.hostloc.com/home.php?mod=spacecp&amp;ac=credit&amp;op=base" | grep -oE "积分: &lt;/em&gt;\w*" | awk -F'[&gt;]' '{print $2}')
+  echo $(date) 目前积分为：$creditall
+}
+
+function view() {
+  echo  
+  echo -n $(date) 访问空间
+  for((i = 6610; i &lt;= 6630; i++))
+  do
+  echo -n .
+  curl -s -H "$UA" -b $workdir/cookie_$username "https://www.hostloc.com/space-uid-$i.html" | grep -o "最近访客" &gt;/dev/null &amp;&amp; count[i]=$i
+  sleep 10 &amp;&amp; [[ ${#count[*]} -eq 10 ]] &amp;&amp; echo &amp;&amp; break 
+  done
+  echo -n $(date) 完成
+}
+
+function main() {
+  login
+  credit
+  view
+  credit
+
+  # clean
+  rm -rf $workdir
+
+  # exit
+  echo 
+  echo $(date) $username Accomplished.  Thanks!
+}
+
+main</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-10">10</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-11">11</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-12">12</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-13">13</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-14">14</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-15">15</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-16">16</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-17">17</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-18">18</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-19">19</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-20">20</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-21">21</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-22">22</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-23">23</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-24">24</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-25">25</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-26">26</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-27">27</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-28">28</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-29">29</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-30">30</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-31">31</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-32">32</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-33">33</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-34">34</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-35">35</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-36">36</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-37">37</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-38">38</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-39">39</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-40">40</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-41">41</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-42">42</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-43">43</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-44">44</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-45">45</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-46">46</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-47">47</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-48">48</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-49">49</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-50">50</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-51">51</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-52">52</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-53">53</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-54">54</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-55">55</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-56">56</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-57">57</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-58">58</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f5f989783061-59">59</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-1"><span class="crayon-p">#!/usr/bin/env bash</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-2"><span class="crayon-v">PATH</span><span class="crayon-o">=</span><span class="crayon-o">/</span><span class="crayon-v">bin</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-v">sbin</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-v">usr</span><span class="crayon-o">/</span><span class="crayon-v">bin</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-v">usr</span><span class="crayon-o">/</span><span class="crayon-v">sbin</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-v">usr</span><span class="crayon-o">/</span><span class="crayon-v">local</span><span class="crayon-o">/</span><span class="crayon-v">bin</span><span class="crayon-o">:</span><span class="crayon-o">/</span><span class="crayon-v">usr</span><span class="crayon-o">/</span><span class="crayon-v">local</span><span class="crayon-o">/</span><span class="crayon-v">sbin</span><span class="crayon-o">:</span><span class="crayon-o">~</span><span class="crayon-o">/</span><span class="crayon-e">bin</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-3"><span class="crayon-e">export </span><span class="crayon-i">PATH</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-4"><span class="crayon-p"># Usage:</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-5"><span class="crayon-p">## wget --no-check-certificate https://raw.githubusercontent.com/mixool/script/debian-9/hostloc.sh &amp;&amp; chmod +x hostloc.sh.sh &amp;&amp; bash hostloc.sh</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-6"><span class="crayon-p">### bash &lt;(curl -s https://raw.githubusercontent.com/mixool/script/debian-9/hostloc.sh) ${username} ${password}</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-7">&nbsp;</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-8"><span class="crayon-p"># user info: change them to yours or use parameters instead.</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-9"><span class="crayon-v">username</span><span class="crayon-o">=</span><span class="crayon-s">"$1"</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-10"><span class="crayon-v">password</span><span class="crayon-o">=</span><span class="crayon-s">"$2"</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-12"><span class="crayon-p">#</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-13"><span class="crayon-v">UA</span><span class="crayon-o">=</span><span class="crayon-s">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-14">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-15"><span class="crayon-p"># workdir</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-16"><span class="crayon-v">workdir</span><span class="crayon-o">=</span><span class="crayon-s">"/root/hostloc_cookie"</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-17"><span class="crayon-sy">[</span><span class="crayon-sy">[</span><span class="crayon-h"> </span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">d</span><span class="crayon-h"> </span><span class="crayon-s">"$workdir"</span><span class="crayon-h"> </span><span class="crayon-sy">]</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-i">mkdir</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-e">workdir</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-18">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-19"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">login</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-20"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">echo </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-21"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-v">echo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">n</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span>登陆<span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-22"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">data</span><span class="crayon-o">=</span><span class="crayon-s">"mod=logging&amp;action=login&amp;loginsubmit=yes&amp;infloat=yes&amp;lssubmit=yes&amp;inajax=1&amp;fastloginfield=username&amp;username=$username&amp;cookietime=$(shuf -i 1234567-7654321 -n 1)&amp;password=$password&amp;quickforward=yes&amp;handlekey=ls"</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-23"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">curl</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">s</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">H</span><span class="crayon-h"> </span><span class="crayon-s">"$UA"</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">c</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">workdir</span><span class="crayon-o">/</span><span class="crayon-v">cookie_</span><span class="crayon-sy">$</span><span class="crayon-v">username</span><span class="crayon-h"> </span><span class="crayon-o">--</span><span class="crayon-i">data</span><span class="crayon-h"> </span><span class="crayon-s">"$data"</span><span class="crayon-h"> </span><span class="crayon-s">"https://www.hostloc.com/member.php"</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">grep</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">o</span><span class="crayon-h"> </span><span class="crayon-s">"www.hostloc.com"</span><span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-v">echo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">n</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span>成功<span class="crayon-h"> </span><span class="crayon-o">||</span><span class="crayon-h"> </span><span class="crayon-v">status</span><span class="crayon-o">=</span><span class="crayon-s">"1"</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-24"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">[</span><span class="crayon-sy">[</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">status</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">eq</span><span class="crayon-h"> </span><span class="crayon-cn">1</span><span class="crayon-h"> </span><span class="crayon-sy">]</span><span class="crayon-sy">]</span><span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-v">echo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">n</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span>失败<span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-i">exit</span><span class="crayon-h"> </span><span class="crayon-cn">1</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-25"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-26">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-27"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">credit</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-28"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">echo&nbsp;&nbsp;</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-29"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-v">creditall</span><span class="crayon-o">=</span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">curl</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">s</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">H</span><span class="crayon-h"> </span><span class="crayon-s">"$UA"</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">b</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">workdir</span><span class="crayon-o">/</span><span class="crayon-v">cookie_</span><span class="crayon-sy">$</span><span class="crayon-i">username</span><span class="crayon-h"> </span><span class="crayon-s">"https://www.hostloc.com/home.php?mod=spacecp&amp;ac=credit&amp;op=base"</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">grep</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">oE</span><span class="crayon-h"> </span><span class="crayon-s">"积分: &lt;/em&gt;\w*"</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">awk</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">F</span><span class="crayon-s">'[&gt;]'</span><span class="crayon-h"> </span><span class="crayon-s">'{print $2}'</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-30"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-i">echo</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span>目前积分为：<span class="crayon-sy">$</span><span class="crayon-i">creditall</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-31"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-32">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-33"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">view</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-34"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">echo&nbsp;&nbsp;</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-35"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-v">echo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">n</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span>访问空间</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-36"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">for</span><span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-cn">6610</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-h"> </span><span class="crayon-o">&lt;=</span><span class="crayon-h"> </span><span class="crayon-cn">6630</span><span class="crayon-sy">;</span><span class="crayon-h"> </span><span class="crayon-v">i</span><span class="crayon-o">++</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-37"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-st">do</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-38"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">echo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">n</span><span class="crayon-h"> </span><span class="crayon-sy">.</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-39"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">curl</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">s</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">H</span><span class="crayon-h"> </span><span class="crayon-s">"$UA"</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">b</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">workdir</span><span class="crayon-o">/</span><span class="crayon-v">cookie_</span><span class="crayon-sy">$</span><span class="crayon-i">username</span><span class="crayon-h"> </span><span class="crayon-s">"https://www.hostloc.com/space-uid-$i.html"</span><span class="crayon-h"> </span><span class="crayon-o">|</span><span class="crayon-h"> </span><span class="crayon-v">grep</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">o</span><span class="crayon-h"> </span><span class="crayon-s">"最近访客"</span><span class="crayon-h"> </span><span class="crayon-o">&gt;</span><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-t">null</span><span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-v">count</span><span class="crayon-sy">[</span><span class="crayon-v">i</span><span class="crayon-sy">]</span><span class="crayon-o">=</span><span class="crayon-sy">$</span><span class="crayon-e">i</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-40"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">sleep</span><span class="crayon-h"> </span><span class="crayon-cn">10</span><span class="crayon-h"> </span><span class="crayon-o">&amp;&amp;</span><span class="crayon-h"> </span><span class="crayon-sy">[</span><span class="crayon-sy">[</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">{</span><span class="crayon-p">#count[*]} -eq 10 ]] &amp;&amp; echo &amp;&amp; break </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-41"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">done</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-42"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-v">echo</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">n</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span>完成</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-43"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-44">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-45"><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-e">main</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-46"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">login</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-47"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-e">credit</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-48"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-e">view</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-49"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-i">credit</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-50">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-51"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-p"># clean</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-52"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">rm</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">rf</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">workdir</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-53">&nbsp;</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-54"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-p"># exit</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-55"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-e">echo </span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-56"><span class="crayon-e">&nbsp;&nbsp;</span><span class="crayon-i">echo</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">(</span><span class="crayon-v">date</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-e">username </span><span class="crayon-v">Accomplished</span><span class="crayon-sy">.</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-v">Thanks</span><span class="crayon-o">!</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-57"><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-58">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f5f989783061-59"><span class="crayon-v">main</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0018 seconds] -->
+</div>
+<p>运行：</p>
+<div data-mode="shell"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52fa95f62684091522" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+bash /var/www/html/www/tools/hostloc.sh hostloc用户名 hostloc密码</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f62684091522-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f62684091522-1"><span class="crayon-v">bash</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-t">var</span><span class="crayon-o">/</span><span class="crayon-v">www</span><span class="crayon-o">/</span><span class="crayon-v">html</span><span class="crayon-o">/</span><span class="crayon-v">www</span><span class="crayon-o">/</span><span class="crayon-v">tools</span><span class="crayon-o">/</span><span class="crayon-v">hostloc</span><span class="crayon-sy">.</span><span class="crayon-e">sh </span><span class="crayon-i">hostloc</span>用户名<span class="crayon-h"> </span><span class="crayon-i">hostloc</span>密码</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+</div>
+<p>增加计划任务（使用tmux后台回话）： <br />
+crontab -e</p>
+<div data-mode="shell"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52fa95f69731663408" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+#hostloc
+0 2 * * * tmux new-session -s hostloc -d    #新建tmux会话
+0 3 * * * tmux send-keys -t hostloc 'bash /var/www/html/www/tools/hostloc.sh 用户1 密码1' C-m
+0 15 * * * tmux send-keys -t hostloc 'bash /var/www/html/www/tools/hostloc.sh 用户2 密码2' C-m   #其中C-m 表示回车键</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f69731663408-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f69731663408-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f69731663408-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52fa95f69731663408-4">4</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f69731663408-1"><span class="crayon-p">#hostloc</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f69731663408-2"><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">2</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-e">tmux </span><span class="crayon-r">new</span><span class="crayon-o">-</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-v">hostloc</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">d</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-p">#新建tmux会话</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f69731663408-3"><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">3</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-e">tmux </span><span class="crayon-v">send</span><span class="crayon-o">-</span><span class="crayon-v">keys</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-i">hostloc</span><span class="crayon-h"> </span><span class="crayon-s">'bash /var/www/html/www/tools/hostloc.sh 用户1 密码1'</span><span class="crayon-h"> </span><span class="crayon-v">C</span><span class="crayon-o">-</span><span class="crayon-i">m</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52fa95f69731663408-4"><span class="crayon-cn">0</span><span class="crayon-h"> </span><span class="crayon-cn">15</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-o">*</span><span class="crayon-h"> </span><span class="crayon-e">tmux </span><span class="crayon-v">send</span><span class="crayon-o">-</span><span class="crayon-v">keys</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-i">hostloc</span><span class="crayon-h"> </span><span class="crayon-s">'bash /var/www/html/www/tools/hostloc.sh 用户2 密码2'</span><span class="crayon-h"> </span><span class="crayon-v">C</span><span class="crayon-o">-</span><span class="crayon-i">m</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-p">#其中C-m 表示回车键</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+</div>
+<p>查看tmux会话：</p>
+<div data-mode="shell"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52fa95f6b902807655" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+tmux a -t hostloc</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52fa95f6b902807655-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52fa95f6b902807655-1"><span class="crayon-i">tmux</span><span class="crayon-h"> </span><span class="crayon-v">a</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-v">hostloc</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+</div>
+<p><wiz_tmp_tag id="wiz-table-range-border" contenteditable="false" style="display: none;"></p>
+<div id="wiz-table-col-line" style="display: none;"></div>
+<div id="wiz-table-row-line" style="display: none;"></div>
+<div id="wiz-table-range-border_start" style="display: none;">
+<div id="wiz-table-range-border_start_top"></div>
+<div id="wiz-table-range-border_start_right"></div>
+<div id="wiz-table-range-border_start_bottom"></div>
+<div id="wiz-table-range-border_start_left"></div>
+<div id="wiz-table-range-border_start_dot"></div>
+</div>
+<div id="wiz-table-range-border_range" style="display: none;">
+<div id="wiz-table-range-border_range_top"></div>
+<div id="wiz-table-range-border_range_right"></div>
+<div id="wiz-table-range-border_range_bottom"></div>
+<div id="wiz-table-range-border_range_left"></div>
+<div id="wiz-table-range-border_range_dot"></div>
+</div>
+<p></wiz_tmp_tag></p>
+                        </div>
+                                                <div class="footer clearfix">
+                            <div class="tags float-left">
+                                <span>标签：</span>
+                                <a href="/tag/hostloc/" rel="tag">hostloc</a> <a href="/tag/linux/" rel="tag">linux</a> <a href="/tag/%e8%84%9a%e6%9c%ac/" rel="tag">脚本</a>                            </div>
+                            <div class="tool float-right d-none d-lg-block">
+                                <span>最后更新：2022年4月5日</span>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="toolbar clearfix">
+	<div class="meta float-md-left">
+		<img src="https://sdn.geekzu.org/avatar/8dc48ab2afc8d5058df4be411bc61a15?s=96&r=g">
+		<p class="name">SSJ</p>
+		<p class="motto mb-0">不积跬步无以至千里</p>
+	</div>
+	<div class="share float-md-right text-center">
+				<a href="javascript:;" id="thumbs" data-action="love" data-id="1780" role="button" class="btn btn-thumbs "><i class="kicon i-like"></i><span class="ml-1">点赞</span></a>
+	</div>
+</div>
+                <nav class="navigation post-navigation clearfix" role="navigation">
+                    <div class="nav-previous clearfix"><a title="在NAT VPS上使用debian+nginx+webdav+rclone+transmission+ssr+bbr" href="/2018/07/%e5%9c%a8nat-vps%e4%b8%8a%e4%bd%bf%e7%94%a8debiannginxwebdavrclonetransmissionssrbbr/">< 上一篇</a></div><div class="nav-next"><a title="Google Authenticator验证的php客户端" href="/2019/05/google-authenticator%e9%aa%8c%e8%af%81%e7%9a%84php%e5%ae%a2%e6%88%b7%e7%ab%af-4/">下一篇 ></a></div>                </nav>
+                            </div>
+                    </div>
+    </div>
+</div>
+<div class="k-footer">
+    <div class="f-toolbox">
+        <div class="gotop ">
+            <div class="gotop-btn">
+                <span class="kicon i-up"></span>
+            </div>
+        </div>
+                <div class="search">
+            <span class="kicon i-find"></span>
+            <form class="search-form" role="search" method="get" action="/">
+                <input type="text" name="s" id="search-footer" placeholder="搜点什么呢?" style="display:none" />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="social">
+                                    </p>
+                <p>COPYRIGHT © 2022 luoji.men. ALL RIGHTS RESERVED.</p><p>Theme <a href="https://github.com/seatonjiang/kratos" target="_blank" rel="nofollow">Kratos</a> Made By <a href="https://seatonjiang.com" target="_blank" rel="nofollow">Seaton Jiang</a></p><script></script>            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' id='urvanov_syntax_highlighter_js-js-extra'>
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.27","is_admin":"0","ajaxurl":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/urvanov-syntax-highlighter/js/min/urvanov_syntax_highlighter.min.js?ver=2.8.27' id='urvanov_syntax_highlighter_js-js'></script>
+<script type='text/javascript' id='image-sizes-js-extra'>
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","medium","medium_large","large","1536x1536","2048x2048","kratos-thumbnail"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/image-sizes/assets/js/front.min.js?ver=3.5' id='image-sizes-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/bootstrap.bundle.min.js?ver=4.5.0' id='bootstrap-bundle-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/layer.min.js?ver=3.1.1' id='layer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/DPlayer.min.js?ver=4.1.2' id='dplayer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/lightgallery.min.js?ver=1.4.0' id='lightgallery-js'></script>
+<script type='text/javascript' id='kratos-js-extra'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/luojimen.netlify.app","directory":"https:\/\/cdn.seatonjiang.com\/kratos\/4.1.2","alipay":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","wechat":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","repeat":"\u60a8\u5df2\u7ecf\u8d5e\u8fc7\u4e86","thanks":"\u611f\u8c22\u60a8\u7684\u652f\u6301","donate":"\u6253\u8d4f\u4f5c\u8005","scan":"\u626b\u7801\u652f\u4ed8"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/kratos.js?ver=4.1.2' id='kratos-js'></script>
+<script type='text/javascript' id='comment-js-extra'>
+/* <![CDATA[ */
+var ajaxcomment = {"ajax_url":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","order":"asc","compost":"\u8bc4\u8bba\u6b63\u5728\u63d0\u4ea4\u4e2d","comsucc":"\u8bc4\u8bba\u63d0\u4ea4\u6210\u529f"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/comments.min.js?ver=4.1.2' id='comment-js'></script>
+<script type='text/javascript' src='https://zz.bdstatic.com/linksubmit/push.js?ver=6.0.2' id='baidu_zz_push-js'></script>
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ipv6动态解析域名NewFutureDDNS - LuoJi.men</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="keywords" content="">
+    <meta name="description" itemprop="description" content="注意:把TTL时间改短,否则就算提交ddns服务商更新了,但本地dns服务器缓存还没过期,导致本地访问时dns解析错误 IPV6支持的APP windows支持的(mstsc) andorid支持的( [&hellip;]">
+    <meta name="theme-color" content="#282a2c">
+    <meta itemprop="image" content="https://luoji.men/wp-content/themes/kratos-4.1.2/assets/img/default.jpg" />
+        <meta name='description' content='注意:把TTL时间改短,否则就算提交ddns服务商更新了,但本地dns服务器缓存还没过期,导致本地访问时dns解析错误 IPV6支持的APP windows支持的(mstsc) andorid支持的( [&hellip;]' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdn.seatonjiang.com' />
+<link rel='dns-prefetch' href='//zz.bdstatic.com' />
+<link rel='stylesheet' id='urvanov_syntax_highlighter-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/css/min/urvanov_syntax_highlighter.min.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/themes/classic/classic.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/fonts/monaco.css?ver=2.8.27' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/bootstrap.min.css?ver=4.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kicon-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/iconfont.min.css?ver=4.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/layer.min.css?ver=3.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/lightgallery.min.css?ver=1.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/style.css?ver=4.1.2' type='text/css' media='all' />
+<style id='kratos-inline-css' type='text/css'>
+
+        @media screen and (min-width: 992px) {
+            .k-nav .navbar-brand h1 {
+                color: #ffffff;
+            }
+            .k-nav .navbar-nav > li.nav-item > a {
+                color: #ffffff;
+            }
+        }
+        
+.sticky-sidebar {
+                position: sticky;
+                top: 8px;
+                height: 100%;
+            }
+</style>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2020%2F02%2Fipv6-dynamic-domain-name-resolution-newfuturedns%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2020%2F02%2Fipv6-dynamic-domain-name-resolution-newfuturedns%2F&#038;format=xml" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- 谷歌收录的验证方式 -->
+<meta name="google-site-verification" content="XxPfUFFG0MmfvRUNs2AFXHfRXRx_xVLXdD_6Si95rJ0" />
+<!-- bing收录验证luojimen.netlify.app -->
+<meta name="msvalidate.01" content="508C6C00EA05098C32CD4DB253B3CB66" />
+<!-- baidu收录验证luojimen.netlify.app -->
+<meta name="baidu-site-verification" content="code-DlUhxrKYUP" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '');
+		</script>
+
+				<script type="text/javascript">
+		var _hmt = _hmt || [];
+				_hmt.push(['_trackPageview']);
+						(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?cff4b8fde8a7abf46d402c4fd284f0cc";
+		hm.setAttribute('async', 'true');
+		document.getElementsByTagName('head')[0].appendChild(hm);
+		})();
+		</script>
+		    <script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/jquery.min.js?ver=3.4.1' id='jquery-js'></script>
+    </head>
+
+<body>
+    <script type="text/javascript">  
+    $(function() {  
+    $('.content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='highslide-image' onclick='return hs.expand(this);'></a>");  
+                                    }  
+                                            });  
+                });  
+    </script> 
+    <div class="k-header">
+        <nav class="k-nav navbar navbar-expand-lg navbar-light fixed-top" style="background:#1e73be">
+            <div class="container">
+                <a class="navbar-brand" href="http://luojimen.netlify.app">
+                    <h1>LuoJi.men</h1>                </a>
+                                    <button class="navbar-toggler navbar-toggler-right" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="line first-line"></span>
+                        <span class="line second-line"></span>
+                        <span class="line third-line"></span>
+                    </button>
+                <div id="navbarResponsive" class="collapse navbar-collapse"><ul id="menu-menu-1" class="navbar-nav ml-auto"><li class="nav-item" ><a title="首页" href="https://luoji.men/" class="nav-link">首页</a></li>
+<li class="nav-item" ><a title="在线工具站" href="/online-tool-station/" class="nav-link">在线工具站</a></li>
+<li class="nav-item" ><a title="运维log" href="/%e8%bf%90%e7%bb%b4log/" class="nav-link">运维log</a></li>
+<li class="nav-item" ><a title="归档时间轴" href="/time/" class="nav-link">归档时间轴</a></li>
+</ul></div>            </div>
+        </nav>
+            </div>
+<div class="k-main color" style="background:#f5f5f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details">
+                                    <div class="article">
+                        <div class="breadcrumb-box">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-dark" href="https://luojimen.netlify.app"> 首页</a>
+                                </li>
+                                <li class="breadcrumb-item"> <a class="text-dark" href="/category/pc/">电脑相关</a></li>                                <li class="breadcrumb-item active" aria-current="page"> 正文</li>
+                            </ol>
+                        </div>
+                        <div class="header">
+                            <h1 class="title">ipv6动态解析域名NewFutureDDNS</h1>
+                            <div class="meta">
+                                <span>2020年2月28日</span>
+                                                                    <span>281点热度</span>
+                                                                                            </div>
+                        </div>
+                        <div class="content" id="lightgallery">
+                            <div style="margin-bottom:5px"><a href="" target="_blank" rel="noreferrer"><img src=""></a></div><p><strong>注意:把TTL时间改短,否则就算提交ddns服务商更新了,但本地dns服务器缓存还没过期,导致本地访问时dns解析错误</strong></p>
+<h1 id="wiz-toc-0-1850085122">IPV6支持的APP</h2>
+<ul>
+<li>windows支持的(mstsc)</li>
+<li>andorid支持的(nplayer,mstsc)</li>
+<li>android不支持(es文件浏览器;juicessh).</li>
+</ul>
+<h1 id="wiz-toc-1-1230547665">体验:</h2>
+<ul>
+<li>2020年2月25日21:32:29 <br />
+小米平板4&gt;移动4g热点(mix2)&gt;联通广西钉钉(红米note5)热点&gt;新3路由器padavan&gt;z7m笔记本电脑:</p>
+<ul>
+<li>远程桌面可以实际使用,wiz可以编辑,不算很卡,可接受的延时.(客户端设备显示网络速度在300KB上限大约.资源管理器cpu页面全屏时100KB流速.)</li>
+</ul>
+</li>
+</ul>
+<h1 id="wiz-toc-2-344399643">域名同时拥有ipv4和ipv6解析</h2>
+<ul>
+<li>z7m同时提交本机公网v6和本机内网v4的ip到动态域名,外网访问动态域名情况下,优先v4,因为v4无法访问,然后解析v6访问.(安卓和win的mstsc测试通过v4+v6的动态域名成功连接v6公网).</li>
+</ul>
+<h1 id="wiz-toc-3-2006357901">客户端NewFutureDDNS + CloudFlare API</h2>
+<p><a href="https://github.com/NewFuture/DDNS/blob/master/README.md" target="_blank"  rel="nofollow" >https://github.com/NewFuture/DDNS/blob/master/README.md</a></p>
+<ul>
+<li>CloudFlare <br />
+** id为cf登录的邮箱地址,token使用Global API Key.(My Profile&gt;API Tokens&gt;Global API Key). <br />
+** cf不支持子域名.只能顶级域名example.com,不支持subdomain.example.com. <br />
+** 修改DNS生效时间:5分钟.(可能长2小时至24小时) <br />
+** 不需要在cf中预配动态域名,客户端通过API提交配置后会自动根据配置添加域名.</li>
+<li><span>NewFutureDDNS</span>
+<ul>
+<li>计划任务的规则 <br />
+<strong>只有在和上次提交的内容有变更的情况下,客户端才会向DDNS服务商提交最后申请.因此测试计划任务的时候,需要变化ip,或者变化config文件.</strong> </li>
+<li><span>重启后未登录也能自动执行的计划任务配置:</span>
+<ul>
+<li>常规-使用平常登录的用户名权限</li>
+<li>常规-[不管用户是否登录都要运行]</li>
+<li>常规-[使用最高权限运行]</li>
+<li>设置-如果此任务已经运行,以下规则使用:[停止现有实例].否则过去任务因为某种原因一直在运行没被kiil的话,下一个时间就无法正常执行功能.</li>
+</ul>
+</li>
+<li><span>NewFutureDDNS配置文件参考</span></li>
+</ul>
+</li>
+</ul>
+<div><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f5301c36b1772721847" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+{
+  "$schema": "https://ddns.newfuture.cc/schema/v2.8.json",
+  "debug": false,
+  "dns": "cloudflare",
+  "id": "example@gmail.com你的cf邮箱",
+  "index4": "default",
+  "index6": "default",
+  "ipv6": [
+    "sub.example.com你的域名",
+  ],
+  "ipv4": [
+    "sub.example.com你的域名",
+  ],
+  "proxy": null,
+  "token": "a2dcdc8599d80dde8a71783你cf的Global API Key",
+  "ttl": null
+}</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-10">10</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-11">11</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-12">12</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-13">13</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-14">14</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-15">15</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-16">16</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f5301c36b1772721847-17">17</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-1"><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-2"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"$schema"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"https://ddns.newfuture.cc/schema/v2.8.json"</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-3"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"debug"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">false</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-4"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"dns"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"cloudflare"</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-5"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"id"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"example@gmail.com你的cf邮箱"</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-6"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"index4"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"default"</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-7"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"index6"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"default"</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-8"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"ipv6"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">"sub.example.com你的域名"</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-10"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-11"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"ipv4"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-sy">[</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-s">"sub.example.com你的域名"</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-13"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-sy">]</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-14"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"proxy"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">null</span><span class="crayon-sy">,</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-15"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"token"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-s">"a2dcdc8599d80dde8a71783你cf的Global API Key"</span><span class="crayon-sy">,</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-16"><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-s">"ttl"</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-t">null</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f5301c36b1772721847-17"><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+</div>
+<h2  id="wiz-toc-4-1219307275"><a name="toc-1"></a>使用问题</h2>
+<ul>
+<li>安卓端访问动态ipv6,不管是dynv6还是cloudflare 的ipv6都需要失败一次访问 第2次才能成功访问,手机和平板皆是如此. 猜测原因为第一次默认的v4解析失败才会尝试v6解析. //2020-12-21</li>
+</ul>
+                        </div>
+                                                <div class="footer clearfix">
+                            <div class="tags float-left">
+                                <span>标签：</span>
+                                <a>暂无</a>                            </div>
+                            <div class="tool float-right d-none d-lg-block">
+                                <span>最后更新：2022年4月5日</span>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="toolbar clearfix">
+	<div class="meta float-md-left">
+		<img src="https://sdn.geekzu.org/avatar/8dc48ab2afc8d5058df4be411bc61a15?s=96&r=g">
+		<p class="name">SSJ</p>
+		<p class="motto mb-0">不积跬步无以至千里</p>
+	</div>
+	<div class="share float-md-right text-center">
+				<a href="javascript:;" id="thumbs" data-action="love" data-id="1888" role="button" class="btn btn-thumbs "><i class="kicon i-like"></i><span class="ml-1">点赞</span></a>
+	</div>
+</div>
+                <nav class="navigation post-navigation clearfix" role="navigation">
+                    <div class="nav-previous clearfix"><a title="Tasker自动化处理手机短信和通话" href="/2020/02/tasker%e8%87%aa%e5%8a%a8%e5%8c%96%e5%a4%84%e7%90%86%e6%89%8b%e6%9c%ba%e7%9f%ad%e4%bf%a1%e5%92%8c%e9%80%9a%e8%af%9d/">< 上一篇</a></div><div class="nav-next"><a title="kms方式激活windows10和office" href="/2020/07/kms%e6%96%b9%e5%bc%8f%e6%bf%80%e6%b4%bbwindows10%e5%92%8coffice/">下一篇 ></a></div>                </nav>
+                            </div>
+                    </div>
+    </div>
+</div>
+<div class="k-footer">
+    <div class="f-toolbox">
+        <div class="gotop ">
+            <div class="gotop-btn">
+                <span class="kicon i-up"></span>
+            </div>
+        </div>
+                <div class="search">
+            <span class="kicon i-find"></span>
+            <form class="search-form" role="search" method="get" action="/">
+                <input type="text" name="s" id="search-footer" placeholder="搜点什么呢?" style="display:none" />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="social">
+                                    </p>
+                <p>COPYRIGHT © 2022 luoji.men. ALL RIGHTS RESERVED.</p><p>Theme <a href="https://github.com/seatonjiang/kratos" target="_blank" rel="nofollow">Kratos</a> Made By <a href="https://seatonjiang.com" target="_blank" rel="nofollow">Seaton Jiang</a></p><script></script>            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' id='urvanov_syntax_highlighter_js-js-extra'>
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.27","is_admin":"0","ajaxurl":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/urvanov-syntax-highlighter/js/min/urvanov_syntax_highlighter.min.js?ver=2.8.27' id='urvanov_syntax_highlighter_js-js'></script>
+<script type='text/javascript' id='image-sizes-js-extra'>
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","medium","medium_large","large","1536x1536","2048x2048","kratos-thumbnail"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/image-sizes/assets/js/front.min.js?ver=3.5' id='image-sizes-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/bootstrap.bundle.min.js?ver=4.5.0' id='bootstrap-bundle-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/layer.min.js?ver=3.1.1' id='layer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/DPlayer.min.js?ver=4.1.2' id='dplayer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/lightgallery.min.js?ver=1.4.0' id='lightgallery-js'></script>
+<script type='text/javascript' id='kratos-js-extra'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/luojimen.netlify.app","directory":"https:\/\/cdn.seatonjiang.com\/kratos\/4.1.2","alipay":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","wechat":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","repeat":"\u60a8\u5df2\u7ecf\u8d5e\u8fc7\u4e86","thanks":"\u611f\u8c22\u60a8\u7684\u652f\u6301","donate":"\u6253\u8d4f\u4f5c\u8005","scan":"\u626b\u7801\u652f\u4ed8"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/kratos.js?ver=4.1.2' id='kratos-js'></script>
+<script type='text/javascript' id='comment-js-extra'>
+/* <![CDATA[ */
+var ajaxcomment = {"ajax_url":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","order":"asc","compost":"\u8bc4\u8bba\u6b63\u5728\u63d0\u4ea4\u4e2d","comsucc":"\u8bc4\u8bba\u63d0\u4ea4\u6210\u529f"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/comments.min.js?ver=4.1.2' id='comment-js'></script>
+<script type='text/javascript' src='https://zz.bdstatic.com/linksubmit/push.js?ver=6.0.2' id='baidu_zz_push-js'></script>
+</body>
+
+</html>

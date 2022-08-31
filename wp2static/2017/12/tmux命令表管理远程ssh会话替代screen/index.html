@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tmux命令表:管理远程SSH会话(替代Screen) - LuoJi.men</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="keywords" content="">
+    <meta name="description" itemprop="description" content="名称:tmux — terminal multiplexer 安装完成后输入命令tmux即可打开软件，界面十分简单，类似一个下方带有状态栏的终端控制台；但根据tmux的定义，在开启了tmux服务器后， [&hellip;]">
+    <meta name="theme-color" content="#282a2c">
+    <meta itemprop="image" content="https://luoji.men/wp-content/themes/kratos-4.1.2/assets/img/default.jpg" />
+        <meta name='description' content='名称:tmux — terminal multiplexer 安装完成后输入命令tmux即可打开软件，界面十分简单，类似一个下方带有状态栏的终端控制台；但根据tmux的定义，在开启了tmux服务器后， [&hellip;]' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdn.seatonjiang.com' />
+<link rel='dns-prefetch' href='//zz.bdstatic.com' />
+<link rel='stylesheet' id='urvanov_syntax_highlighter-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/css/min/urvanov_syntax_highlighter.min.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/themes/classic/classic.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/fonts/monaco.css?ver=2.8.27' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/bootstrap.min.css?ver=4.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kicon-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/iconfont.min.css?ver=4.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/layer.min.css?ver=3.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/lightgallery.min.css?ver=1.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/style.css?ver=4.1.2' type='text/css' media='all' />
+<style id='kratos-inline-css' type='text/css'>
+
+        @media screen and (min-width: 992px) {
+            .k-nav .navbar-brand h1 {
+                color: #ffffff;
+            }
+            .k-nav .navbar-nav > li.nav-item > a {
+                color: #ffffff;
+            }
+        }
+        
+.sticky-sidebar {
+                position: sticky;
+                top: 8px;
+                height: 100%;
+            }
+</style>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2017%2F12%2Ftmux%25e5%2591%25bd%25e4%25bb%25a4%25e8%25a1%25a8%25e7%25ae%25a1%25e7%2590%2586%25e8%25bf%259c%25e7%25a8%258bssh%25e4%25bc%259a%25e8%25af%259d%25e6%259b%25bf%25e4%25bb%25a3screen%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2017%2F12%2Ftmux%25e5%2591%25bd%25e4%25bb%25a4%25e8%25a1%25a8%25e7%25ae%25a1%25e7%2590%2586%25e8%25bf%259c%25e7%25a8%258bssh%25e4%25bc%259a%25e8%25af%259d%25e6%259b%25bf%25e4%25bb%25a3screen%2F&#038;format=xml" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- 谷歌收录的验证方式 -->
+<meta name="google-site-verification" content="XxPfUFFG0MmfvRUNs2AFXHfRXRx_xVLXdD_6Si95rJ0" />
+<!-- bing收录验证luojimen.netlify.app -->
+<meta name="msvalidate.01" content="508C6C00EA05098C32CD4DB253B3CB66" />
+<!-- baidu收录验证luojimen.netlify.app -->
+<meta name="baidu-site-verification" content="code-DlUhxrKYUP" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '');
+		</script>
+
+				<script type="text/javascript">
+		var _hmt = _hmt || [];
+				_hmt.push(['_trackPageview']);
+						(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?cff4b8fde8a7abf46d402c4fd284f0cc";
+		hm.setAttribute('async', 'true');
+		document.getElementsByTagName('head')[0].appendChild(hm);
+		})();
+		</script>
+		    <script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/jquery.min.js?ver=3.4.1' id='jquery-js'></script>
+    </head>
+
+<body>
+    <script type="text/javascript">  
+    $(function() {  
+    $('.content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='highslide-image' onclick='return hs.expand(this);'></a>");  
+                                    }  
+                                            });  
+                });  
+    </script> 
+    <div class="k-header">
+        <nav class="k-nav navbar navbar-expand-lg navbar-light fixed-top" style="background:#1e73be">
+            <div class="container">
+                <a class="navbar-brand" href="http://luojimen.netlify.app">
+                    <h1>LuoJi.men</h1>                </a>
+                                    <button class="navbar-toggler navbar-toggler-right" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="line first-line"></span>
+                        <span class="line second-line"></span>
+                        <span class="line third-line"></span>
+                    </button>
+                <div id="navbarResponsive" class="collapse navbar-collapse"><ul id="menu-menu-1" class="navbar-nav ml-auto"><li class="nav-item" ><a title="首页" href="https://luoji.men/" class="nav-link">首页</a></li>
+<li class="nav-item" ><a title="在线工具站" href="/online-tool-station/" class="nav-link">在线工具站</a></li>
+<li class="nav-item" ><a title="运维log" href="/%e8%bf%90%e7%bb%b4log/" class="nav-link">运维log</a></li>
+<li class="nav-item" ><a title="归档时间轴" href="/time/" class="nav-link">归档时间轴</a></li>
+</ul></div>            </div>
+        </nav>
+            </div>
+<div class="k-main color" style="background:#f5f5f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details">
+                                    <div class="article">
+                        <div class="breadcrumb-box">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-dark" href="https://luojimen.netlify.app"> 首页</a>
+                                </li>
+                                <li class="breadcrumb-item"> <a class="text-dark" href="/category/linux/">Linux</a></li>                                <li class="breadcrumb-item active" aria-current="page"> 正文</li>
+                            </ol>
+                        </div>
+                        <div class="header">
+                            <h1 class="title">Tmux命令表:管理远程SSH会话(替代Screen)</h1>
+                            <div class="meta">
+                                <span>2017年12月18日</span>
+                                                                    <span>431点热度</span>
+                                                                                            </div>
+                        </div>
+                        <div class="content" id="lightgallery">
+                            <div style="margin-bottom:5px"><a href="" target="_blank" rel="noreferrer"><img src=""></a></div><div>名称:tmux — terminal multiplexer</div>
+<div></div>
+<div><span id="wizkm_highlight_tmp_span"><span id="wizkm_highlight_tmp_span"><span id="wizkm_highlight_tmp_span">安装完成后输入命令tmux即可打开软件，界面十分简单，类似一个下方带有状态栏的终端控制台；但根据tmux的定义，在开启了tmux服务器后，会首先创建一个会话，而这个会话则会首先创建一个窗口，其中仅包含一个面板；也就是说，这里看到的所谓终端控制台应该称作tmux的一个面板，虽然其使用方法与终端控制台完全相同。</span></span></span></div>
+<div>tmux使用C/S模型构建，主要包括以下单元模块：</div>
+<div class="wiz-table-container" style="margin:0px 0px 1.4em;padding:0px;position:relative" contenteditable="false">
+<div class="wiz-table-body" contenteditable="false">
+<table class="inline" style="font-family: 'Open Sans', 나눔바른고딕, NanumBarunGothic, '맑은 고딕', 'Malgun Gothic', 돋움, Dotum, '애플 SD 산돌고딕 Neo', 'Apple SD Gothic Neo', AppleGothic, Helvetica, sans-serif; font-size: 0.75rem; margin: 0px; padding: 0px; color: rgb(51, 51, 51); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px;">
+<tbody>
+<tr class="row0">
+<td class="col0" style="margin:0px;padding:0.3em 0.5em;">server</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">服务器。输入tmux命令时就开启了一个服务器。</td>
+</tr>
+<tr class="row1">
+<td class="col0" style="margin:0px;padding:0.3em 0.5em;">session</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">会话。一个服务器可以包含多个会话。</td>
+</tr>
+<tr class="row2">
+<td class="col0" style="margin:0px;padding:0.3em 0.5em;">window</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">窗口。一个会话可以包含多个窗口。</td>
+</tr>
+<tr class="row3">
+<td class="col0" style="margin:0px;padding:0.3em 0.5em;">pane</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">面板。一个窗口可以包含多个面板。</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p style="margin:0px;padding:0px;color:rgb(51, 51, 51);font-family:Arial, sans-serif;font-size:0.875rem;font-style:normal;font-weight:400;text-align:start;text-indent:0px"></p>
+<p style="margin:0px;padding:0px;color:rgb(51, 51, 51);font-family:Arial, sans-serif;font-size:0.875rem;font-style:normal;font-weight:400;text-align:start;text-indent:0px"><span id="wizkm_highlight_tmp_span"><span id="wizkm_highlight_tmp_span"><span id="wizkm_highlight_tmp_span">## 脚本</span></span></span></p>
+<div class="table sectionedit3" style="margin:0px 0px 1.4em;padding:0px;"></div>
+<div data-mode="JavaScript" data-theme="default"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651d7108641533" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+#tmux-session-name
+session="rclone-auto"
+
+#new session
+tmux new-session -s $session -d
+
+#command
+tmux send-keys -t $session 'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s  smccd:/[PT]/ trane:/[PT]/' C-m
+tmux send-keys -t $session 'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s  smccd:/[sok]/ trane:/[sok]/' C-m
+tmux send-keys -t $session 'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s  smccd:/[Media]/ trane:/[Media]/' C-m
+
+#quit
+#tmux send-keys -t $session 'exit' C-m
+</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-10">10</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-11">11</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-12">12</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-13">13</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651d7108641533-14">14</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-1"><span class="crayon-p">#tmux-session-name</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-2"><span class="crayon-v">session</span><span class="crayon-o">=</span><span class="crayon-s">"rclone-auto"</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-4"><span class="crayon-p">#new session</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-5"><span class="crayon-e">tmux </span><span class="crayon-r">new</span><span class="crayon-o">-</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">d</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-6">&nbsp;</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-7"><span class="crayon-p">#command</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-8"><span class="crayon-e">tmux </span><span class="crayon-v">send</span><span class="crayon-o">-</span><span class="crayon-v">keys</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">session</span><span class="crayon-h"> </span><span class="crayon-s">'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s&nbsp;&nbsp;smccd:/[PT]/ trane:/[PT]/'</span><span class="crayon-h"> </span><span class="crayon-v">C</span><span class="crayon-o">-</span><span class="crayon-i">m</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-9"><span class="crayon-e">tmux </span><span class="crayon-v">send</span><span class="crayon-o">-</span><span class="crayon-v">keys</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">session</span><span class="crayon-h"> </span><span class="crayon-s">'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s&nbsp;&nbsp;smccd:/[sok]/ trane:/[sok]/'</span><span class="crayon-h"> </span><span class="crayon-v">C</span><span class="crayon-o">-</span><span class="crayon-i">m</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-10"><span class="crayon-e">tmux </span><span class="crayon-v">send</span><span class="crayon-o">-</span><span class="crayon-v">keys</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">session</span><span class="crayon-h"> </span><span class="crayon-s">'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s&nbsp;&nbsp;smccd:/[Media]/ trane:/[Media]/'</span><span class="crayon-h"> </span><span class="crayon-v">C</span><span class="crayon-o">-</span><span class="crayon-i">m</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-11">&nbsp;</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-12"><span class="crayon-p">#quit</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-13"><span class="crayon-p">#tmux send-keys -t $session 'exit' C-m</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651d7108641533-14">&nbsp;</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+</p>
+<div>
+<div class="CodeMirror cm-s-default CodeMirror-wrap" data-id="wiz_cm_1517575984018_3208">
+<div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 19.987px; left: 34.1667px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0" readonly=""></textarea></div>
+<div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+<div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+<div class="CodeMirror-scroll" tabindex="-1">
+<div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: 0px; border-right-width: 30px; min-height: 412px; padding-right: 0px; padding-bottom: 0px;">
+<div style="position: relative; top: 0px;">
+<div class="CodeMirror-lines" role="presentation">
+<div role="presentation" style="position: relative; outline: none;">
+<div class="CodeMirror-measure"><span><span></span>x</span></div>
+<div class="CodeMirror-measure"></div>
+<div style="position: relative; z-index: 1;"></div>
+<div class=" wiz-hide wiz_CodeMirror-cursors">
+<div class="CodeMirror-cursor" style="left: 4.16667px; top: 0px; height: 23.9974px;">&nbsp;</div>
+</div>
+<div class="CodeMirror-code" role="presentation">
+<div style="position: relative;" class="CodeMirror-activeline">
+<div class=" wiz-hide wiz_CodeMirror-activeline-background CodeMirror-linebackground"></div>
+<div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -30px; width: 30px;"></div>
+<div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651df449410907" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-error"&gt;#tmux-session-name&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651df449410907-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651df449410907-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-error"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#tmux-session-name&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651e1599606989" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-variable"&gt;session&lt;/span&gt;&lt;span class="cm-operator"&gt;=&lt;/span&gt;&lt;span class="cm-string"&gt;"rclone-auto"&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651e1599606989-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651e1599606989-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">session</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;=</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-string"</span><span class="crayon-o">&gt;</span><span class="crayon-s">"rclone-auto"</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651e2170690063" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span cm-text=""&gt;&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651e2170690063-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651e2170690063-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">cm</span><span class="crayon-o">-</span><span class="crayon-v">text</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651e4391157985" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-error"&gt;#new session&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651e4391157985-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651e4391157985-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-error"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#new session&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651e6504048904" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-variable"&gt;tmux&lt;/span&gt; &lt;span class="cm-keyword"&gt;new&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;session&lt;/span&gt; &lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;s&lt;/span&gt; &lt;span class="cm-variable"&gt;$session&lt;/span&gt; &lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;d&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651e6504048904-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651e6504048904-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">tmux</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-keyword"</span><span class="crayon-o">&gt;</span><span class="crayon-r">new</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">session</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">s</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-sy">$</span><span class="crayon-v">session</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">d</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0005 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651e7839769231" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span cm-text=""&gt;&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651e7839769231-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651e7839769231-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">cm</span><span class="crayon-o">-</span><span class="crayon-v">text</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651e8802444649" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-error"&gt;#command&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651e8802444649-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651e8802444649-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-error"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#command&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651ea731474304" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-variable"&gt;tmux&lt;/span&gt; &lt;span class="cm-variable"&gt;send&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;keys&lt;/span&gt; &lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;t&lt;/span&gt; &lt;span class="cm-variable"&gt;$session&lt;/span&gt; &lt;span class="cm-string"&gt;'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s  smccd:/[PT]/ trane:/[PT]/'&lt;/span&gt; &lt;span class="cm-variable"&gt;C&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;m&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651ea731474304-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651ea731474304-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">tmux</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">send</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">keys</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">t</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-sy">$</span><span class="crayon-v">session</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-string"</span><span class="crayon-o">&gt;</span><span class="crayon-s">'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s&nbsp;&nbsp;smccd:/[PT]/ trane:/[PT]/'</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">C</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">m</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651eb595333796" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-variable"&gt;tmux&lt;/span&gt; &lt;span class="cm-variable"&gt;send&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;keys&lt;/span&gt; &lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;t&lt;/span&gt; &lt;span class="cm-variable"&gt;$session&lt;/span&gt; &lt;span class="cm-string"&gt;'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s  smccd:/[sok]/ trane:/[sok]/'&lt;/span&gt; &lt;span class="cm-variable"&gt;C&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;m&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651eb595333796-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651eb595333796-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">tmux</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">send</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">keys</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">t</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-sy">$</span><span class="crayon-v">session</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-string"</span><span class="crayon-o">&gt;</span><span class="crayon-s">'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s&nbsp;&nbsp;smccd:/[sok]/ trane:/[sok]/'</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">C</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">m</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651ed825158971" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-variable"&gt;tmux&lt;/span&gt; &lt;span class="cm-variable"&gt;send&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;keys&lt;/span&gt; &lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;t&lt;/span&gt; &lt;span class="cm-variable"&gt;$session&lt;/span&gt; &lt;span class="cm-string"&gt;'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s  smccd:/[Media]/ trane:/[Media]/'&lt;/span&gt; &lt;span class="cm-variable"&gt;C&lt;/span&gt;&lt;span class="cm-operator"&gt;-&lt;/span&gt;&lt;span class="cm-variable"&gt;m&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651ed825158971-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651ed825158971-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">tmux</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">send</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">keys</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">t</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-sy">$</span><span class="crayon-v">session</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-string"</span><span class="crayon-o">&gt;</span><span class="crayon-s">'rclone sync -v --transfers 10 --bwlimit 9000 --stats 5s&nbsp;&nbsp;smccd:/[Media]/ trane:/[Media]/'</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">C</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-operator"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-variable"</span><span class="crayon-o">&gt;</span><span class="crayon-v">m</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0006 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">11</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651ee053615087" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span cm-text=""&gt;&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651ee053615087-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651ee053615087-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">cm</span><span class="crayon-o">-</span><span class="crayon-v">text</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">12</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651ef648125969" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-error"&gt;#quit&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651ef648125969-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651ef648125969-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-error"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#quit&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">13</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f1916374045" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-error"&gt;#tmux send-keys -t $session 'exit' C-m&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f1916374045-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f1916374045-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-error"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#tmux send-keys -t $session 'exit' C-m&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">14</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f2782596923" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span cm-text=""&gt;&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f2782596923-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f2782596923-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">cm</span><span class="crayon-o">-</span><span class="crayon-v">text</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="position: absolute; height: 13px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 412px;"></div>
+<div class="CodeMirror-gutters" style="height: 442px;">
+<div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p style="margin:0px;padding:0px;color:rgb(51, 51, 51);font-family:Arial, sans-serif;font-size:0.875rem;font-style:normal;font-weight:400;text-align:start;text-indent:0px"></p>
+<h2 ><a name="toc-1"></a>命令:会话<br /></h2>
+<div data-mode="Shell" data-theme="default"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f3998398216" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+tmux new -s session #建立会话
+tmux new -s session -d #在后台建立会话 
+tmux ls #列出会话 
+tmux at -t session // tmux attach -t session #进入某个会话 
+tmux kill-session -t session #杀掉指定session
+tmux kill-session -a #杀掉除本会话外的所有会话
+tmux kill-server #杀死所有tmux打开的会话(和服务器)也包含当前会话
+您也可以使用彻底杀死所有tmux进程pkill -f tmux。
+tmux kill-windows 
+tmux kill-panne</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef651f3998398216-10">10</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-1"><span class="crayon-e">tmux </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-i">session</span><span class="crayon-h"> </span><span class="crayon-p">#建立会话</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-2"><span class="crayon-e">tmux </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">s</span><span class="crayon-h"> </span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">d</span><span class="crayon-h"> </span><span class="crayon-p">#在后台建立会话 </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-3"><span class="crayon-e">tmux </span><span class="crayon-i">ls</span><span class="crayon-h"> </span><span class="crayon-p">#列出会话 </span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-4"><span class="crayon-e">tmux </span><span class="crayon-v">at</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-c">// tmux attach -t session #进入某个会话 </span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-5"><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">t</span><span class="crayon-h"> </span><span class="crayon-i">session</span><span class="crayon-h"> </span><span class="crayon-p">#杀掉指定session</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-6"><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-p">#杀掉除本会话外的所有会话</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-7"><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-i">server</span><span class="crayon-h"> </span><span class="crayon-p">#杀死所有tmux打开的会话(和服务器)也包含当前会话</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-8">您也可以使用彻底杀死所有<span class="crayon-i">tmux</span>进程<span class="crayon-v">pkill</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-i">f</span><span class="crayon-h"> </span><span class="crayon-i">tmux</span>。</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-9"><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-e">windows </span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef651f3998398216-10"><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">panne</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0003 seconds] -->
+</p>
+<div>
+<div class="CodeMirror cm-s-default CodeMirror-wrap CodeMirror-focused" data-id="wiz_cm_1513534109580_5889">
+<div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 187.969px; left: 374.831px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0" readonly=""></textarea></div>
+<div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+<div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+<div class="CodeMirror-scroll" tabindex="-1">
+<div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: 0px; border-right-width: 30px; min-height: 248px; padding-right: 0px; padding-bottom: 0px;">
+<div style="position: relative; top: 0px;">
+<div class="CodeMirror-lines" role="presentation">
+<div role="presentation" style="position: relative; outline: none;">
+<div class="CodeMirror-measure">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+<div>9</div>
+</div>
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt">
+<div>10</div>
+</div>
+</div>
+<div class="CodeMirror-measure"></div>
+<div style="position: relative; z-index: 1;"></div>
+<div class=" wiz-hide wiz_CodeMirror-cursors">
+<div class="CodeMirror-cursor" style="left: 344.831px; top: 167.982px; height: 23.9974px;">&nbsp;</div>
+</div>
+<div class="CodeMirror-code" role="presentation">
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f5225460226" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux new &lt;span class="cm-attribute"&gt;-s&lt;/span&gt; session &lt;span class="cm-comment"&gt;#建立会话&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f5225460226-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f5225460226-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">s</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-comment"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#建立会话&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f6662044084" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux new &lt;span class="cm-attribute"&gt;-s&lt;/span&gt; session &lt;span class="cm-attribute"&gt;-d&lt;/span&gt; &lt;span class="cm-comment"&gt;#在后台建立会话 &lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f6662044084-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f6662044084-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-r">new</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">s</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">d</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-comment"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#在后台建立会话 &lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f7748697658" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux &lt;span class="cm-builtin"&gt;ls&lt;/span&gt; &lt;span class="cm-comment"&gt;#列出会话 &lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f7748697658-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f7748697658-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-v">tmux</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-builtin"</span><span class="crayon-o">&gt;</span><span class="crayon-v">ls</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-comment"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#列出会话 &lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">4</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651f9580869703" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux at &lt;span class="cm-attribute"&gt;-t&lt;/span&gt; session // tmux attach &lt;span class="cm-attribute"&gt;-t&lt;/span&gt; session &lt;span class="cm-comment"&gt;#进入某个会话 &lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651f9580869703-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651f9580869703-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-v">at</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">t</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-c">// tmux attach &lt;span class="cm-attribute"&gt;-t&lt;/span&gt; session &lt;span class="cm-comment"&gt;#进入某个会话 &lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">5</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651fa867950016" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux kill-session &lt;span class="cm-attribute"&gt;-t&lt;/span&gt; session &lt;span class="cm-comment"&gt;#杀掉指定session&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651fa867950016-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651fa867950016-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">t</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-comment"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#杀掉指定session&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">6</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651fb389483070" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux kill-session &lt;span class="cm-attribute"&gt;-a&lt;/span&gt; &lt;span class="cm-comment"&gt;#杀掉除本会话外的所有会话&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651fb389483070-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651fb389483070-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">session</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">a</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-comment"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#杀掉除本会话外的所有会话&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">7</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651fc772050933" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux kill-server &lt;span class="cm-comment"&gt;#杀死所有tmux打开的会话(和服务器)也包含当前会话&lt;/span&gt;&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651fc772050933-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651fc772050933-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">server</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-comment"</span><span class="crayon-o">&gt;</span><span class="crayon-p">#杀死所有tmux打开的会话(和服务器)也包含当前会话&lt;/span&gt;&lt;/span&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div class="CodeMirror-activeline" style="position: relative;">
+<div class=" wiz-hide wiz_CodeMirror-activeline-background CodeMirror-linebackground"></div>
+<div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -30px; width: 30px;"></div>
+<div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">8</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651fe564031187" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;您也可以使用彻底杀死所有tmux进程pkill &lt;span class="cm-attribute"&gt;-f&lt;/span&gt; tmux。&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651fe564031187-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651fe564031187-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span>您也可以使用彻底杀死所有<span class="crayon-i">tmux</span>进程<span class="crayon-v">pkill</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-attribute"</span><span class="crayon-o">&gt;</span><span class="crayon-o">-</span><span class="crayon-v">f</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-i">tmux</span>。<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0002 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">9</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef651ff269346680" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux kill-windows &lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef651ff269346680-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef651ff269346680-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">windows</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">10</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef65226876891571" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;tmux kill-panne&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef65226876891571-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef65226876891571-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-e">tmux </span><span class="crayon-v">kill</span><span class="crayon-o">-</span><span class="crayon-v">panne</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="position: absolute; height: 13px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 248px;"></div>
+<div class="CodeMirror-gutters" style="height: 278px;">
+<div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div></div>
+<h2 ><a name="toc-2"></a>按键:操作</h2>
+<div><b>在 Tmux 中，按下 Tmux 前缀 ctrl+b，然后：</b></div>
+<div><b>回话 &gt;</b></div>
+<div data-mode="Shell" data-theme="default"><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef65228685534748" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+:new&lt;回车&gt;  启动新会话
+s          列出所有会话
+$          重命名当前会话</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef65228685534748-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f52ef65228685534748-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef65228685534748-3">3</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef65228685534748-1"><span class="crayon-o">:</span><span class="crayon-v">new</span><span class="crayon-o">&lt;</span>回车<span class="crayon-o">&gt;</span><span class="crayon-h">&nbsp;&nbsp;</span>启动新会话</div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f52ef65228685534748-2"><span class="crayon-i">s</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>列出所有会话</div><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef65228685534748-3"><span class="crayon-sy">$</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>重命名当前会话</div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+</p>
+<div>
+<div class="CodeMirror cm-s-default CodeMirror-wrap" data-id="wiz_cm_1513534242164_9504">
+<div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 19.9869px; left: 34.1667px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;" tabindex="0" readonly=""></textarea></div>
+<div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+<div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+<div class="CodeMirror-scroll" tabindex="-1">
+<div class="CodeMirror-sizer" style="margin-left: 30px; margin-bottom: 0px; border-right-width: 30px; min-height: 80px; padding-right: 0px; padding-bottom: 0px;">
+<div style="position: relative; top: 0px;">
+<div class="CodeMirror-lines" role="presentation">
+<div role="presentation" style="position: relative; outline: none;">
+<div class="CodeMirror-measure"></div>
+<div class="CodeMirror-measure"></div>
+<div style="position: relative; z-index: 1;"></div>
+<div class=" wiz-hide wiz_CodeMirror-cursors">
+<div class="CodeMirror-cursor" style="left: 4.16667px; top: 0px; height: 23.9974px;">&nbsp;</div>
+</div>
+<div class="CodeMirror-code" role="presentation">
+<div style="position: relative;" class="CodeMirror-activeline">
+<div class=" wiz-hide wiz_CodeMirror-activeline-background CodeMirror-linebackground"></div>
+<div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -30px; width: 30px;"></div>
+<div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">1</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef65229071857325" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;:new&lt;回车&gt;  启动新会话&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef65229071857325-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef65229071857325-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">:</span><span class="crayon-v">new</span><span class="crayon-o">&lt;</span>回车<span class="crayon-o">&gt;</span><span class="crayon-h">&nbsp;&nbsp;</span>启动新会话<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">2</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef6522b711143921" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;s          列出所有会话&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef6522b711143921-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef6522b711143921-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-i">s</span><span class="crayon-h"> </span> <span class="crayon-h"> </span> <span class="crayon-h"> </span> <span class="crayon-h"> </span> <span class="crayon-h">&nbsp;&nbsp;</span>列出所有会话<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+<p></p></div>
+<div style="position: relative;">
+<div class="CodeMirror-gutter-wrapper" style="left: -30px;">
+<div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 21px;">3</div>
+</div>
+<p></p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f52ef6522c687270405" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+&lt;span role="presentation" style="padding-right: 0.1px;"&gt;&lt;span class="cm-def"&gt;$ &lt;/span&gt;         重命名当前会话&lt;/span&gt;</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f52ef6522c687270405-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f52ef6522c687270405-1"><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"presentation"</span><span class="crayon-h"> </span><span class="crayon-v">style</span><span class="crayon-o">=</span><span class="crayon-s">"padding-right: 0.1px;"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"cm-def"</span><span class="crayon-o">&gt;</span><span class="crayon-sy">$</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span> <span class="crayon-h"> </span> <span class="crayon-h"> </span> <span class="crayon-h"> </span> <span class="crayon-h">&nbsp;&nbsp;</span>重命名当前会话<span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0004 seconds] -->
+<p></p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="position: absolute; height: 13px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 80px;"></div>
+<div class="CodeMirror-gutters" style="height: 110px;">
+<div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div><b>窗口 &gt;</b></div>
+<p style="color:rgb(51, 51, 51);font-style:normal;font-weight:400;text-align:start;text-indent:0px;margin:0px 0px 1.4em;padding:0px;font-family:Arial, sans-serif;font-size:0.875rem">类似各种平铺式窗口管理器，tmux使用键盘操作，常用快捷键包括：</p>
+<div class="wiz-table-container" style="color:rgb(51, 51, 51);font-style:normal;font-weight:400;text-align:start;text-indent:0px;margin:0px;padding:0px;font-family:Arial, sans-serif;font-size:0.875rem;position:relative" contenteditable="false">
+<div class="table sectionedit5 wiz-table-body" style="margin:0px 0px 1.4em;padding:0px;" contenteditable="false">
+<table class="inline" style="font-family:&quot;Open Sans&quot;, 나눔바른고딕, NanumBarunGothic, &quot;맑은 고딕&quot;, &quot;Malgun Gothic&quot;, 돋움, Dotum, &quot;애플 SD 산돌고딕 Neo&quot;, &quot;Apple SD Gothic Neo&quot;, AppleGothic, Helvetica, sans-serif;font-size:0.75rem;margin:0px;padding:0px;">
+<tbody>
+<tr class="row0">
+<td class="col0 centeralign" colspan="2" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Ctrl+b</td>
+<td class="col2" style="margin:0px;padding:0.3em 0.5em;">激活控制台；此时以下按键生效</td>
+</tr>
+<tr class="row1">
+<td class="col0" rowspan="9" style="margin:0px;padding:0.3em 0.5em;">系统操作</td>
+<td class="col1 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">?</td>
+<td class="col2" style="margin:0px;padding:0.3em 0.5em;">列出所有快捷键；按q返回</td>
+</tr>
+<tr class="row2">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">d</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">脱离当前会话；这样可以暂时返回Shell界面，输入tmux attach能够重新进入之前的会话</td>
+</tr>
+<tr class="row3">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">D</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">选择要脱离的会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr class="row4">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Ctrl+z</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">挂起当前会话</td>
+</tr>
+<tr class="row5">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">r</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">强制重绘未脱离的会话</td>
+</tr>
+<tr class="row6">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">s</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">选择并切换会话；在同时开启了多个会话时使用</td>
+</tr>
+<tr class="row7">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">:</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">进入命令行模式；此时可以输入支持的命令，例如kill-server可以关闭服务器</td>
+</tr>
+<tr class="row8">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">[</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">进入复制模式；此时的操作与vi/emacs相同，按q/Esc退出</td>
+</tr>
+<tr class="row9">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">~</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">列出提示信息缓存；其中包含了之前tmux返回的各种提示信息</td>
+</tr>
+<tr class="row10">
+<td class="col0" rowspan="10" style="margin:0px;padding:0.3em 0.5em;">窗口操作</td>
+<td class="col1 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">c</td>
+<td class="col2" style="margin:0px;padding:0.3em 0.5em;">创建新窗口</td>
+</tr>
+<tr class="row11">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">&amp;</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">关闭当前窗口</td>
+</tr>
+<tr class="row12">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">数字键</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">切换至指定窗口</td>
+</tr>
+<tr class="row13">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">p</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">切换至上一窗口</td>
+</tr>
+<tr class="row14">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">n</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">切换至下一窗口</td>
+</tr>
+<tr class="row15">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">l</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">在前后两个窗口间互相切换</td>
+</tr>
+<tr class="row16">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">w</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">通过窗口列表切换窗口</td>
+</tr>
+<tr class="row17">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">,</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">重命名当前窗口；这样便于识别</td>
+</tr>
+<tr class="row18">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">.</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">修改当前窗口编号；相当于窗口重新排序</td>
+</tr>
+<tr class="row19">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">f</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">在所有窗口中查找指定文本</td>
+</tr>
+<tr class="row20">
+<td class="col0" rowspan="14" style="margin:0px;padding:0.3em 0.5em;">面板操作</td>
+<td class="col1 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">“</td>
+<td class="col2" style="margin:0px;padding:0.3em 0.5em;">将当前面板平分为上下两块</td>
+</tr>
+<tr class="row21">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">%</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">将当前面板平分为左右两块</td>
+</tr>
+<tr class="row22">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">x</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">关闭当前面板</td>
+</tr>
+<tr class="row23">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">!</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">将当前面板置于新窗口；即新建一个窗口，其中仅包含当前面板</td>
+</tr>
+<tr class="row24">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Ctrl+方向键</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">以1个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr class="row25">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Alt+方向键</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">以5个单元格为单位移动边缘以调整当前面板大小</td>
+</tr>
+<tr class="row26">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Space</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">在预置的面板布局中循环切换；依次包括even-horizontal、even-vertical、main-horizontal、main-vertical、tiled</td>
+</tr>
+<tr class="row27">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">q</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">显示面板编号</td>
+</tr>
+<tr class="row28">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">o</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">在当前窗口中选择下一面板</td>
+</tr>
+<tr class="row29">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">方向键</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">移动光标以选择面板</td>
+</tr>
+<tr class="row30">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">{</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">向前置换当前面板</td>
+</tr>
+<tr class="row31">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">}</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">向后置换当前面板</td>
+</tr>
+<tr class="row32">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Alt+o</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">逆时针旋转当前窗口的面板</td>
+</tr>
+<tr class="row33">
+<td class="col0 centeralign" style="margin:0px;padding:0.3em 0.5em;text-align:center;">Ctrl+o</td>
+<td class="col1" style="margin:0px;padding:0.3em 0.5em;">顺时针旋转当前窗口的面板</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="wiz-table-container" style="color:rgb(51, 51, 51);font-style:normal;font-weight:400;text-align:start;text-indent:0px;margin:0px;padding:0px;font-family:Arial, sans-serif;font-size:0.875rem;position:relative" contenteditable="false">
+<div class="wiz-table-body" contenteditable="false">
+<table style="width: 776px;">
+<tbody>
+<tr>
+<td align="left" valign="middle" style="width: 119px;" class="">
+<p></td>
+<td align="left" valign="middle" style="width: 656px;" class="">新建会话<br />新建一个tmux session非常简单，语法为tmux new -s session-name，也可以简写为tmux，为了方便管理，建议指定会话名称，如下。</p>
+<p>tmux # 新建一个无名称的会话<br />tmux new -s demo # 新建一个名称为demo的会话</p>
+<p><span style="font-family: Arial, sans-serif; font-style: normal; font-weight: normal; text-align: -webkit-left; text-indent: 0px; display: inline !important;">tmux new -s session-name cmmand - 脚本运行命令<span class="Apple-converted-space">&nbsp;</span></span></td>
+</tr>
+<tr>
+<td style="width: 119px;" class=""></td>
+<td style="width: 656px;" class="">向回话发送命令<br />tmux send -t "demo" "nload" Enter //意思是在demo窗口输入nload 回车</td>
+</tr>
+<tr>
+<td align="left" valign="middle" style="width: 119px;"></td>
+<td align="left" valign="middle" style="width: 656px;" class="">断开当前会话<br />会话中操作了一段时间，我希望断开会话同时下次还能接着用，怎么做？此时可以使用detach命令。</p>
+<p>tmux detach # 断开当前会话，会话在后台运行<br />1<br />也许你觉得这个太麻烦了，是的，tmux的会话中，我们已经可以使用tmux快捷键了。使用快捷键组合Ctrl+b + d，三次按键就可以断开当前会话。</p>
+<p>进入之前的会话<br /><span id="wizkm_highlight_tmp_span"><span id="wizkm_highlight_tmp_span"><span id="wizkm_highlight_tmp_span">断开会话后，想要接着上次留下的现场继续工作，就要使用到tmux的attach命令了，语法为tmux attach-session -t session-name，可简写为tmux a -t session-name 或 tmux a。通常我们使用如下两种方式之一即可：</span></span></span></p>
+<p>tmux a # 默认进入第一个会话<br />tmux a -t demo # 进入到名称为demo的会话</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><wiz_tmp_tag id="wiz-table-range-border" contenteditable="false" style="display: none;"></p>
+<div id="wiz-table-col-line" style="display: none;"></div>
+<div id="wiz-table-row-line" style="display: none;"></div>
+<div id="wiz-table-range-border_start" style="display: none;">
+<div id="wiz-table-range-border_start_top"></div>
+<div id="wiz-table-range-border_start_right"></div>
+<div id="wiz-table-range-border_start_bottom"></div>
+<div id="wiz-table-range-border_start_left"></div>
+<div id="wiz-table-range-border_start_dot"></div>
+</div>
+<div id="wiz-table-range-border_range" style="display: none;">
+<div id="wiz-table-range-border_range_top"></div>
+<div id="wiz-table-range-border_range_right"></div>
+<div id="wiz-table-range-border_range_bottom"></div>
+<div id="wiz-table-range-border_range_left"></div>
+<div id="wiz-table-range-border_range_dot"></div>
+</div>
+<p></wiz_tmp_tag></p>
+                        </div>
+                                                <div class="footer clearfix">
+                            <div class="tags float-left">
+                                <span>标签：</span>
+                                <a>暂无</a>                            </div>
+                            <div class="tool float-right d-none d-lg-block">
+                                <span>最后更新：2017年12月18日</span>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="toolbar clearfix">
+	<div class="meta float-md-left">
+		<img src="https://sdn.geekzu.org/avatar/8dc48ab2afc8d5058df4be411bc61a15?s=96&r=g">
+		<p class="name">SSJ</p>
+		<p class="motto mb-0">不积跬步无以至千里</p>
+	</div>
+	<div class="share float-md-right text-center">
+				<a href="javascript:;" id="thumbs" data-action="love" data-id="1709" role="button" class="btn btn-thumbs "><i class="kicon i-like"></i><span class="ml-1">点赞</span></a>
+	</div>
+</div>
+                <nav class="navigation post-navigation clearfix" role="navigation">
+                    <div class="nav-previous clearfix"><a title="ubuntu16.04 安装使用 google-drive-ocamlfuse" href="/2017/12/ubuntu16-04-%e5%ae%89%e8%a3%85%e4%bd%bf%e7%94%a8-google-drive-ocamlfuse/">< 上一篇</a></div><div class="nav-next"><a title="hostloc刷20积分-php代码" href="/2018/01/hostloc-brush-20-points-php-code/">下一篇 ></a></div>                </nav>
+                            </div>
+                    </div>
+    </div>
+</div>
+<div class="k-footer">
+    <div class="f-toolbox">
+        <div class="gotop ">
+            <div class="gotop-btn">
+                <span class="kicon i-up"></span>
+            </div>
+        </div>
+                <div class="search">
+            <span class="kicon i-find"></span>
+            <form class="search-form" role="search" method="get" action="/">
+                <input type="text" name="s" id="search-footer" placeholder="搜点什么呢?" style="display:none" />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="social">
+                                    </p>
+                <p>COPYRIGHT © 2022 luoji.men. ALL RIGHTS RESERVED.</p><p>Theme <a href="https://github.com/seatonjiang/kratos" target="_blank" rel="nofollow">Kratos</a> Made By <a href="https://seatonjiang.com" target="_blank" rel="nofollow">Seaton Jiang</a></p><script></script>            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' id='urvanov_syntax_highlighter_js-js-extra'>
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.27","is_admin":"0","ajaxurl":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/urvanov-syntax-highlighter/js/min/urvanov_syntax_highlighter.min.js?ver=2.8.27' id='urvanov_syntax_highlighter_js-js'></script>
+<script type='text/javascript' id='image-sizes-js-extra'>
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","medium","medium_large","large","1536x1536","2048x2048","kratos-thumbnail"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/image-sizes/assets/js/front.min.js?ver=3.5' id='image-sizes-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/bootstrap.bundle.min.js?ver=4.5.0' id='bootstrap-bundle-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/layer.min.js?ver=3.1.1' id='layer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/DPlayer.min.js?ver=4.1.2' id='dplayer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/lightgallery.min.js?ver=1.4.0' id='lightgallery-js'></script>
+<script type='text/javascript' id='kratos-js-extra'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/luojimen.netlify.app","directory":"https:\/\/cdn.seatonjiang.com\/kratos\/4.1.2","alipay":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","wechat":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","repeat":"\u60a8\u5df2\u7ecf\u8d5e\u8fc7\u4e86","thanks":"\u611f\u8c22\u60a8\u7684\u652f\u6301","donate":"\u6253\u8d4f\u4f5c\u8005","scan":"\u626b\u7801\u652f\u4ed8"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/kratos.js?ver=4.1.2' id='kratos-js'></script>
+<script type='text/javascript' id='comment-js-extra'>
+/* <![CDATA[ */
+var ajaxcomment = {"ajax_url":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","order":"asc","compost":"\u8bc4\u8bba\u6b63\u5728\u63d0\u4ea4\u4e2d","comsucc":"\u8bc4\u8bba\u63d0\u4ea4\u6210\u529f"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/comments.min.js?ver=4.1.2' id='comment-js'></script>
+<script type='text/javascript' src='https://zz.bdstatic.com/linksubmit/push.js?ver=6.0.2' id='baidu_zz_push-js'></script>
+</body>
+
+</html>

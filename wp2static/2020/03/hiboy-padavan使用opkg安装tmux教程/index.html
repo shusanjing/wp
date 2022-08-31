@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hiboy-padavan使用opkg安装tmux教程 - LuoJi.men</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="format-detection" content="telphone=no, email=no">
+    <meta name="keywords" content="2019,amp,open,pt,shell,下载,脚本,路由器">
+    <meta name="description" itemprop="description" content="开启 opt-Entware支持 不是ext4磁盘时,会用镜像生成opt.推荐使用ext4格式化u盘. 先卸载 U 盘. usb应用程序&gt;允许运行optware&gt;entware. 拔下 U [&hellip;]">
+    <meta name="theme-color" content="#282a2c">
+    <meta itemprop="image" content="https://luoji.men/wp-content/themes/kratos-4.1.2/assets/img/default.jpg" />
+        <meta name='description' content='开启 opt-Entware支持 不是ext4磁盘时,会用镜像生成opt.推荐使用ext4格式化u盘. 先卸载 U 盘. usb应用程序&gt;允许运行optware&gt;entware. 拔下 U [&hellip;]' />
+<meta name='keywords' content='2019,amp,open,pt,shell,下载,脚本,路由器' />
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//cdn.seatonjiang.com' />
+<link rel='dns-prefetch' href='//zz.bdstatic.com' />
+<link rel='stylesheet' id='urvanov_syntax_highlighter-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/css/min/urvanov_syntax_highlighter.min.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-theme-classic-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/themes/classic/classic.css?ver=2.8.27' type='text/css' media='all' />
+<link rel='stylesheet' id='crayon-font-monaco-css'  href='/wp-content/plugins/urvanov-syntax-highlighter/fonts/monaco.css?ver=2.8.27' type='text/css' media='all' />
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel='stylesheet' id='bootstrap-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/bootstrap.min.css?ver=4.5.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kicon-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/iconfont.min.css?ver=4.1.2' type='text/css' media='all' />
+<link rel='stylesheet' id='layer-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/layer.min.css?ver=3.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='lightgallery-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/assets/css/lightgallery.min.css?ver=1.4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='kratos-css'  href='https://cdn.seatonjiang.com/kratos/4.1.2/style.css?ver=4.1.2' type='text/css' media='all' />
+<style id='kratos-inline-css' type='text/css'>
+
+        @media screen and (min-width: 992px) {
+            .k-nav .navbar-brand h1 {
+                color: #ffffff;
+            }
+            .k-nav .navbar-nav > li.nav-item > a {
+                color: #ffffff;
+            }
+        }
+        
+.sticky-sidebar {
+                position: sticky;
+                top: 8px;
+                height: 100%;
+            }
+</style>
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2020%2F03%2Fhiboy-padavan%25e4%25bd%25bf%25e7%2594%25a8opkg%25e5%25ae%2589%25e8%25a3%2585tmux%25e6%2595%2599%25e7%25a8%258b%2F" />
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.luoji.men%2F2020%2F03%2Fhiboy-padavan%25e4%25bd%25bf%25e7%2594%25a8opkg%25e5%25ae%2589%25e8%25a3%2585tmux%25e6%2595%2599%25e7%25a8%258b%2F&#038;format=xml" />
+<style type="text/css">.broken_link, a.broken_link {
+	text-decoration: line-through;
+}</style><!-- 谷歌收录的验证方式 -->
+<meta name="google-site-verification" content="XxPfUFFG0MmfvRUNs2AFXHfRXRx_xVLXdD_6Si95rJ0" />
+<!-- bing收录验证luojimen.netlify.app -->
+<meta name="msvalidate.01" content="508C6C00EA05098C32CD4DB253B3CB66" />
+<!-- baidu收录验证luojimen.netlify.app -->
+<meta name="baidu-site-verification" content="code-DlUhxrKYUP" />
+		
+		<script async src="https://www.googletagmanager.com/gtag/js?id="></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', '');
+		</script>
+
+				<script type="text/javascript">
+		var _hmt = _hmt || [];
+				_hmt.push(['_trackPageview']);
+						(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?cff4b8fde8a7abf46d402c4fd284f0cc";
+		hm.setAttribute('async', 'true');
+		document.getElementsByTagName('head')[0].appendChild(hm);
+		})();
+		</script>
+		    <script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/jquery.min.js?ver=3.4.1' id='jquery-js'></script>
+    </head>
+
+<body>
+    <script type="text/javascript">  
+    $(function() {  
+    $('.content img').each(function(i){  
+        if (! this.parentNode.href) {  
+            $(this).wrap("<a href='"+this.src+"' class='highslide-image' onclick='return hs.expand(this);'></a>");  
+                                    }  
+                                            });  
+                });  
+    </script> 
+    <div class="k-header">
+        <nav class="k-nav navbar navbar-expand-lg navbar-light fixed-top" style="background:#1e73be">
+            <div class="container">
+                <a class="navbar-brand" href="http://luojimen.netlify.app">
+                    <h1>LuoJi.men</h1>                </a>
+                                    <button class="navbar-toggler navbar-toggler-right" id="navbutton" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="line first-line"></span>
+                        <span class="line second-line"></span>
+                        <span class="line third-line"></span>
+                    </button>
+                <div id="navbarResponsive" class="collapse navbar-collapse"><ul id="menu-menu-1" class="navbar-nav ml-auto"><li class="nav-item" ><a title="首页" href="https://luoji.men/" class="nav-link">首页</a></li>
+<li class="nav-item" ><a title="在线工具站" href="/online-tool-station/" class="nav-link">在线工具站</a></li>
+<li class="nav-item" ><a title="运维log" href="/%e8%bf%90%e7%bb%b4log/" class="nav-link">运维log</a></li>
+<li class="nav-item" ><a title="归档时间轴" href="/time/" class="nav-link">归档时间轴</a></li>
+</ul></div>            </div>
+        </nav>
+            </div>
+<div class="k-main color" style="background:#f5f5f5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 details">
+                                    <div class="article">
+                        <div class="breadcrumb-box">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a class="text-dark" href="https://luojimen.netlify.app"> 首页</a>
+                                </li>
+                                <li class="breadcrumb-item"> <a class="text-dark" href="/category/linux/">Linux</a></li>                                <li class="breadcrumb-item active" aria-current="page"> 正文</li>
+                            </ol>
+                        </div>
+                        <div class="header">
+                            <h1 class="title">hiboy-padavan使用opkg安装tmux教程</h1>
+                            <div class="meta">
+                                <span>2020年3月1日</span>
+                                                                    <span>490点热度</span>
+                                                                                            </div>
+                        </div>
+                        <div class="content" id="lightgallery">
+                            <div style="margin-bottom:5px"><a href="" target="_blank" rel="noreferrer"><img src=""></a></div><h1 ><a name="toc-1"></a>开启 opt-Entware支持</h1>
+<ul>
+<li>不是ext4磁盘时,会用镜像生成opt.推荐使用ext4格式化u盘.</li>
+<li>先卸载 U 盘.</li>
+<li>usb应用程序&gt;允许运行optware&gt;entware.</li>
+<li>拔下 U 盘再重新插入，等一小会儿.</li>
+</ul>
+<h1 ><a name="toc-2"></a>安装tmux</h1>
+<ul>
+<li>安装okpg: opkg.sh</li>
+<li>升级opkg: opkg update</li>
+<li>安装tmux: opkg install tmux<br />
+运行tmux如果出现错误,大约是opkg.sh有些依赖包因为服务器下载太慢导致超时没有下载完成,可尝试使用以下脚本</p>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f53034fce8112084832" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+wget -O - http://bin.entware.net/mipselsf-k3.4/installer/generic.sh | /bin/sh</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fce8112084832-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fce8112084832-1"><span class="crayon-v">wget</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">O</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-c">//bin.entware.net/mipselsf-k3.4/installer/generic.sh | /bin/sh</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+</li>
+</ul>
+<h1 ><a name="toc-3"></a>可能遇到的bug故障</h1>
+<ul>
+<li>"libc.so.6: file too short" 错误<br />
+如果重新安装路由器固件后运行opkg的程序出现此报错,是因为u盘存放的是老固件的依赖包,格式化u盘重新安装opkg可解决.</p>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f53034fcef552829251" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+错误信息:
+[RT-N56U_B1 /opt/home/admin]# tmux
+tmux: error while loading shared libraries: libevent-2.1.so.7: cannot open shared object file: No such file or directory
+[RT-N56U_B1 /opt/home/admin]# opkg remove tmux
+opkg: error while loading shared libraries: /opt/lib/libc.so.6: file too short
+实际上在登录ssh就会显示opt的依赖包故障.
+onnecting to 192.168.123.1:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+BusyBox v1.29.3 (2019-12-17 07:06:31 CST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+grep: error while loading shared libraries: /opt/lib/libc.so.6: file too short
+sed: error while loading shared libraries: /opt/lib/libc.so.6: file too short
+[RT-N56U_B1 /opt/home/admin]# </textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-10">10</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-11">11</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-12">12</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-13">13</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcef552829251-14">14</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-1">错误信息<span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-2"><span class="crayon-sy">[</span><span class="crayon-v">RT</span><span class="crayon-o">-</span><span class="crayon-v">N56U_B1</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">opt</span><span class="crayon-o">/</span><span class="crayon-v">home</span><span class="crayon-o">/</span><span class="crayon-v">admin</span><span class="crayon-sy">]</span><span class="crayon-p"># tmux</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-3"><span class="crayon-v">tmux</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">error </span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-e">loading </span><span class="crayon-e">shared </span><span class="crayon-v">libraries</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-v">libevent</span><span class="crayon-o">-</span><span class="crayon-cn">2.1.so.7</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">cannot </span><span class="crayon-e">open </span><span class="crayon-e">shared </span><span class="crayon-t">object</span><span class="crayon-h"> </span><span class="crayon-v">file</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">No </span><span class="crayon-e">such </span><span class="crayon-e">file </span><span class="crayon-st">or</span><span class="crayon-h"> </span><span class="crayon-i">directory</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-4"><span class="crayon-sy">[</span><span class="crayon-v">RT</span><span class="crayon-o">-</span><span class="crayon-v">N56U_B1</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">opt</span><span class="crayon-o">/</span><span class="crayon-v">home</span><span class="crayon-o">/</span><span class="crayon-v">admin</span><span class="crayon-sy">]</span><span class="crayon-p"># opkg remove tmux</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-5"><span class="crayon-v">opkg</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">error </span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-e">loading </span><span class="crayon-e">shared </span><span class="crayon-v">libraries</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">opt</span><span class="crayon-o">/</span><span class="crayon-v">lib</span><span class="crayon-o">/</span><span class="crayon-v">libc</span><span class="crayon-sy">.</span><span class="crayon-v">so</span><span class="crayon-sy">.</span><span class="crayon-cn">6</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">file </span><span class="crayon-e">too </span><span class="crayon-t">short</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-6">实际上在登录<span class="crayon-i">ssh</span>就会显示<span class="crayon-i">opt</span>的依赖包故障<span class="crayon-sy">.</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-7"><span class="crayon-e">onnecting </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-cn">192.168.123.1</span><span class="crayon-o">:</span><span class="crayon-cn">22...</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-8"><span class="crayon-e">Connection </span><span class="crayon-v">established</span><span class="crayon-sy">.</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-9"><span class="crayon-st">To</span><span class="crayon-h"> </span><span class="crayon-e">escape </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-e">local </span><span class="crayon-v">shell</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-i">press</span><span class="crayon-h"> </span><span class="crayon-s">'Ctrl+Alt+]'</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-10"><span class="crayon-e">BusyBox </span><span class="crayon-v">v1</span><span class="crayon-sy">.</span><span class="crayon-cn">29.3</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-cn">2019</span><span class="crayon-o">-</span><span class="crayon-cn">12</span><span class="crayon-o">-</span><span class="crayon-cn">17</span><span class="crayon-h"> </span><span class="crayon-cn">07</span><span class="crayon-o">:</span><span class="crayon-cn">06</span><span class="crayon-o">:</span><span class="crayon-cn">31</span><span class="crayon-h"> </span><span class="crayon-v">CST</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-v">built</span><span class="crayon-o">-</span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-e">shell</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">ash</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-11"><span class="crayon-i">Enter</span><span class="crayon-h"> </span><span class="crayon-s">'help'</span><span class="crayon-h"> </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-e">list </span><span class="crayon-e">of </span><span class="crayon-v">built</span><span class="crayon-o">-</span><span class="crayon-st">in</span><span class="crayon-h"> </span><span class="crayon-v">commands</span><span class="crayon-sy">.</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-12"><span class="crayon-v">grep</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">error </span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-e">loading </span><span class="crayon-e">shared </span><span class="crayon-v">libraries</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">opt</span><span class="crayon-o">/</span><span class="crayon-v">lib</span><span class="crayon-o">/</span><span class="crayon-v">libc</span><span class="crayon-sy">.</span><span class="crayon-v">so</span><span class="crayon-sy">.</span><span class="crayon-cn">6</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">file </span><span class="crayon-e">too </span><span class="crayon-t">short</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-13"><span class="crayon-v">sed</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">error </span><span class="crayon-st">while</span><span class="crayon-h"> </span><span class="crayon-e">loading </span><span class="crayon-e">shared </span><span class="crayon-v">libraries</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">opt</span><span class="crayon-o">/</span><span class="crayon-v">lib</span><span class="crayon-o">/</span><span class="crayon-v">libc</span><span class="crayon-sy">.</span><span class="crayon-v">so</span><span class="crayon-sy">.</span><span class="crayon-cn">6</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-e">file </span><span class="crayon-e">too </span><span class="crayon-t">short</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcef552829251-14"><span class="crayon-sy">[</span><span class="crayon-v">RT</span><span class="crayon-o">-</span><span class="crayon-v">N56U_B1</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">opt</span><span class="crayon-o">/</span><span class="crayon-v">home</span><span class="crayon-o">/</span><span class="crayon-v">admin</span><span class="crayon-sy">]</span><span class="crayon-p"># </span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0010 seconds] -->
+
+</div>
+</li>
+<li>"tmux: invalid LC_ALL, LC_CTYPE or LANG" 错误<br />
+换新格式化的TF卡,安装好tmux后执行tmux出现此报错,解决办法使用以下脚本重新安装opkg</p>
+<div>
+<!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f53034fcf1093647643" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+wget -O - http://bin.entware.net/mipselsf-k3.4/installer/generic.sh | /bin/sh</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf1093647643-1">1</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf1093647643-1"><span class="crayon-v">wget</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-v">O</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">http</span><span class="crayon-o">:</span><span class="crayon-c">//bin.entware.net/mipselsf-k3.4/installer/generic.sh | /bin/sh</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0001 seconds] -->
+
+</div>
+<p>执行完毕即可成功使用tmux.<br />
+本脚本参考来源:https://zhih.me/Padavan-entware/【已失效[2022-04-01]】</li>
+</ul>
+<h1 ><a name="toc-4"></a>重刷固件后恢复opkg</h1>
+<ul>
+<li>固件恢复出厂设置后,当系统成功挂载原来的opt分区,直接输入tmux即可使用.无需再次安装.</li>
+</ul>
+<h1 ><a name="toc-5"></a>使用USB-HUB</h1>
+<ul>
+<li>可成功使用usb-hub挂载tf卡和usb硬盘,好处是单独的tf卡安装opkg,移动硬盘的插拔不影响脚本功能.</li>
+<li>设备插在usb-hub不同接口上没有顺序影响.因为每次重启都会变化/dev/sda代号.两个存储设备这次是重启是sda1,下次重启也有可能是sdb1.
+<div>
+</p><!-- Urvanov Syntax Highlighter v2.8.27 -->
+
+		<div id="urvanov-syntax-highlighter-630f53034fcf3476272246" class="urvanov-syntax-highlighter-syntax crayon-theme-classic urvanov-syntax-highlighter-font-monaco urvanov-syntax-highlighter-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover wrap" style=" margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important;">
+		
+			<div class="urvanov-syntax-highlighter-plain-wrap"><textarea  class="urvanov-syntax-highlighter-plain print-no" data-settings="dblclick" readonly style="-moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4; font-size: 12px !important; line-height: 15px !important;">
+重启第一次观测:
+/dev/sda1&lt;&lt;&lt;                 3.6G    616.4M      2.8G  18% /media/TF4G
+/dev/sdb1               590.6G    482.6M    560.1G   0% /media/2t-ext4
+/dev/sdb2               600.0G      3.2G    596.8G   1% /media/2t-exfat
+/dev/sdb3               663.0G      1.6G    661.4G   0% /media/2t-ntfs
+重启第三次观测:
+/dev/sda1&lt;&lt;&lt;                 3.6G    616.4M      2.8G  18% /media/TF4G
+/dev/sdb2               600.0G      3.2G    596.8G   1% /media/2t-exfat
+/dev/sdb1               590.6G    482.6M    560.1G   0% /media/2t-ext4
+/dev/sdb3               663.0G      1.6G    661.4G   0% /media/2t-ntfs
+重启第三次观测:
+/dev/sdb1&lt;&lt;&lt;                 3.6G    616.4M      2.8G  18% /media/TF4G
+/dev/sda1               590.6G    482.6M    560.1G   0% /media/2t-ext4
+/dev/sda2               600.0G      3.2G    596.8G   1% /media/2t-exfat
+/dev/sda3               663.0G      1.6G    661.4G   0% /media/2t-ntfs</textarea></div>
+			<div class="urvanov-syntax-highlighter-main" style="">
+				<table class="crayon-table">
+					<tr class="urvanov-syntax-highlighter-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="urvanov-syntax-highlighter-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-1">1</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-2">2</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-3">3</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-4">4</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-5">5</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-6">6</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-7">7</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-8">8</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-9">9</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-10">10</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-11">11</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-12">12</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-13">13</div><div class="crayon-num crayon-striped-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-14">14</div><div class="crayon-num" data-line="urvanov-syntax-highlighter-630f53034fcf3476272246-15">15</div></div>
+				</td>
+						<td class="urvanov-syntax-highlighter-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-1">重启第一次观测<span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-2"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-v">sda1</span><span class="crayon-o">&lt;&lt;&lt;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">3.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">616.4M</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">2.8G</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-cn">18</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-v">TF4G</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-3"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sdb1</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">590.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">482.6M</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">560.1G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">0</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">ext4</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-4"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sdb2</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">600.0G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">3.2G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">596.8G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">1</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">exfat</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-5"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sdb3</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">663.0G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">661.4G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">0</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-i">ntfs</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-6">重启第三次观测<span class="crayon-o">:</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-7"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-v">sda1</span><span class="crayon-o">&lt;&lt;&lt;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">3.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">616.4M</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">2.8G</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-cn">18</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-v">TF4G</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-8"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sdb2</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">600.0G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">3.2G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">596.8G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">1</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">exfat</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-9"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sdb1</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">590.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">482.6M</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">560.1G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">0</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">ext4</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-10"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sdb3</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">663.0G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">661.4G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">0</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-i">ntfs</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-11">重启第三次观测<span class="crayon-o">:</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-12"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-v">sdb1</span><span class="crayon-o">&lt;&lt;&lt;</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">3.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">616.4M</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">2.8G</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-cn">18</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-v">TF4G</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-13"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sda1</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">590.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">482.6M</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">560.1G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">0</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">ext4</span></div><div class="crayon-line crayon-striped-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-14"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sda2</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">600.0G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">3.2G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">596.8G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">1</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">exfat</span></div><div class="crayon-line" id="urvanov-syntax-highlighter-630f53034fcf3476272246-15"><span class="crayon-o">/</span><span class="crayon-v">dev</span><span class="crayon-o">/</span><span class="crayon-i">sda3</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="crayon-cn">663.0G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">1.6G</span><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-cn">661.4G</span><span class="crayon-h">&nbsp;&nbsp; </span><span class="crayon-cn">0</span><span class="crayon-o">%</span><span class="crayon-h"> </span><span class="crayon-o">/</span><span class="crayon-v">media</span><span class="crayon-o">/</span><span class="crayon-cn">2t</span><span class="crayon-o">-</span><span class="crayon-v">ntfs</span></div></div></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0011 seconds] -->
+<p>
+</div>
+</li>
+</ul>
+<h1 ><a name="toc-6"></a>使用脚本更新padavan固件</h1>
+<ul>
+<li>更新完会自动重启<br />
+<code>wget -q -O- https://opt.cn2qq.com/opt-script/up.sh &gt; /tmp/up.sh &amp;&amp; bash &lt; /tmp/up.sh &amp;</code></li>
+</ul>
+<p>&nbsp;</p>
+<div id="wiz-table-col-line" style="display: none;"></div>
+<div id="wiz-table-row-line" style="display: none;"></div>
+<div id="wiz-table-range-border_start" style="display: none;">
+<div id="wiz-table-range-border_start_top"></div>
+<div id="wiz-table-range-border_start_right"></div>
+<div id="wiz-table-range-border_start_bottom"></div>
+<div id="wiz-table-range-border_start_left"></div>
+<div id="wiz-table-range-border_start_dot"></div>
+</div>
+<div id="wiz-table-range-border_range" style="display: none;">
+<div id="wiz-table-range-border_range_top"></div>
+<div id="wiz-table-range-border_range_right"></div>
+<div id="wiz-table-range-border_range_bottom"></div>
+<div id="wiz-table-range-border_range_left"></div>
+<div id="wiz-table-range-border_range_dot"></div>
+</div>
+<p>&nbsp;</p>
+                        </div>
+                                                <div class="footer clearfix">
+                            <div class="tags float-left">
+                                <span>标签：</span>
+                                <a href="/tag/2019/" rel="tag">2019</a> <a href="/tag/amp/" rel="tag">amp</a> <a href="/tag/open/" rel="tag">open</a> <a href="/tag/pt/" rel="tag">pt</a> <a href="/tag/shell/" rel="tag">shell</a> <a href="/tag/%e4%b8%8b%e8%bd%bd/" rel="tag">下载</a> <a href="/tag/%e8%84%9a%e6%9c%ac/" rel="tag">脚本</a> <a href="/tag/%e8%b7%af%e7%94%b1%e5%99%a8/" rel="tag">路由器</a>                            </div>
+                            <div class="tool float-right d-none d-lg-block">
+                                <span>最后更新：2022年4月1日</span>
+                            </div>
+                        </div>
+                    </div>
+                                <div class="toolbar clearfix">
+	<div class="meta float-md-left">
+		<img src="https://sdn.geekzu.org/avatar/8dc48ab2afc8d5058df4be411bc61a15?s=96&r=g">
+		<p class="name">SSJ</p>
+		<p class="motto mb-0">不积跬步无以至千里</p>
+	</div>
+	<div class="share float-md-right text-center">
+				<a href="javascript:;" id="thumbs" data-action="love" data-id="1897" role="button" class="btn btn-thumbs "><i class="kicon i-like"></i><span class="ml-1">点赞</span></a>
+	</div>
+</div>
+                <nav class="navigation post-navigation clearfix" role="navigation">
+                    <div class="nav-previous clearfix"><a title="padavan首选EXT4格式化U盘" href="/2020/03/padavan%e4%bd%bf%e7%94%a8exfatext4ntfs%e7%9a%84%e5%bb%ba%e8%ae%ae/">< 上一篇</a></div><div class="nav-next"><a title="newifi3路由器webdav+ssl传输速度缓慢" href="/2020/03/newifi3%e8%b7%af%e7%94%b1%e5%99%a8webdavssl%e4%bc%a0%e8%be%93%e9%80%9f%e5%ba%a6%e4%b8%8d%e6%8a%97%e4%bd%bf%e7%94%a8/">下一篇 ></a></div>                </nav>
+                            </div>
+                    </div>
+    </div>
+</div>
+<div class="k-footer">
+    <div class="f-toolbox">
+        <div class="gotop ">
+            <div class="gotop-btn">
+                <span class="kicon i-up"></span>
+            </div>
+        </div>
+                <div class="search">
+            <span class="kicon i-find"></span>
+            <form class="search-form" role="search" method="get" action="/">
+                <input type="text" name="s" id="search-footer" placeholder="搜点什么呢?" style="display:none" />
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="social">
+                                    </p>
+                <p>COPYRIGHT © 2022 luoji.men. ALL RIGHTS RESERVED.</p><p>Theme <a href="https://github.com/seatonjiang/kratos" target="_blank" rel="nofollow">Kratos</a> Made By <a href="https://seatonjiang.com" target="_blank" rel="nofollow">Seaton Jiang</a></p><script></script>            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' id='urvanov_syntax_highlighter_js-js-extra'>
+/* <![CDATA[ */
+var UrvanovSyntaxHighlighterSyntaxSettings = {"version":"2.8.27","is_admin":"0","ajaxurl":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","prefix":"urvanov-syntax-highlighter-","setting":"urvanov-syntax-highlighter-setting","selected":"urvanov-syntax-highlighter-setting-selected","changed":"urvanov-syntax-highlighter-setting-changed","special":"urvanov-syntax-highlighter-setting-special","orig_value":"data-orig-value","debug":""};
+var UrvanovSyntaxHighlighterSyntaxStrings = {"copy":"Copied to the clipboard","minimize":"\u70b9\u51fb\u5c55\u5f00\u4ee3\u7801"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/urvanov-syntax-highlighter/js/min/urvanov_syntax_highlighter.min.js?ver=2.8.27' id='urvanov_syntax_highlighter_js-js'></script>
+<script type='text/javascript' id='image-sizes-js-extra'>
+/* <![CDATA[ */
+var IMAGE_SIZES = {"version":"3.5","disables":["thumbnail","medium","medium_large","large","1536x1536","2048x2048","kratos-thumbnail"]};
+/* ]]> */
+</script>
+<script type='text/javascript' src='/wp-content/plugins/image-sizes/assets/js/front.min.js?ver=3.5' id='image-sizes-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/bootstrap.bundle.min.js?ver=4.5.0' id='bootstrap-bundle-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/layer.min.js?ver=3.1.1' id='layer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/DPlayer.min.js?ver=4.1.2' id='dplayer-js'></script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/lightgallery.min.js?ver=1.4.0' id='lightgallery-js'></script>
+<script type='text/javascript' id='kratos-js-extra'>
+/* <![CDATA[ */
+var kratos = {"site":"https:\/\/luojimen.netlify.app","directory":"https:\/\/cdn.seatonjiang.com\/kratos\/4.1.2","alipay":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","wechat":"https:\/\/luoji.men\/wp-content\/themes\/kratos-4.1.2\/assets\/img\/200.png","repeat":"\u60a8\u5df2\u7ecf\u8d5e\u8fc7\u4e86","thanks":"\u611f\u8c22\u60a8\u7684\u652f\u6301","donate":"\u6253\u8d4f\u4f5c\u8005","scan":"\u626b\u7801\u652f\u4ed8"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/kratos.js?ver=4.1.2' id='kratos-js'></script>
+<script type='text/javascript' id='comment-js-extra'>
+/* <![CDATA[ */
+var ajaxcomment = {"ajax_url":"https:\/\/luojimen.netlify.app\/wp-admin\/admin-ajax.php","order":"asc","compost":"\u8bc4\u8bba\u6b63\u5728\u63d0\u4ea4\u4e2d","comsucc":"\u8bc4\u8bba\u63d0\u4ea4\u6210\u529f"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://cdn.seatonjiang.com/kratos/4.1.2/assets/js/comments.min.js?ver=4.1.2' id='comment-js'></script>
+<script type='text/javascript' src='https://zz.bdstatic.com/linksubmit/push.js?ver=6.0.2' id='baidu_zz_push-js'></script>
+</body>
+
+</html>
